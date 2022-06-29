@@ -1,0 +1,42 @@
+.huesped-background-img{
+    background-image: url(./formHuesped.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.huesped{
+    background-color: rgba(0, 0, 0, 0.404);
+    /*padding: 50px;*/
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.logo-formhuesped{
+    height: 100vh;
+    background-color: rgba(4, 4, 171, 0.672);
+    border: 1px solid salmon;
+}
+.logo-formhuesped h5{
+    font-family: 'Marcellus', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    color: #ffffff;
+    text-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+}
+.formhuesped{
+    border: 1px solid yellow;
+    background-color: rgba(255, 255, 255, 0.569);
+    border-radius: 12px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+    margin:auto;
+    padding: 30px;
+}
+.formhuesped h1{
+    font-family: 'Marcellus', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+}

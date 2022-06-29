@@ -1,6 +1,11 @@
+import FormHuesped from "../components/formHuesped/FormHuesped";
+
+
 function RegistroHuesped (){
     return(
-        <h1>RegistroHuesped</h1>
+        <div>
+            <FormHuesped/>
+        </div>
     );
 }
 export default RegistroHuesped

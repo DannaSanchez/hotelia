@@ -1,6 +1,24 @@
-function formHuesped (){
+import "./FormHuesped.css"
+function FormHuesped (){
     return(
-        <h1>formHuesped</h1>
+        <main className="huesped-background-img">
+            <div className="huesped">
+            <div className="logo-formhuesped"> 
+                <h5>Eres más que bienvenido</h5>
+            </div>
+            
+            <div className="formhuesped">
+                <h1>Registrate</h1>
+                <formulario action="">
+                    <label>Usuario</label>
+                    <input
+                        label="Usuario"
+                        placeholder="john123"
+                    />
+                </formulario>
+            </div>
+            </div>
+        </main>
     );
 }
-export default formHuesped
+export default FormHuesped
