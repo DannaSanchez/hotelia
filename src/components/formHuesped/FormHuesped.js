@@ -1,9 +1,11 @@
 import "./FormHuesped.css"
+import logoblanco from "../../img/Hotelia-horizontal-blanco.png"
 function FormHuesped (){
     return(
         <main className="huesped-background-img">
             <div className="huesped">
             <div className="logo-formhuesped"> 
+                <img src={logoblanco}/>
                 <h5>Eres más que bienvenido</h5>
             </div>
             
