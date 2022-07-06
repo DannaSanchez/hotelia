@@ -5,15 +5,15 @@
 }
 .huesped{
     background-color: rgba(0, 0, 0, 0.404);
-    /*padding: 50px;*/
+    padding: 30px;
     height: 100vh;
     display: flex;
     align-items: center;
+    flex-direction:column;
 }
 .logo-formhuesped{
-    height: 100vh;
+    /*height: 100vh;*/
     background-color: rgba(4, 4, 171, 0.672);
-    border: 1px solid salmon;
 }
 .logo-formhuesped h5{
     font-family: 'Marcellus', serif;
@@ -36,7 +36,16 @@
     font-family: 'Marcellus', serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 50px;
+    font-size: 30px;
     color: #000000;
     text-shadow: 0px 4px 4px rgba(198, 198, 198, 0.25);
+}
+@media screen and (min-width:1024px) {
+    .huesped{
+        flex-direction:row;
+    }
+    .logo-formhuesped{
+        height: 100vh;
+        background-color: rgba(4, 4, 171, 0.672);
+    }
 }
