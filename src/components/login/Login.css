@@ -1,0 +1,48 @@
+.login{
+    background: url(../../img/login/bg-login.png) no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login__form{
+    background: url(../../img/login/vector-login.svg) no-repeat #397bb5a6;
+    height: 75%;
+    width: 35%;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login__logo img{
+    margin: 20px;
+    height: 70px;
+}
+
+.login__user i{
+    color: white;
+    font-size: 40px;
+}
+
+.login__user{
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    background-color: var(--Magenta);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+#login__button{
+    margin: auto;
+}
+
+

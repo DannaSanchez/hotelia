@@ -1,0 +1,38 @@
+.list-rooms__card{
+    text-align: center;
+    padding: 10px;
+}
+
+.list-rooms__cardTitle{
+    background-color: #009fe370;
+    padding: 8px;
+    color:white;
+    width: 100%;
+    margin-top: -40px;
+}
+
+.list-rooms__cardPrice{
+    font-family: 'Marcellus', serif;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.list-rooms__buttons{
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Marcellus', serif;
+}
+
+.list-rooms__cardButtonPrincipal{
+    background-color: black;
+    padding: 5px 20px;
+}
+
+.list-rooms__cardButtonSecondary{
+    background-color: var(--Magenta);
+    padding: 5px 20px;
+}
+
+.list-rooms__card Button{
+    border: none;
+}

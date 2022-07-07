@@ -1,0 +1,7 @@
+.button{
+    background-color:black;
+    padding: 5px 20px;
+    color: white;
+    font-family: 'Marcellus', serif;
+    border-radius: 5px;
+}
