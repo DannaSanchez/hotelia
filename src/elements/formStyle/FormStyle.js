@@ -7,10 +7,16 @@ const colores = {
 
 const ContainerForm = styled.section`
 	border: 3px solid var(--blue-light);
-	max-width: 1000px;
+	max-width: 1100px;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	backdrop-filter:blur(3px);
 	margin:auto;
 	padding: 10px 30px;
-	background-color: white;
+	border-radius:5px;
+	box-shadow:3px 3px 3px rgba(0,0,0,0.4), -3px -3px 3px rgba(0,0,0,0.4);
+	background-color: rgba(255, 255, 255, 0.65);
 `;
 
 const Formulario = styled.form`
