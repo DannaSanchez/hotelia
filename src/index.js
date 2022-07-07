@@ -6,6 +6,7 @@ import './index.css';
 import Login from './pages/Login';
 import ListadoHabitacion from './pages/ListadoHabitacion';
 import ModificarHabitacion from './pages/ModificarHabitacion';
+import RegistrarHabitacion from './pages/RegistroHabitacion';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +17,7 @@ root.render(
       
       <Route path="/listado-habitaciones-admin" element={<ListadoHabitacion/>}></Route>
       <Route path="/modificar-habitaciones-admin" element={<ModificarHabitacion/>}></Route>
+      <Route path="/registrar-habitaciones-admin" element={<RegistrarHabitacion/>}></Route>
     </Routes>
   </BrowserRouter>
 );

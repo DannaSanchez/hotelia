@@ -1,11 +1,159 @@
-import habitacion1 from '../img/habitaciones/habitacion1.png'
+import habitacion1 from '../img/habitaciones/habitacion1.png';
+import habitacion1_2 from '../img/habitaciones/habitacion1-2.png';
+import habitacion1_3 from '../img/habitaciones/habitacion1-3.png';
+import habitacion1_4 from '../img/habitaciones/habitacion1-4.png';
+import habitacion1_5 from '../img/habitaciones/habitacion1-5.png';
+import {Label, GrupoInput, GrupoCheckbox, Input, Textarea} from '../elements/formStyle/FormStyle'
+
+import '../components/ModificarHabitacion.css'
 
 function ModificarHabitacion (){
     return(
-        <>
-            <h1 className=''>Habitación doble</h1>
-            <img src={habitacion1} alt="habitación 1"></img>
-        </>
+        <div className='modify-room'>
+            <h1 className='modify-room__title'>Habitación doble</h1>
+
+            <section className='modify-room__information-basic'>
+            
+                <div className='modify-room__image-principal'>
+                    <img src={habitacion1} alt="habitación 1"></img>
+                    <div className='modify-room__icon'>
+                        <i class="fa-solid fa-pen"></i>
+                    </div>
+                </div>
+                
+                <div className='modify-room__form'>
+                    <div className='modify-room__form-section-primary'>
+                        <GrupoInput>
+                            <Label>Nombre habitación</Label>
+                            <Input placeholder='Habitación doble'/>
+                        </GrupoInput>
+                        
+                        <GrupoInput>
+                            <Label>Número Habitación</Label>
+                            <Input placeholder='405'/>
+                        </GrupoInput>
+                    </div>
+
+                    <div className='modify-room__form-section-secondary'>
+                        <GrupoInput>
+                            <Label>N° camas</Label>
+                            <div className='modify-room__input'>
+                                <i class="fa-solid fa-minus"></i>
+                                <Input placeholder='3'/>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </GrupoInput>
+                        
+                        <GrupoInput>
+                            <Label>N° Huéspedes</Label>
+                            <div className='modify-room__input'>
+                                <i class="fa-solid fa-minus"></i>
+                                <Input placeholder='4'/>
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </GrupoInput>
+                        
+                        <GrupoInput>
+                            <Label>Valor reserva</Label>
+                            <Input placeholder='128.000'/>
+                        </GrupoInput>
+                    </div>
+
+                    <GrupoInput>
+                        <Label>Descripción</Label>
+                        <Textarea placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus ornare dui, ante nisl. Lorem ipsumn'/>
+                    </GrupoInput>
+                </div>
+            </section>
+
+            <div className='modify-room__additional-information'>
+
+                <h3 className='modify-room__subtitle'>Servicios adicionales (opcionales)</h3>
+
+                <div className='modify-room__additional-services'>
+                    <GrupoCheckbox>
+                        <input type='checkbox'/>
+                        <i class="fa-solid fa-vault"></i>
+                    </GrupoCheckbox>
+
+                    <GrupoCheckbox>
+                        <input type='checkbox' checked/>
+                        <i class="fa-solid fa-tv"></i>
+                    </GrupoCheckbox>
+
+                    <GrupoCheckbox>
+                        <input type='checkbox' checked/>
+                        <i class="fa-solid fa-wifi"></i>
+                    </GrupoCheckbox>
+
+                    <GrupoCheckbox>
+                        <input type='checkbox'/>
+                        <i class="fa-solid fa-snowflake"></i>
+                    </GrupoCheckbox>
+
+                    <GrupoCheckbox>
+                        <input type='checkbox' checked/>
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </GrupoCheckbox>
+
+                    <GrupoCheckbox>
+                        <input type='checkbox'/>
+                        <i class="fa-solid fa-bell-concierge"></i>
+                    </GrupoCheckbox>
+                </div>
+            </div>
+
+            <div className='modify-room__additional-information'>
+
+                <h3 className='modify-room__subtitle'>Galería</h3>
+
+                <div className='modify-room__galery'>
+
+                    <div className='modify-room__image'>
+                        <img src={habitacion1_2} alt='habitación doble'/>
+                            <div className='modify-room__icon'>
+                            <i class="fa-solid fa-pen"></i>
+                            </div>
+                    </div>
+
+                    <div className='modify-room__image'>
+                        <img src={habitacion1_3} alt='habitación doble'/>
+                        <div className='modify-room__icon'>
+                            <i class="fa-solid fa-pen"></i>
+                        </div>
+                    </div>
+
+                    <div className='modify-room__image'>
+                        <img src={habitacion1_4} alt='habitación doble'/>
+                        <div className='modify-room__icon'>
+                            <i class="fa-solid fa-pen"></i>
+                            </div>
+                    </div>
+
+                    <div className='modify-room__image'>
+                        <img src={habitacion1_5} alt='habitación doble'/>
+                        <div className='modify-room__icon'>
+                            <i class="fa-solid fa-pen"></i>
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div className='modify-room__state'>
+                <h4>Estado</h4>
+                
+                <GrupoCheckbox>
+                    <input type='checkbox' checked/>
+                    Activa
+                </GrupoCheckbox>
+                <GrupoCheckbox>
+                    <input type='checkbox'/>
+                    Inactiva
+                </GrupoCheckbox>
+            </div>
+
+        </div>
     );
 }
 export default ModificarHabitacion;
