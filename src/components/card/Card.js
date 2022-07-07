@@ -8,7 +8,7 @@ function Cards() {
     const habitaciones = getAllHabitaciones();
 
     return (
-        <>
+        <section className='list-rooms'>
             {habitaciones.map(habitacion=>
             <Card  style={{ width: '20rem' }} key={habitacion.id} className="list-rooms__card">
                 <Card.Img variant="top" src={habitacion.image}/>
@@ -21,12 +21,12 @@ function Cards() {
                     </Card.Text>
                     <div className='list-rooms__buttons'>
                         <Button variant="primary" className='list-rooms__cardButtonPrincipal'>Modificar</Button>
-                        <Button variant="secondary" className='list-rooms__cardButtonSecondary'>Inactivar</Button>
+                        <Button variant="secondary" className='list-rooms__cardButtonSecondary'>{habitacion.buttonstate}</Button>
                     </div>
                 </Card.Body>
             </Card>
             )}
-        </>
+        </section>
 
     );
 }
