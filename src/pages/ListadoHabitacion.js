@@ -26,7 +26,7 @@ function ListadoHabitacion (){
                     </select>
                 </div>
 
-            </div>
+            </div> 
 
             <Cards/>
         </>

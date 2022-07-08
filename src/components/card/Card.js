@@ -1,5 +1,6 @@
 import {Card, Button} from 'react-bootstrap';
 import {getAllHabitaciones} from './data-cards';
+import {Link} from 'react-router-dom';
 
 import './Card.css'
 
@@ -20,10 +21,10 @@ function Cards() {
                         <p>{habitacion.description}</p>
                     </Card.Text>
                     <div className='list-rooms__buttons'>
-                        <Button variant="primary" className='list-rooms__cardButtonPrincipal'>Modificar</Button>
+                        <Link to="/modificar-habitaciones-admin" ><Button variant="primary" className='list-rooms__cardButtonPrincipal'>Modificar</Button></Link>
                         <Button variant="secondary" className='list-rooms__cardButtonSecondary'>{habitacion.buttonstate}</Button>
                     </div>
-                </Card.Body>
+                </Card.Body> 
             </Card>
             )}
         </section>
