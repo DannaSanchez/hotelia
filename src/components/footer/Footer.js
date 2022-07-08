@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.css'
 
 function Footer () {
@@ -20,8 +21,8 @@ function Footer () {
                 </div>
             </div>
             <div className='footer__description politics'>
-                <p>Políticas de privacidad</p>
-                <p>Políticas de cookies</p>
+                <Link to="#" className='politics-link'><p>Políticas de privacidad</p></Link>
+                <Link to="#" className='politics-link'><p>Políticas de cookies</p></Link>
             </div>
         </div>
         <div className='footer__social-media'>

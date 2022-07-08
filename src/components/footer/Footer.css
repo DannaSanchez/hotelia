@@ -4,6 +4,7 @@ footer{
 }
 
 .footer{
+    padding-top: 16px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -54,6 +55,16 @@ footer{
 .footer__social-media i{
     font-size: 25px;
     margin-right: 20px;
+    cursor: pointer;
+}
+
+.politics-link{
+    text-decoration: none;
+    color: white;
+}
+
+.politics-link:hover, .footer__social-media i:hover{
+    color: antiquewhite;
 }
 
 @media screen and (min-width: 768px){

@@ -34,7 +34,7 @@ function FormHabitacion(){
                             </div>
                         </GrupoInput>
                         
-                        <GrupoInput className='form-section-secondary__secondary'>
+                        <GrupoInput className='form-section-secondary__primary'>
                             <Label>N° Huéspedes</Label>
                             <div className='modify-room__input'>
                                 <i class="fa-solid fa-minus"></i>

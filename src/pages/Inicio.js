@@ -39,18 +39,19 @@ function Inicio (){
                     </div>
                     <div className="index__feature index__feature-black">
                         <i class="fa-solid fa-dumbbell"></i>
-                        <p>Lorem ipsum dolor</p>
+                        <p id="index__ubication">Lorem ipsum dolor</p>
                     </div>
                 </div>
             </section>
 
-            <section className="index__ubication" id="index__ubication">
+            <section className="index__ubication" >
                 <strong><h1>Ubícanos</h1></strong>
+                <iframe title="Mapa de ubicación de hotelia" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24355.010522032542!2d-74.05614410484392!3d4.651601247190622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2zQm9nb3TDoQ!5e0!3m2!1ses!2sco!4v1657287543281!5m2!1ses!2sco" width="90%" height="350" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <h4 className="index__ubication-subtitle subtitle__direction ">AVENIDA CARRERA 8, #12A-42, BOGOTA DC, COLOMBIA</h4>
-                <h4 className="index__ubication-subtitle">+57 601 4567899</h4>
+                <h4 className="index__ubication-subtitle" id="index__opinion">+57 601 4567899</h4>
             </section>
 
-            <section className="index__opinion" id="index__opinion">
+            <section className="index__opinion" >
                 <h1 className="index__opinion-title">Nuestros usuarios dicen</h1>
                 <Opinion />
             </section>
