@@ -1,15 +1,20 @@
 import NavBar from "../components/navbar/Navbar";
+import Footer from "../components/footer/Footer";
 import Slide from "../components/index/slide/Slide";
 import Opinion from "../components/index/opiniones/Opinion";
 import '../components/index/Inicio.css';
+import {Nav} from 'react-bootstrap'
 
-import LogoHotelia from '../img/logo.png'
+import LogoHotelia from '../img/Hotelia.png' 
 
 function Inicio (){
     return(
         <>
             <NavBar />
             <Slide />
+
+            <Nav.Link href="/login"><div className="index__button-reserve">RESERVAR</div></Nav.Link>
+
             <section className="index__description">
                 <p>
                 Estamos ubicados en el barrio La Cabrera al norte de Bogotá, en un contexto de lujo donde interactúan los negocios, el ocio y el descanso, gracias a su estratégica ubicación rodeada de bancos, restaurantes de alta cocina, centros comerciales, almacenes de lujo y emblemáticos parques para aprovechar la naturaleza entre la ciudad caminay y hacer un poco de deporte al aire libre están el parque del Virrey y El Parque de la 93. Además de nuestro exclusivo diseño, ponemos a tu disposición una oferta gastronómica tan sofisticada como saludable a base de productos locales, cargados de lo mejor de la tradición colombiana.
@@ -39,16 +44,18 @@ function Inicio (){
                 </div>
             </section>
 
-            <section className="index__ubication">
+            <section className="index__ubication" id="index__ubication">
                 <strong><h1>Ubícanos</h1></strong>
                 <h4 className="index__ubication-subtitle subtitle__direction ">AVENIDA CARRERA 8, #12A-42, BOGOTA DC, COLOMBIA</h4>
                 <h4 className="index__ubication-subtitle">+57 601 4567899</h4>
             </section>
 
-            <section className="index__opinion">
+            <section className="index__opinion" id="index__opinion">
                 <h1 className="index__opinion-title">Nuestros usuarios dicen</h1>
                 <Opinion />
             </section>
+
+            <Footer />
         </>
     );
 }

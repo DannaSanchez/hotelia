@@ -1,4 +1,4 @@
-import {Carousel} from 'react-bootstrap';
+import {Carousel, Button, Nav} from 'react-bootstrap';
 import Slide1 from '../../../img/index/slide1.jpg';
 import Slide2 from '../../../img/index/slide2.png'
 
@@ -12,9 +12,12 @@ function Slide() {
                         src={Slide1}
                         alt="First slide"
                     />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <Carousel.Caption className='carousel__text'>
+                        <div className='carousel__text-container'>
+                            <h1>Vive la experiencia con nosotros</h1>
+                            <h4>¿Aún no eres Usuario de Hotelia?, Regístrate aquí</h4>
+                            <Nav.Link href="/login"><Button className="navbar-button"><i class="fa-solid fa-user-plus"></i> Registrarse</Button></Nav.Link>
+                        </div>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item interval={500}>
@@ -24,8 +27,8 @@ function Slide() {
                         alt="Second slide"
                     />
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3></h3>
+                        <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -35,8 +38,8 @@ function Slide() {
                         alt="Third slide"
                     />
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3></h3>
+                        <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
