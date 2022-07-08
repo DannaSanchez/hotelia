@@ -1,6 +1,8 @@
+import EditarUsuario from "../components/editarUsuario/EditarUsuario";
+
 function PerfilUsuario (){
     return(
-        <h1>PerfilUsuario</h1>
+        <EditarUsuario/>
     );
 }
 export default PerfilUsuario
