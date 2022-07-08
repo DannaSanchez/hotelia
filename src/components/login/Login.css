@@ -9,8 +9,8 @@
 
 .login__form{
     background: url(../../img/login/vector-login.svg) no-repeat #397bb5a6;
-    height: 75%;
-    width: 35%;
+    width: 90%;
+    max-width: 500px;
     backdrop-filter: blur(5px);
     border-radius: 10px;
 
@@ -21,18 +21,23 @@
 
 .login__logo img{
     margin: 20px;
-    height: 70px;
+    height: 55px;
+}
+
+.login__logo img:hover{
+    transform: translateY(1px);
+    transition-duration: 300ms;
 }
 
 .login__user i{
     color: white;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .login__user{
-    width: 70px;
-    height: 70px;
-    margin: auto;
+    width: 60px;
+    height: 60px;
+    margin: 5px auto;
     background-color: var(--Magenta);
     border-radius: 50%;
     display: flex;
@@ -42,7 +47,59 @@
 }
 
 #login__button{
-    margin: auto;
+    margin: 40px auto 10px;
+    width: 80%;
+}
+
+.login__form-group{
+    margin: 8px auto;
+    width: 80%;
+    color: white;
+    font-size: 18px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.login__register{
+    text-decoration: none;
+    color: var(--negro);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 17px;
+}
+
+.login__register span{
+    color: white;
+}
+
+.login__register:hover{
+    color: black;
+}
+
+@media screen and (min-width:768px) {
+       
+    .login__logo img{
+        margin: 20px;
+        height: 70px;
+    }
+    
+    .login__user i{
+        color: white;
+        font-size: 40px;
+    }
+    
+    .login__user{
+        width: 70px;
+        height: 70px;
+    }
+      
+    .login__form-group{
+        font-size: 22px;
+    }
+    
+    .login__register{
+        font-size: 17px;
+    }
+        
 }
 
 

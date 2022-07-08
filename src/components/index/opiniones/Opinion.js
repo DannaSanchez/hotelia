@@ -16,7 +16,7 @@ function Opinion (){
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i> 
                         <i class="magent fa-solid fa-star"></i>
                     </div>
                 </div>

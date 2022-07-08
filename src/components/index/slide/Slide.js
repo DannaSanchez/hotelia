@@ -1,9 +1,10 @@
 import {Carousel, Button, Nav} from 'react-bootstrap';
 import Slide1 from '../../../img/index/slide1.jpg';
-import Slide2 from '../../../img/index/slide2.png'
+import Slide2 from '../../../img/index/slide2.png';
+import '../../index/Inicio.css'
 
 function Slide() {
-    return (
+    return ( 
         <>
             <Carousel>
                 <Carousel.Item interval={1000}>
@@ -14,8 +15,8 @@ function Slide() {
                     />
                     <Carousel.Caption className='carousel__text'>
                         <div className='carousel__text-container'>
-                            <h1>Vive la experiencia con nosotros</h1>
-                            <h4>¿Aún no eres Usuario de Hotelia?, Regístrate aquí</h4>
+                            <h1 className='carousel__text-container-h1'>Vive la experiencia con nosotros</h1>
+                            <h4 className='carousel__text-container-h4'>¿Aún no eres Usuario de Hotelia?, Regístrate aquí</h4>
                             <Nav.Link href="/login"><Button className="navbar-button"><i class="fa-solid fa-user-plus"></i> Registrarse</Button></Nav.Link>
                         </div>
                     </Carousel.Caption>
