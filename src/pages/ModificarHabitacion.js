@@ -17,7 +17,7 @@ function ModificarHabitacion (){
                 <div className='modify-room__image-principal'>
                     <img src={habitacion1} alt="habitación 1"></img>
                     <div className='modify-room__icon'>
-                        <i class="fa-solid fa-pen"></i>
+                        <i class="fa-solid fa-pen"></i> 
                     </div>
                 </div>
                 

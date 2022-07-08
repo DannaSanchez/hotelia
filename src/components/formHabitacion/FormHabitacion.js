@@ -3,7 +3,7 @@ import {ContainerForm, Label, GrupoInput, GrupoCheckbox, Input, Textarea} from '
 import IconoImagen from '../../img/habitaciones/icono-imagen.webp';
 import Boton from '../../components/boton/Boton';
 
-function FormHabitacion(){
+function FormHabitacion(){ 
     return(
         <section className='room-registration-form'>
             <ContainerForm>
@@ -24,7 +24,8 @@ function FormHabitacion(){
                     </div>
 
                     <div className='modify-room__form-section-secondary'>
-                        <GrupoInput>
+                        <div className='modify-room__form-section-secondary__primary'>
+                        <GrupoInput className='form-section-secondary__primary'>
                             <Label>N° camas</Label>
                             <div className='modify-room__input'>
                                 <i class="fa-solid fa-minus"></i>
@@ -33,7 +34,7 @@ function FormHabitacion(){
                             </div>
                         </GrupoInput>
                         
-                        <GrupoInput>
+                        <GrupoInput className='form-section-secondary__secondary'>
                             <Label>N° Huéspedes</Label>
                             <div className='modify-room__input'>
                                 <i class="fa-solid fa-minus"></i>
@@ -41,14 +42,13 @@ function FormHabitacion(){
                                 <i class="fa-solid fa-plus"></i>
                             </div>
                         </GrupoInput>
+                        </div>
                         
                         <GrupoInput>
                             <Label>Valor reserva</Label>
                             <Input/>
                         </GrupoInput>
                     </div>
-
-                    
 
                     <GrupoInput>
                         <Label>Descripción</Label>
@@ -123,7 +123,7 @@ function FormHabitacion(){
                     </div>
                 </div>
 
-                <Boton link="/" description="Registrar"/>
+                <Boton link="/listado-habitaciones-admin" description="Registrar"/>
 
             </ContainerForm>
         </section>

@@ -1,6 +1,6 @@
 .room-registration-form{
     background: url(../../img/bg-form-habitaciones.png);
-    padding: 20px 0;
+    padding: 20px 0; 
 }
 
 .room-registration-form__title{
@@ -13,12 +13,20 @@
     margin: auto;
 }
 
+.modify-room__icon p{
+    text-align: center;
+}
+
 .room-registration-form .modify-room__galery img{
     box-shadow: 2px 2px 3px rgba(0,0,0, 0.2);
+    min-width: 130px;
+    max-width: 200px;
 }
 
 .room-registration-form .modify-room__galery{
-    width: 70%;
+    width:80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .image-new .modify-room__icon{
@@ -38,5 +46,96 @@
     font-size: 22px;
 }
 
+.modify-room__additional-services{
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.modify-room__additional-services i{
+    font-size: 35px;
+}
+
+.modify-room__form-section-primary{
+    display: flex;
+    flex-direction: column;
+}
+
+.modify-room__form-section-secondary{
+    display: flex;
+    flex-direction: column;
+}
+
+.modify-room__form-section-secondary__primary{
+    display: flex;
+}
+
+.form-section-secondary__primary{
+    margin: 0 5px 0 0;
+}
+
+.form-section-secondary__secondary{
+    margin: 0 0 0 5px;
+}
+
+@media screen and (min-width:768px) {
+
+    .modify-room__form-section-primary{
+        display: grid;
+        grid-template-columns: 65% 30%;
+    }
+
+    .modify-room__form-section-secondary{
+        display: grid;
+        grid-template-columns: 65% 30%;
+    }
+
+    .room-registration-form{
+        background: url(../../img/bg-form-habitaciones.png);
+        padding: 20px 0; 
+    }
+    
+    .room-registration-form__title{
+        text-align: center;
+        margin: 20px;
+    }
+    
+    .room-registration-form .modify-room__form, .room-registration-form .modify-room__additional-services{
+        width: 90%;
+        margin: auto;
+    }
+    
+    .room-registration-form .modify-room__galery img{
+        box-shadow: 2px 2px 3px rgba(0,0,0, 0.2);
+    }
+    
+    .room-registration-form .modify-room__galery{
+        width: 70%;
+        display: flex;
+    }
+    
+    .modify-room__additional-services i{
+        font-size: 40px;
+    }
+
+    .image-new .modify-room__icon{
+        background-color: rgba(0,0,0,0.8);
+        color: white;
+        height: 100%;
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .room-registration-form .modify-room__subtitle{
+        font-size: 22px;
+    }
+    
+    
+    
+    
+}
 

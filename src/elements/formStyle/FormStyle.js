@@ -17,6 +17,10 @@ const ContainerForm = styled.section`
 	border-radius:5px;
 	box-shadow:3px 3px 3px rgba(0,0,0,0.4), -3px -3px 3px rgba(0,0,0,0.4);
 	background-color: rgba(255, 255, 255, 0.65);
+
+	@media (max-width: 1200px){
+		width:95%;
+	}
 `;
 
 const Formulario = styled.form`
@@ -49,7 +53,9 @@ const GrupoInput = styled.div`
 
 const GrupoCheckbox = styled.div`
 	display:flex;
+	justify-content:space-around;
     align-items:center;
+	margin:5px 10px;
 `;
 
 const Input = styled.input`
