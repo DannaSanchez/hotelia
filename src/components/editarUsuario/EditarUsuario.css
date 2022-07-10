@@ -25,9 +25,6 @@
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.164);
     padding-top: 5px;
 }
-.form-editarusuario h1{
-    text-align: left;
-}
 .editarusuario-edit{
     /*border: 2px solid yellow;*/
     margin:5px  15px 0 0;
@@ -70,6 +67,19 @@
 .formhuesped-background{
     margin:18px 25px;
     padding: 22px;
+}
+.formhuesped h4{
+    font-family: 'Marcellus', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+}
+.formhuesped h6{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 3px;
 }
 @media screen and (min-width:768px){
     .editarusuario-display{
