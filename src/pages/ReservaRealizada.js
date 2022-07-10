@@ -1,11 +1,11 @@
-import SidebarHuesped from "../components/SidebarHuesped/SidebarHuesped";
+import SidebarHuesped from "../components/sidebar/SidebarHuesped";
 import VistaReserva from "../components/vistaReserva/VistaReserva";
 
 function ReservaRealizada() {
     return (
         <div>
             <div>
-                <SidebarHuesped />
+               <SidebarHuesped/>
             </div>
             <div>
                 <VistaReserva />

@@ -1,10 +1,10 @@
-import './SidebarHuesped.css';
+import './Sidebar.css';
 import iconologo from '../../img/icono-logo.svg';
 import logoh from '../../img/logosvg.svg';
 import foto from '../../img/img-user.svg';
 import { Link } from 'react-router-dom';
 
-function SidebarHuesped() {
+function SidebarAdmon() {
 
     const goroom = () => {
 
@@ -32,8 +32,8 @@ function SidebarHuesped() {
                     <Link to="/reservas" className="item-sidenav2">Mis Reservas</Link>
                 </div>
                 <div className='item-sidenav'>
-                <i class="fa-solid fa-user-pen"></i>
-                    <Link to="/habitaciones" className="item-sidenav2">Ver Perfil</Link>
+                <i class="fa-solid fa-file-pen"></i>
+                    <Link to="/" className="item-sidenav2">Editar Habitaciones</Link>
                 </div>
             </div>
             <button className='final-nav'>
@@ -43,4 +43,4 @@ function SidebarHuesped() {
         </nav>
     );
 }
-export default SidebarHuesped;
+export default SidebarAdmon;

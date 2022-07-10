@@ -1,5 +1,5 @@
 import FormHabitaciones from "../components/formHabitaciones/FormHabitaciones";
-import SidebarHuesped from "../components/SidebarHuesped/SidebarHuesped";
+import SidebarHuesped from "../components/sidebar/SidebarHuesped";
 
 function Habitaciones() {
     return (
