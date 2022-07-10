@@ -25,55 +25,52 @@ function VistaReserva() {
 
     return (
         <div>
-            <div className='title-room mt-5 mb-5'>
-                <h4>Mis Reservas</h4>
+            <div className='title-room2 mt-5 mb-5'>
+                <h2>Mis Reservas</h2>
             </div>
-            <div className='row'>
-                <div className='col-12 col-md-4'>
-                    <Card style={{ width: '22rem' }} className='card-room'>
-                        <div>
-                            <Card.Img variant="top" src={dobleroom} className='p-2' />
-                        </div>
-                        <Card.Body className='text-cardreserve'>
-                            <p><span>Fecha de entrada:  </span>20/Julio/2022</p>
-                            <p><span>Fecha de salida:  </span>24/Julio/2022</p>
-                            <p><span>Cantidada de personas:  </span>6</p>
-                            <p><span>Habitación:  </span>Doble<br /> Cama doble, dos mesitas de noche, tocador, televisor plasma con vista a la calle.</p>
-                            <p><span>VALOR TOTAL:  </span>$540.000</p>
-                            <Button className='item-reservar item-cancelar' onClick={cancelarReserva}>Cancelar</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className='col-12 col-md-4'>
-                    <Card style={{ width: '22rem' }} className='card-room'>
-                        <div>
-                            <Card.Img variant="top" src={dobleroom} className='p-2' />
-                        </div>
-                        <Card.Body className='text-cardreserve'>
-                            <p><span>Fecha de entrada:  </span>20/Julio/2022</p>
-                            <p><span>Fecha de salida:  </span>24/Julio/2022</p>
-                            <p><span>Cantidada de personas:  </span>6</p>
-                            <p><span>Habitación:  </span>Doble<br /> Cama doble, dos mesitas de noche, tocador, televisor plasma con vista a la calle.</p>
-                            <p><span>VALOR TOTAL:  </span>$540.000</p>
-                            <Button className='item-reservar item-cancelar' onClick={cancelarReserva}>Cancelar</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className='col-12 col-md-4'>
-                    <Card style={{ width: '22rem' }} className='card-room'>
-                        <div>
-                            <Card.Img variant="top" src={dobleroom} className='p-2' />
-                        </div>
-                        <Card.Body className='text-cardreserve'>
-                            <p><span>Fecha de entrada:  </span>20/Julio/2022</p>
-                            <p><span>Fecha de salida:  </span>24/Julio/2022</p>
-                            <p><span>Cantidada de personas:  </span>6</p>
-                            <p><span>Habitación:  </span>Doble<br /> Cama doble, dos mesitas de noche, tocador, televisor plasma con vista a la calle.</p>
-                            <p><span>VALOR TOTAL:  </span>$540.000</p>
-                            <Button className='item-reservar item-cancelar' onClick={cancelarReserva}>Cancelar</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
+            <div className='box-reserve'>
+
+                <Card className='card-room'>
+                    <div>
+                        <Card.Img variant="top" src={dobleroom} className='p-2' />
+                    </div>
+                    <Card.Body className='text-cardreserve'>
+                        <p><span>Fecha de entrada:  </span>20/Julio/2022</p>
+                        <p><span>Fecha de salida:  </span>24/Julio/2022</p>
+                        <p><span>Cantidada de personas:  </span>6</p>
+                        <p><span>Habitación:  </span>Doble<br /> Cama doble, dos mesitas de noche, tocador, televisor plasma con vista a la calle.</p>
+                        <p className='text-center text-totalvalue'><span>VALOR TOTAL:  </span>$540.000</p>
+                        <Button className='item-reservar item-cancelar' onClick={cancelarReserva}>Cancelar</Button>
+                    </Card.Body>
+                </Card>
+
+                <Card className='card-room'>
+                    <div>
+                        <Card.Img variant="top" src={dobleroom} className='p-2' />
+                    </div>
+                    <Card.Body className='text-cardreserve'>
+                        <p><span>Fecha de entrada:  </span>20/Julio/2022</p>
+                        <p><span>Fecha de salida:  </span>24/Julio/2022</p>
+                        <p><span>Cantidada de personas:  </span>6</p>
+                        <p><span>Habitación:  </span>Doble<br /> Cama doble, dos mesitas de noche, tocador, televisor plasma con vista a la calle.</p>
+                        <p className='text-center text-totalvalue'><span>VALOR TOTAL:  </span>$540.000</p>
+                        <Button className='item-reservar item-cancelar' onClick={cancelarReserva}>Cancelar</Button>
+                    </Card.Body>
+                </Card>
+
+                <Card className='card-room'>
+                    <div>
+                        <Card.Img variant="top" src={dobleroom} className='p-2' />
+                    </div>
+                    <Card.Body className='text-cardreserve'>
+                        <p><span>Fecha de entrada:  </span>20/Julio/2022</p>
+                        <p><span>Fecha de salida:  </span>24/Julio/2022</p>
+                        <p><span>Cantidada de personas:  </span>6</p>
+                        <p><span>Habitación:  </span>Doble<br /> Cama doble, dos mesitas de noche, tocador, televisor plasma con vista a la calle.</p>
+                        <p className='text-center text-totalvalue'><span>VALOR TOTAL:  </span>$540.000</p>
+                        <Button className='item-reservar item-cancelar' onClick={cancelarReserva}>Cancelar</Button>
+                    </Card.Body>
+                </Card>
             </div>
         </div>
     );

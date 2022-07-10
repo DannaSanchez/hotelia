@@ -2,16 +2,19 @@
 :root{
   --azulclaro: #48D6ED;
   --azuloscuro: #337AB7;
+  --azulnegro: #303342;
   --negro: #333333;
+  --negro2: #000;
   --gris: #B2B3B3;
   --fondo: #FFFEFC;
   --verdeazul: #157A8A;
   --Magenta: #9C2759;
+  --blanco: #fff;
   --degradado: linear-gradient(49.54deg, #337AB7 2.89%, #0B3860 80.34%);
 }
-p{
+p,label,li{
   font-family: 'Roboto', sans-serif;
 }
-h1{
+h1,h2,h3,h4,h5{
   font-family: 'Marcellus', serif;
 }
