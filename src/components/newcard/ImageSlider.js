@@ -16,11 +16,11 @@ function ImageSlider() {
   }
   return (
     <div className="main">
-      <img src={wordData.value} height="200" width="100%" alt='image' /> 
+      <img src={wordData.value} height="0" width="100%" alt='imagen' /> 
       <div className='flex_row'>
         {imgs.map((data,i)=>
         <div className="thumbnail" key={i} >
-          <img className={wordData.id==i?"clicked":""} src={data.value} onClick={()=>handleClick(i)} alt='image'  height="70" width="100" />
+          <img className={wordData.id===i?"clicked":""} src={data.value} onClick={()=>handleClick(i)} alt='imagen'  height="70" width="100" />
         </div>
         )}
       </div>
