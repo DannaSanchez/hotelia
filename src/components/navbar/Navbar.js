@@ -22,7 +22,7 @@ function NavBar() {
                         <Nav.Link href="/" className="navbar__link">Inicio</Nav.Link>
                         <Nav.Link href="#index__ubication" className="navbar__link">Ubícanos</Nav.Link>
                         <Nav.Link href="#index__opinion" className="navbar__link">Opiniones</Nav.Link>
-                        <Nav.Link href="/login"><Button className="navbar-button"><i class="fa-solid fa-user"></i> Iniciar Sesión</Button></Nav.Link>
+                        <Nav.Link href="/login"><Button className="navbar-button"><i class="fa-solid fa-user"></i>Iniciar Sesión</Button></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

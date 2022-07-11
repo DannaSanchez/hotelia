@@ -13,7 +13,7 @@ function Opinion (){
                 <div className='opinion_user-score'>
                     <p>Diego Rodríguez</p>
                     <div className='opinion__score'>
-                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star navbar__items"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i> 
@@ -32,7 +32,7 @@ function Opinion (){
                 <img src={User2} alt="Diana García"/>
                 <div className='opinion_user-score'>
                     <p>Diana García</p>
-                    <div className='opinion__score'>
+                    <div className='opinion__score navbar__items'>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>

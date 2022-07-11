@@ -25,15 +25,15 @@ function SidebarHuesped() {
             <div className='center-nav'>
                 <div className='item-sidenav'>
                     <i class="fa-solid fa-bed"></i>
-                    <Link to="/habitaciones" className="item-sidenav2">Habitaciones</Link>
+                    <Link to="/habitaciones-huesped" className="item-sidenav2">Habitaciones</Link>
                 </div>
                 <div className='item-sidenav'>
                 <i class="fa-solid fa-calendar-days"></i>
-                    <Link to="/reservas" className="item-sidenav2">Mis Reservas</Link>
+                    <Link to="/reservas-huesped" className="item-sidenav2">Mis Reservas</Link>
                 </div>
                 <div className='item-sidenav'>
                 <i class="fa-solid fa-user-pen"></i>
-                    <Link to="/habitaciones" className="item-sidenav2">Ver Perfil</Link>
+                    <Link to="/editarperfil" className="item-sidenav2">Ver Perfil</Link>
                 </div>
             </div>
             <button className='final-nav'>

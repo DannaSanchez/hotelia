@@ -17,7 +17,7 @@ function Slide() {
                         <div className='carousel__text-container'>
                             <h1 className='carousel__text-container-h1'>Vive la experiencia con nosotros</h1>
                             <h4 className='carousel__text-container-h4'>¿Aún no eres Usuario de Hotelia?, Regístrate aquí</h4>
-                            <Nav.Link href="/login"><Button className="navbar-button"><i class="fa-solid fa-user-plus"></i> Registrarse</Button></Nav.Link>
+                            <Nav.Link href="/form/huesped"><Button className="navbar-button"><i class="fa-solid fa-user-plus"></i> Registrarse</Button></Nav.Link>
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>

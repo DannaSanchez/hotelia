@@ -25,15 +25,19 @@ function SidebarAdmon() {
             <div className='center-nav'>
                 <div className='item-sidenav'>
                     <i class="fa-solid fa-bed"></i>
-                    <Link to="/habitaciones" className="item-sidenav2">Habitaciones</Link>
+                    <Link to="/listado-habitaciones-admin" className="item-sidenav2">Habitaciones</Link>
                 </div>
                 <div className='item-sidenav'>
-                <i class="fa-solid fa-calendar-days"></i>
-                    <Link to="/reservas" className="item-sidenav2">Mis Reservas</Link>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <Link to="/listado-reservas-admin" className="item-sidenav2">Reservas</Link>
                 </div>
                 <div className='item-sidenav'>
-                <i class="fa-solid fa-file-pen"></i>
-                    <Link to="/" className="item-sidenav2">Editar Habitaciones</Link>
+                    <i class="fa-solid fa-file-pen"></i>
+                    <Link to="/registrar-habitaciones-admin" className="item-sidenav2">Registrar Habitaciones</Link>
+                </div>
+                <div className='item-sidenav'>
+                    <i class="fa-solid fa-user-pen"></i>
+                    <Link to="/editarperfil" className="item-sidenav2">Ver Perfil</Link>
                 </div>
             </div>
             <button className='final-nav'>

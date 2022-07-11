@@ -25,19 +25,19 @@ function Inicio (){
             <section className="index__features">
                 <h2 className="index__features-title">Razones por las que disfrutarás quedarte con nosotros</h2>
                 <div className="index__features-description">
-                    <div className="index__feature index__feature-blue">
+                    <div className="index__feature index__feature-blue navbar__items">
                         <i class="fa-solid fa-bell-concierge"></i>
                         <p>Lorem ipsum dolor</p>
                     </div>
-                    <div className="index__feature index__feature-black">
+                    <div className="index__feature index__feature-black navbar__items">
                         <i class="fa-solid fa-bed"></i>
                         <p>Lorem ipsum dolor</p>
                     </div>
-                    <div className="index__feature index__feature-blue">
+                    <div className="index__feature index__feature-blue navbar__items">
                         <i class="fa-solid fa-wifi"></i>
                         <p>Lorem ipsum dolor</p>
                     </div>
-                    <div className="index__feature index__feature-black">
+                    <div className="index__feature index__feature-black navbar__items">
                         <i class="fa-solid fa-dumbbell"></i>
                         <p id="index__ubication">Lorem ipsum dolor</p>
                     </div>

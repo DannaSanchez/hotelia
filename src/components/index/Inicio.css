@@ -82,6 +82,10 @@
     font-size: 16px;
 }
 
+.fa-star{
+    color: var(--Magenta);
+}
+
 .subtitle__direction{
     margin: 20px auto 0;
     padding-bottom: 15px;
@@ -125,6 +129,11 @@
     align-items: center;
     font-size: 19px;
     font-family: 'Marcellus', serif;
+}
+
+.navbar__items i{
+    color: var(--blanco);
+    padding-right: 5px;
 }
 
 .index__button-reserve{
