@@ -20,10 +20,16 @@ function EditarUsuario() {
                     <h1>Bienvenido, Angie Vargas</h1>
                     <div className="editarusuario-display">
                         <div className="editarusuario-edit">
-                            <img src={usuariofoto} />
-                            <div className="cambiar-foto-editarusuario"><i class="fa-solid fa-upload"></i></div>
-                            <Button className="cambiarcontraseña-boton" variant="secondary" onClick={handleShow}>Cambiar Contraseña</Button>
-                            <Button className="cambiarcontraseña-boton" variant="secondary" onClick={handleShow2}>Actualizar Datos</Button>
+                            <div>
+                                <img src={usuariofoto} />   
+                            <div class="contenedor-cambiar-foto">
+                            <button class="cambiar-foto-editarusuario"><i class="fa-solid fa-upload"></i></button>
+                            <input type="file" name="myfile" className="formhuesped-image"  accept=".jpg,.png" />
+                            </div></div>
+                            <div className="boton-cambiardatos">
+                                <Button className="cambiarcontraseña-boton" variant="secondary" onClick={handleShow}>Cambiar Contraseña</Button>
+                                <Button className="cambiarcontraseña-boton" variant="secondary" onClick={handleShow2}>Actualizar Datos</Button>
+                            </div>
                         </div>
                         <Modal className="formhuesped-modal form-editarusuario-modal" show={show} onHide={handleClose}>
                             <Modal.Header className="modal-header p-auto">

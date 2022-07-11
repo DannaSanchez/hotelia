@@ -2,6 +2,7 @@
     background-image: url(./perfilUsuario.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100vh;
 }
 /*.form-editarusuario{
     border: 2px solid black;
@@ -13,9 +14,9 @@
 .editar-usuario-primary:hover{
     background: linear-gradient(49.54deg, #337AB7 2.89%, #0B3860 80.34%);
 }
-.form-editarusuario-modal input{
+/*.form-editarusuario-modal input{
     border: 1px solid black;
-}
+}*/
 .form-editarusuario-modal label{
     font-family: 'Roboto';
     font-style: normal;
@@ -27,22 +28,38 @@
 }
 .editarusuario-edit{
     /*border: 2px solid yellow;*/
-    margin:5px  15px 0 0;
+    margin:auto;
     text-align: center;
+    width: 180px;
 }
 .editarusuario-edit img{
-    width: 165px;
+    width: 180px;
 }
 .cambiar-foto-editarusuario{
     background-color: var(--azuloscuro);
+    border:2px solid var(--azuloscuro);
     color: white;
-    width: 165px;
+    width: 180px;
     text-align: center;
-    margin:5px auto 10px;
+    margin:5px auto 0px;
     padding: 2px;
 }
-.editarusuario-edit button{
+/*file*/
+.contenedor-cambiar-foto {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .contenedor-cambiar-foto input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+.boton-cambiardatos button{
     background-color: black;
+    margin: 10px 0;
 }
 .btn-secondary{
     --bs-btn-color: #fff;
@@ -64,6 +81,13 @@
     /*border: 2px solid green;*/
     margin-bottom: 12px;
 }
+.boton-cambiardatos{
+    /*border: 2px solid red;*/
+    margin: 18px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .formhuesped-background{
     margin:18px 25px;
     padding: 22px;
@@ -72,7 +96,7 @@
     font-family: 'Marcellus', serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 20px;
 }
 .formhuesped h6{
     font-family: 'Roboto', sans-serif;
@@ -81,10 +105,21 @@
     font-size: 20px;
     margin-top: 3px;
 }
-@media screen and (min-width:768px){
+@media screen and (min-width:600px){
     .editarusuario-display{
-        /*border: 2px solid rgb(238, 35, 197);*/
         display: flex;
+        justify-content: space-evenly;
+        margin: 0% auto;
+    }
+    .editarusuario-edit{
+        margin:5px 0;
+        text-align: center;
+        width: 185px;
+    }
+}
+@media screen and (min-width:768px){
+    .editarusuario-edit{
+        margin:0 20px 0 0;
     }
 }
 @media screen and (min-width:1024px){
