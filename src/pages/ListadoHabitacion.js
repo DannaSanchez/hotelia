@@ -1,4 +1,5 @@
 import Cards from "../components/card/Card";
+//import ImageSlider from "../components/newcard/ImageSlider";
 
 function ListadoHabitacion (){
     return(
@@ -29,6 +30,7 @@ function ListadoHabitacion (){
             </div> 
 
             <Cards/>
+
         </>
     );
 }

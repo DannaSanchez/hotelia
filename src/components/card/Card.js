@@ -3,12 +3,15 @@ import {getAllHabitaciones} from './data-cards';
 import {Link} from 'react-router-dom';
 
 import './Card.css'
+import ImageSlider from '../newcard/ImageSlider';
 
-function Cards() {
+function Cards() { 
 
     const habitaciones = getAllHabitaciones();
 
     return (
+
+        <>
         <section className='list-rooms'>
             {habitaciones.map(habitacion=>
             <Card  style={{ width: '20rem' }} key={habitacion.id} className="list-rooms__card">
@@ -19,6 +22,7 @@ function Cards() {
                     <Card.Text>
                         <p className='list-rooms__cardPrice'>${habitacion.price}</p>
                         <p>{habitacion.description}</p>
+                        <p>N°:{habitacion.number}</p>
                     </Card.Text>
                     <div className='list-rooms__buttons'>
                         <Link to="/modificar-habitaciones-admin" ><Button variant="primary" className='list-rooms__cardButtonPrincipal'>Modificar</Button></Link>
@@ -29,6 +33,27 @@ function Cards() {
             )}
         </section>
 
+        <section className='list-rooms'>
+            {habitaciones.map(habitacion=>
+            <Card  style={{ width: '20rem' }} key={habitacion.id} className="list-rooms__card">
+                <ImageSlider/>
+                <Card.Title className="list-rooms__cardTitle2">{habitacion.name}</Card.Title>
+                
+                <Card.Body>    
+                    <Card.Text>
+                        <p className='list-rooms__cardPrice'>${habitacion.price}</p>
+                        <p>{habitacion.description}</p>
+                        <p>N°:{habitacion.number}</p>
+                    </Card.Text>
+                    <div className='list-rooms__buttons'>
+                        <Link to="/modificar-habitaciones-admin" ><Button variant="primary" className='list-rooms__cardButtonPrincipal'>Modificar</Button></Link>
+                        <Button variant="secondary" className='list-rooms__cardButtonSecondary'>{habitacion.buttonstate}</Button>
+                    </div>
+                </Card.Body> 
+            </Card>
+            )}
+        </section>
+        </>
     );
 }
 export default Cards;

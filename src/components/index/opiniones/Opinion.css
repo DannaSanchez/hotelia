@@ -61,7 +61,11 @@
 @media screen and (min-width: 768px){
     .opinions{
         display: flex;
+        overflow-x: hidden;
+        scroll-snap-type:none;
     }
+
+    
     
     .opinion{
         background: url(../../../img/opinion/Vector-opinion.png) #0d4576 no-repeat;

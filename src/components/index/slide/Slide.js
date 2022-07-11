@@ -7,7 +7,7 @@ function Slide() {
     return ( 
         <>
             <Carousel>
-                <Carousel.Item interval={1000}>
+                <Carousel.Item interval={4000}>
                     <img
                         className="d-block w-100"
                         src={Slide1}
@@ -21,7 +21,7 @@ function Slide() {
                         </div>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={500}>
+                <Carousel.Item interval={4000}>
                     <img
                         className="d-block w-100"
                         src={Slide2}
