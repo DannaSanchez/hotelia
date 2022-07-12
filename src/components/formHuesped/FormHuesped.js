@@ -1,7 +1,6 @@
 import "./FormHuesped.css"
 import {Button, Modal} from 'react-bootstrap';
 import React, { useState } from 'react';
-import logoblanco from "../../img/Hotelia-horizontal-blanco.png"
 function FormHuesped (){
     //modal
     const [show, setShow] = useState(false);
@@ -9,15 +8,6 @@ function FormHuesped (){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return(
-        <main className="huesped-background-img">
-            <div className="huesped">
-                <div className="logo-formhuesped">
-                    <div>
-                    <img src={logoblanco} />
-                    <h5>Eres más que bienvenido</h5>
-                    </div>
-                </div>
-
                 <div className="formhuesped-background">
                     <h1>Regístrate</h1>
                     <formulario  action="">
@@ -367,12 +357,8 @@ function FormHuesped (){
                                     </Modal.Footer>
                                 </Modal>
                         <Button className="formhuesped-modal-button m-auto" variant="secondary">Ingresar</Button>
-    
-  
                     </formulario>
                 </div>
-            </div>
-        </main>
     );
     
 }

@@ -16,7 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/hotelia" element={<Navigate replace to={"/"} />}></Route>
+      
       <Route path="/" element={<Inicio />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/listado-habitaciones-admin" element={<ListadoHabitacion />}></Route>

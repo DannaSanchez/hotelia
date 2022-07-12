@@ -14,9 +14,9 @@ function EditarUsuario() {
     const handleShow2 = () => setShow2(true);
     return (
         <div className="editUsuario-background">
-            <div className="huesped">
-                <div className="navbar-falsa"></div>
-                <div className="formhuesped-background">
+            <div className="editarusuario-fondo">
+                
+                <div className="formeditUsuario-background">
                     <h1>Bienvenido, Angie Vargas</h1>
                     <div className="editarusuario-display">
                         <div className="editarusuario-edit">
