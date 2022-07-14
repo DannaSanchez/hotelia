@@ -18,6 +18,7 @@
 	width: 75%;
 	padding: 20px;
     margin-bottom: 25px;
+    margin:auto;
 }
 /*.form-editarusuario{
     border: 2px solid black;
@@ -29,9 +30,9 @@
 .editar-usuario-primary:hover{
     background: linear-gradient(49.54deg, #337AB7 2.89%, #0B3860 80.34%);
 }
-/*.form-editarusuario-modal input{
+.form-editarusuario-modal input{
     border: 1px solid black;
-}*/
+}
 .form-editarusuario-modal label{
     font-family: 'Roboto';
     font-style: normal;
@@ -40,6 +41,16 @@
     color: #000000;
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.164);
     padding-top: 5px;
+}
+.form-editarusuario-modal .error {
+	color: #e92b2d;
+	font-weight: 600;
+    padding-bottom:8px;
+}
+.form-editarusuario-modal .exito {
+	text-align: center;
+	padding-top: 20px;
+	color: #02a802;
 }
 .editarusuario-edit{
     /*border: 2px solid yellow;*/
