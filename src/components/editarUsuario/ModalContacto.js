@@ -28,7 +28,7 @@ function ModalContacto() {
                 if (!valores.telefono) {
                     errores.telefono = 'Por favor ingresa un número de teléfono'
                 } else if (!/^[0-9]{10,11}$/.test(valores.telefono)) {
-                    errores.telefono = 'Digite una contraseña valida'
+                    errores.telefono = 'Digite un teléfono valido'
                 }
                 return errores;
             }}

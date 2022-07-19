@@ -23,7 +23,7 @@ function ModalContraseña() {
                 // Validacion contraseña "actual"
                 if (!valores.actual) {
                     errores.actual = 'Por favor ingresa su contraseña actual'
-                } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.actual)) {
+                } else if (!/^[A-Za-z\d$@$!%*?&]{8,15}$/.test(valores.actual)) {
                     errores.actual = 'Contraseña incorrecta'
                 }
                 // Validacion newC

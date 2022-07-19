@@ -42,15 +42,30 @@
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.164);
     padding-top: 5px;
 }
-.form-editarusuario-modal .error {
+.form-editarusuario-modal .error, .formhuesped .error,  .error {
 	color: #e92b2d;
+	font-weight: 600;
+}
+.form-editarusuario-modal .exito, .formhuesped .exito, .exito {
+	color: #02a802;
+    display: flex;
+    margin: auto;
+    font-size: 20px;
+    margin-top: 5px;
+}
+.final{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+.form-editarusuario-modal .error{
 	font-weight: 600;
     padding-bottom:8px;
 }
 .form-editarusuario-modal .exito {
 	text-align: center;
 	padding-top: 20px;
-	color: #02a802;
 }
 .editarusuario-edit{
     /*border: 2px solid yellow;*/
