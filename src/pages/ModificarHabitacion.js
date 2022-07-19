@@ -8,10 +8,17 @@ import { Label, GrupoInput, GrupoCheckbox, Input, Textarea } from '../elements/f
 import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
+import SidebarAdmon from '../components/sidebar/SidebarAdmon';
 import '../components/ModificarHabitacion.css'
 
 function ModificarHabitacion() {
     return (
+        <div className="listado-habitacion-admin">
+        
+            <div>
+                <SidebarAdmon/>
+            </div>
+
         <div className='modify-room'>
             <h1 className='modify-room__title'>Habitación doble</h1>
 
@@ -76,27 +83,27 @@ function ModificarHabitacion() {
 
                         <GrupoCheckbox>
                             <input type='checkbox'/>
-                            <i class="fa-solid fa-vault"></i>
+                            <p><i class="fa-solid fa-vault"></i>Caja Fuerte</p>
                         </GrupoCheckbox>
 
                         <GrupoCheckbox>
                             <input type='checkbox'/>
-                            <i class="fa-solid fa-tv"></i>
+                            <p><i class="fa-solid fa-tv"></i>Televisión</p>
                         </GrupoCheckbox>
 
                         <GrupoCheckbox>
                             <input type='checkbox'/>
-                            <i class="fa-solid fa-wifi"></i>
+                            <p><i class="fa-solid fa-wifi"></i>Wifi</p>
                         </GrupoCheckbox>
 
                         <GrupoCheckbox>
                             <input type='checkbox'/>
-                            <i class="fa-solid fa-snowflake"></i>
+                            <p><i class="fa-solid fa-snowflake"></i>Aire acondicionado</p>
                         </GrupoCheckbox>
 
                         <GrupoCheckbox>
                             <input type='checkbox'/>
-                            <i class="fa-solid fa-dumbbell"></i>
+                            <p><i class="fa-solid fa-dumbbell"></i>Servicio a la habitación</p>
                         </GrupoCheckbox>
 
                         <GrupoCheckbox>
@@ -160,6 +167,8 @@ function ModificarHabitacion() {
                 <Link to="/modificar-habitaciones-admin" ><Button variant="primary" className='modify-room__ButtonPrincipal'>Cancelar</Button></Link>
                 <Button variant="secondary" className='modify-room__ButtonSecondary'>Guardar cambios</Button>
             </div>
+
+        </div>
 
         </div>
     );

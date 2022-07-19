@@ -44,13 +44,14 @@
 
 .opinion__score i{
     margin: 0 6px;
+    color: white;
 }
 
 .opinion_user-score{
     margin-left: 20px;
 }
 
-.magent{
+.opinion__score .magent{
     color: var(--Magenta);
 }
 

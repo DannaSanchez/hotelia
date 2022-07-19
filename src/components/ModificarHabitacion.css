@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items:center;
     background-color: #f1f1f1cb;
+    width: 85%;
 }
 
 .modify-room__title{
@@ -32,7 +33,8 @@
 }
 
 .modify-room__additional-services i{
-    font-size: 40px;
+    font-size: 30px;
+    color: black;
 }
 
 .modify-room__additional-information input, .modify-room__state input{
@@ -160,6 +162,24 @@
     margin: auto;
 }
 
+.listado-habitacion-admin{
+    display: flex;
+    justify-content: space-between;
+}
+
+.listado-habitacion-admin__container{
+    width: 85%;
+}
+
+.room-register-admon{
+    display: flex;
+    justify-content: space-between;
+}
+
+.room-register-admon__form{
+    width: 85%;
+}
+
 @media screen and (min-width:768px) {
     .modify-room{
         display: flex;
@@ -199,7 +219,7 @@
     }
     
     .modify-room__additional-services i{
-        font-size: 40px;
+        font-size: 20px;
     }
     
     .modify-room__additional-information input, .modify-room__state input{

@@ -29,7 +29,7 @@ function Cards() {
                         <Button variant="secondary" className='list-rooms__cardButtonSecondary'>{habitacion.buttonstate}</Button>
                     </div>
                 </Card.Body> 
-            </Card>
+            </Card> 
             )}
         </section>
 

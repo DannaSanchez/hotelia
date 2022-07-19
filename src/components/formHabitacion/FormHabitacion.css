@@ -1,6 +1,7 @@
 .room-registration-form{
     background: url(../../img/bg-form-habitaciones.png);
     padding: 20px 0; 
+    width: 100%;
 }
 
 .room-registration-form__title{

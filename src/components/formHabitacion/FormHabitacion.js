@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 
 function FormHabitacion(){ 
 
-    return(
+    return( 
         <section className='room-registration-form'>
             <ContainerForm>
                 <h1 className='room-registration-form__title'>Registro de nueva habitación</h1>
