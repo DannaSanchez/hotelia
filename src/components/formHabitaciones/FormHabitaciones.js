@@ -1,86 +1,160 @@
 import { Link } from 'react-router-dom';
+import { Formik } from 'formik';
 import './FormHabitaciones.css';
-import dobleroom from '../../img/doble-room.jpg';
 import dobleroom1 from '../../img/room-doble.jpg';
 import dobleroom2 from '../../img/room-doble2.jpg';
 import dobleroom3 from '../../img/room-doble3.jpg';
 import { Card, Modal, Button } from 'react-bootstrap';
-import { useState } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import CardRoom from '../cardRoom/CardRoom';
 
 
 function FormHabitaciones() {
+
+    const disableDate = new Date().toISOString().slice(0, 10);
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    /* 1. Definir url del API a la que me voy a conectar */
+    const url = "https://app-hotelia3.herokuapp.com/habitaciones";
+    /*2.Generar fución asincrona*/
+    const getData = async () => {
+        const response = axios.get(url);
+        return response;
+    }
+    /*3. UseState para guardar la respuesta de la petición*/
+    const [list, setList] = useState([]);
+    /*5.Crear otro estado para refrescar el listado despues de eliminar*/
+    const [upList, setUplist] = useState([false]);
+
+    /*4.Hook useEfect ejecuta funciones cada vez que renderizamos un componente*/
+    useEffect(() => {
+        getData().then((response) => {
+            setList(response.data);
+        })
+    }, [upList])
+    console.log([list]);
+
+    {/*axios({
+        method: "post",
+        url: "",
+    })
+
+    .then((response)=>{
+
+    })
+
+    .catch((error)=>{
+        
+    })*/}
 
     return (
+
         <div className='cont-habitaciones'>
             <div>
                 <div className='title-room'>
                     <h4>Busqueda de Habitaciones</h4>
                 </div>
                 <div className='box-form'>
-                    <form className='cont-form-room'>
-                        <div className='cont-entrada'>
-                            <label for='entrada'>Entrada: </label>
-                            <input name='entrada' type='date' />
-                        </div>
-                        <div className='cont-salida'>
-                            <label for='salida'>Salida: </label>
-                            <input name='salida' type='date' />
-                        </div>
-                        <div className='input-adultos'>
-                            <label>Adultos: </label>
-                            <input name='numadultos' type='number' />
-                        </div>
-                        <div className='input-ninos'>
-                            <label>Niños: </label>
-                            <input name='numninos' type='number' />
-                        </div>
-                        <Link to="/" className="item-ver">Ver habitaciones disponibles</Link>
-                    </form>
+                    <Formik
+
+                        initialValues={{
+                            numadultos: '0',
+                            numninos: '0'
+                        }}
+
+                        validate={(valores) => {
+                            let errores = {};
+
+                            //Validación cantidad adultos
+                            if (!/^[0-9]{1,2}$/.test(valores.numadultos)) {
+                                errores.numadultos = 'Ingrese la cantidad adultos'
+                            }
+                            else if (!/^[0-9]{1,2}$/.test(valores.numninos)) {
+                                errores.numninos = 'Ingrese la cantidad de niños'
+                            } else if (valores.numadultos > 10) {
+                                errores.numadultos = 'Elige la cantidad entre 1 a 10 adultos'
+                            } else if (valores.numninos > 10) {
+                                errores.numninos = 'Elige la cantidad entre 1 a 10 niños'
+                            }
+                            return errores;
+                        }
+                        }
+
+                        onSubmit={() => {
+                            console.log("enviado");
+                        }}
+
+                    >
+                        {({ values, errors, handleSubmit, handleChange, handleBlur }) => (
+                            <form className='cont-form-room' onSubmit={handleSubmit}>
+                                <div className='cont-entrada'>
+                                    <label for='entrada'>Entrada: </label>
+                                    <input
+                                        name='entrada'
+                                        type='date'
+                                        min={disableDate}
+                                    />
+                                </div>
+                                <div className='cont-salida'>
+                                    <label for='salida'>Salida: </label>
+                                    <input
+                                        name='salida'
+                                        type='date'
+                                        min={disableDate}
+                                    />
+                                </div>
+                                <div className='input-adultos'>
+                                    <label>Adultos: </label>
+                                    <input
+                                        name='numadultos'
+                                        type='number'
+                                        value={values.numadultos}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        max="10"
+                                    />
+
+                                    {errors.numadultos && <div className='error message-validate'>{errors.numadultos}</div>}
+
+                                </div>
+                                <div className='input-ninos'>
+                                    <label>Niños: </label>
+                                    <input
+                                        name='numninos'
+                                        type='number'
+                                        value={values.numninos}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        max="10"
+                                    />
+
+                                    {errors.numninos && <div className='error message-validate'>{errors.numninos}</div>}
+
+                                </div>
+                                <button type='submit' className='item-ver'>
+                                    Ver habitaciones disponibles
+                                </button>
+                            </form>
+                        )}
+                    </Formik>
                 </div>
             </div>
-            <div className='box-card'>
-                <div className='card1'>
-                    <Card style={{ width: '18rem' }} className='card-room'>
-                        <div>
-                            <Button onClick={handleShow} className='btn-more'>
-                                <i class="bi bi-plus-lg"></i>
-                                <p>Ver más</p></Button>
-                            <Card.Img variant="top" src={dobleroom} className='p-2' />
-                            <div className='item-name-room'>
-                                <p className="item-img">Habitación Doble</p>
-                            </div>
 
-                        </div>
-                        <Card.Body>
-                            <Card.Text className='price-text text-center'>$ 128.000</Card.Text>
-                            <Button className='item-reservar' onClick={handleShow}>Reservar</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div>
-                    <Card style={{ width: '18rem' }} className='card-room'>
-                        <div>
-                            <Button onClick={handleShow} className='btn-more'>
-                                <i class="bi bi-plus-lg"></i>
-                                <p>Ver más</p></Button>
-                            <Card.Img variant="top" src={dobleroom} className='p-2' />
-                            <div className='item-name-room'>
-                                <p className="item-img">Habitación Doble</p>
-                            </div>
-
-                        </div>
-                        <Card.Body>
-                            <Card.Text className='price-text text-center'>$ 128.000</Card.Text>
-                            <Button className='item-reservar' onClick={handleShow}>Reservar</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
+            {
+                list.map((es, index) => (
+                    <CardRoom
+                        key={index}
+                        habitaciones={es}
+                        setUplist={setUplist}
+                        upList={upList}
+                    />
+                ))
+            }
 
                 <Modal
                     show={show}
@@ -171,10 +245,7 @@ function FormHabitaciones() {
                         <Button className='btn-closemodal' onClick={handleClose}>Cerrar</Button>
                     </Modal.Footer>
                 </Modal>
-
-
             </div>
-        </div>
     );
 }
 

@@ -1,0 +1,74 @@
+{
+    "habitacion": [
+        {
+            "id": 1,
+            "tipo": "Habitación Sencilla",
+            "foto": "https://i.pinimg.com/564x/d1/54/24/d15424f94b860a10a79e13e59d2542e1.jpg",
+            "fotoModal1": "https://i.pinimg.com/474x/d8/b8/67/d8b867e087373563506287356e9fa2fe.jpg",
+            "fotoModal2": "https://i.pinimg.com/474x/3f/3b/8e/3f3b8e281b1d6de5dbb025c18e36bb77.jpg",
+            "fotoModal3": "https://i.pinimg.com/474x/98/e3/ec/98e3ec0a898f4dae07c97ed6f3746395.jpg",
+            "descripcion": "Las Habitaciones Dobles de Hotelia Bogotá son amplias, con 27 m², y están pensadas para asegurar el mejor descanso durante una estadía en la capital de Colombia. Con cama de 140 m, estas habitaciones son una buena propuesta para las parejas pues están pensadas para alojar a 1 ó 2 personas con la máxima comodidad.",
+            "icon-banio": "",
+            "banio": "baño",
+            "icon-tv": "",
+            "tv": "tv"
+        },
+
+        {
+            "id": 2,
+            "tipo": "Habitación Doble",
+            "foto": "https://i.pinimg.com/474x/76/f1/8e/76f18e8e09c7dc686aec4443ed26fc17.jpg",
+            "fotoModal1": "https://i.pinimg.com/474x/48/6c/ce/486cce4a3d3e1e448282c70821478df5.jpg",
+            "fotoModal2": "https://i.pinimg.com/474x/0a/07/58/0a075802e8baca9e79376e798e737661.jpg",
+            "fotoModal3": "https://i.pinimg.com/474x/6a/29/f0/6a29f0f370c2173ba79cd200dcb053a6.jpg",
+            "descripcion": "Las Habitaciones Dobles de Hotelia Bogotá son amplias, con 27 m², y están pensadas para asegurar el mejor descanso durante una estadía en la capital de Colombia. Con cama de 140 m, estas habitaciones son una buena propuesta para las parejas pues están pensadas para alojar a 1 ó 2 personas con la máxima comodidad.",
+            "icon-banio": "",
+            "banio": "baño",
+            "icon-tv": "",
+            "tv": "tv"
+        },
+        {
+            "id": 3,
+            "tipo": "Habitación Matrimonial",
+            "foto": "https://i.pinimg.com/564x/d1/54/24/d15424f94b860a10a79e13e59d2542e1.jpg",
+            "fotoModal1": "https://i.pinimg.com/474x/d8/b8/67/d8b867e087373563506287356e9fa2fe.jpg",
+            "fotoModal2": "https://i.pinimg.com/474x/3f/3b/8e/3f3b8e281b1d6de5dbb025c18e36bb77.jpg",
+            "fotoModal3": "https://i.pinimg.com/474x/98/e3/ec/98e3ec0a898f4dae07c97ed6f3746395.jpg",
+            "descripcion": "Las Habitaciones Dobles de Hotelia Bogotá son amplias, con 27 m², y están pensadas para asegurar el mejor descanso durante una estadía en la capital de Colombia. Con cama de 140 m, estas habitaciones son una buena propuesta para las parejas pues están pensadas para alojar a 1 ó 2 personas con la máxima comodidad.",
+            "icon-banio": "",
+            "banio": "baño",
+            "icon-tv": "",
+            "tv": "tv"
+        },
+
+        {
+            "id": 4,
+            "tipo": "Suite",
+            "foto": "https://i.pinimg.com/564x/d1/54/24/d15424f94b860a10a79e13e59d2542e1.jpg",
+            "fotoModal1": "https://i.pinimg.com/474x/d8/b8/67/d8b867e087373563506287356e9fa2fe.jpg",
+            "fotoModal2": "https://i.pinimg.com/474x/3f/3b/8e/3f3b8e281b1d6de5dbb025c18e36bb77.jpg",
+            "fotoModal3": "https://i.pinimg.com/474x/98/e3/ec/98e3ec0a898f4dae07c97ed6f3746395.jpg",
+            "descripcion": "Las Habitaciones Dobles de Hotelia Bogotá son amplias, con 27 m², y están pensadas para asegurar el mejor descanso durante una estadía en la capital de Colombia. Con cama de 140 m, estas habitaciones son una buena propuesta para las parejas pues están pensadas para alojar a 1 ó 2 personas con la máxima comodidad.",
+            "icon-banio": "",
+            "banio": "baño",
+            "icon-tv": "",
+            "tv": "tv"
+        }
+    ],
+
+    "huesped": [
+        {
+            "tipodoc": "CC",
+            "id": 1014299877,
+            "nombres": "Widney Catalina",
+            "apellidos": "Duarte Ramirez",
+            "fechaNacimiento": "10/10/1998",
+            "genero": "Femenino",
+            "email": "cata-wd@gmail.com",
+            "telefono": "3007896654",
+            "pais": "Colombia",
+            "foto": "",
+            "password": ""
+        }
+    ]
+}

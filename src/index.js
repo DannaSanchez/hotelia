@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
 import Inicio from './pages/Inicio';
 import Login from './pages/Login';
@@ -16,7 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/hotelia" element={<Navigate replace to={"/"} />}></Route>
+      
       <Route path="/" element={<Inicio />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/listado-habitaciones-admin" element={<ListadoHabitacion />}></Route>
@@ -25,8 +25,8 @@ root.render(
       <Route path="/" element={<Login />}></Route>
       <Route path='/form/huesped' element={<RegistroHuesped />}></Route>
       <Route path='/editarperfil' element={<PerfilUsuario />}></Route>
-      <Route path="/habitaciones" element={<Habitaciones />}></Route>
-      <Route path='/reservas' element={<ReservaRealizada />}></Route>
+      <Route path="/habitaciones-huesped" element={<Habitaciones />}></Route>
+      <Route path='/reservas-huesped' element={<ReservaRealizada />}></Route>
     </Routes>
   </BrowserRouter>
 );

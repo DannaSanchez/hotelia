@@ -1,0 +1,113 @@
+.box-card {
+    margin-left: 15%;
+    margin-top: 8%;
+}
+
+.card-room {
+    width: 10rem;
+    margin: auto;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.price-text {
+    font-family: 'Marcellus', serif;
+}
+
+.item-name-room {
+    position: absolute;
+    bottom: 37%;
+    right: 2.8%;
+    background-color: #009fe389;
+    text-align: center;
+    width: 94.5%;
+    height: 9%;
+    padding-top: 1.5%;
+}
+
+.item-img {
+    text-decoration-line: none;
+    color: var(--blanco);
+    font-size: 15px;
+}
+
+
+.item-reservar {
+    font-family: 'Marcellus', serif;
+    background-color: var(--negro2);
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 3px;
+    border: 2px solid var(--negro2);
+    color: var(--blanco);
+    font-size: 15px;
+    width: 255px;
+}
+
+.item-reservar:hover {
+    background-color: var(--azuloscuro);
+    border: 2px solid var(--azuloscuro);
+}
+
+.item-reservar:focus {
+    background-color: var(--negro2);
+}
+
+.btn-more {
+    position: absolute;
+    top: 2.5%;
+    left: 2.5%;
+    background-color: transparent;
+    color: #064853;
+    font-size: 15px;
+    border: none;
+    color: var(--blanco);
+    width: 270px;
+    height: 180px;
+    border-radius: 0px;
+}
+
+.btn-more p,
+i {
+    color: transparent;
+}
+
+.btn-more:hover p,
+.btn-more:hover i {
+    color: var(--blanco);
+    transform: scale(1.1);
+}
+
+.btn-more:hover {
+    background-color: rgba(0, 0, 0, 0.333);
+}
+
+.btn-more:focus {
+    background-color: rgba(0, 0, 0, 0.333);
+}
+
+.btn-more:focus p,
+.btn-more:focus i {
+    color: var(--blanco);
+}
+
+.btn-more i {
+    font-size: 25px;
+    font-weight: bold;
+    margin: auto;
+}
+
+@media screen and (min-width:768px) {
+
+    .price-text {
+        font-family: 'Marcellus', serif;
+    }
+}
+
+@media screen and (min-width:1024px) {   
+
+    .card1 {
+        margin-right: 5%;
+    }
+}
+
+@media screen and (min-width:1200px) {}
