@@ -87,6 +87,21 @@
     box-shadow: 2px 2px 3px rgba(0,0,0, 0.2);
 }
 
+.login__input:focus, .login__textarea:focus{
+    outline: none;
+    border: 1px solid black;
+}
+
+.login__textarea{
+    width: 100%;
+	border-radius: 3px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+	border:  1px solid transparent;
+    box-shadow: 2px 2px 3px rgba(0,0,0, 0.2);
+}
+
 .login__label{
     display: block;
 	font-weight: 500;

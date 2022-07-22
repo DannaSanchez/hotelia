@@ -2,8 +2,8 @@ import './FormHabitacion.css';
 import {ContainerForm, Label, GrupoInput, GrupoCheckbox, Input, Textarea} from '../../elements/formStyle/FormStyle';
 import IconoImagen from '../../img/habitaciones/icono-imagen.webp';
 import Boton from '../../components/boton/Boton';
-import Swal from 'sweetalert2';
-import {Link} from 'react-router-dom'
+//import Swal from 'sweetalert2';
+//import {Link} from 'react-router-dom'
 
 function FormHabitacion(){ 
 

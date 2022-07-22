@@ -12,6 +12,8 @@ import PerfilUsuario from './pages/PerfilUsuario';
 import RegistroHuesped from './pages/RegistroHuesped';
 import ReservaRealizada from './pages/ReservaRealizada';
 
+import ListCardAdmin from './components/listadoAdmin/ListCardAdmin';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
@@ -27,6 +29,8 @@ root.render(
       <Route path='/editarperfil' element={<PerfilUsuario />}></Route>
       <Route path="/habitaciones" element={<Habitaciones />}></Route>
       <Route path='/reservas' element={<ReservaRealizada />}></Route>
+
+      <Route path='/listado-admin' element={<ListCardAdmin />}></Route>
     </Routes>
   </BrowserRouter>
 );

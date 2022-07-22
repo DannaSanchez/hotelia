@@ -225,7 +225,7 @@
     .modify-room__additional-information input, .modify-room__state input{
         height: 20px;
         width: 20px;
-        margin-right: 20px;
+        margin-right: 10px;
     }
     
     .modify-room__additional-information{

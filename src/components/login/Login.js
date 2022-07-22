@@ -4,9 +4,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import Logo2 from '../../img/Hotelia horizontal negro.png';
 import './Login.css';
 import { Link } from 'react-router-dom';
-import {Input, Label } from '../../elements/formStyle/FormStyle';
-
-import Boton from '../boton/Boton';
 
 function Login (){
 

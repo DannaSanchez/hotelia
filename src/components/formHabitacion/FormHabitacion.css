@@ -14,14 +14,46 @@
     margin: auto;
 }
 
+.modify-room__additional-services i{
+    margin-right: 5px;
+}
+
+.additional-services__checkbox, .icon-fridge{
+    width: 240px;
+}
+
+.additional-services__checkbox__icon{
+    width: 65px;
+    text-align: center;
+}
+
+.additional-services__checkbox, .icon-fridge{
+    display: flex;
+    align-items: center;
+}
+
+.additional-services__checkbox p, .icon-fridge p{
+    margin: auto;
+}
+
 .modify-room__icon p{
     text-align: center;
+}
+
+.icon-fridge img{
+    width: 30px;
+    margin-right: 5px;
 }
 
 .room-registration-form .modify-room__galery img{
     box-shadow: 2px 2px 3px rgba(0,0,0, 0.2);
     min-width: 130px;
     max-width: 200px;
+    transition-duration: 200ms;
+}
+
+.room-registration-form .modify-room__galery img:hover{
+    transform: translateY(-2px);
 }
 
 .room-registration-form .modify-room__galery{
@@ -41,9 +73,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition-duration: 800ms;
 }
 
-.room-registration-form .modify-room__subtitle{
+.modify-room__image .modify-room__icon{
+    bottom: 15px;
+    right: 15px;
+}
+
+.room-registration-form .modify-room__galery .modify-room__icon:hover{
+    background-color: black;
+}
+
+.room-registration-form .modify-room__subtitle{ 
     font-size: 22px;
 }
 
@@ -78,6 +120,13 @@
     margin: 0 0 0 5px;
 }
 
+.modify-room__image input[type="file"]{
+    appearance: none;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
 @media screen and (min-width:768px) {
 
     .modify-room__form-section-primary{
@@ -91,7 +140,7 @@
     }
 
     .room-registration-form{
-        background: url(../../img/bg-form-habitaciones.png);
+        background: url(../../img/bg-form-habitaciones.png); 
         padding: 20px 0; 
     }
     
@@ -112,6 +161,11 @@
     .room-registration-form .modify-room__galery{
         width: 70%;
         display: flex;
+    }
+
+    .modify-room__image .modify-room__icon{
+        right: 65px;
+        bottom: 15px;
     }
     
     .modify-room__additional-services i{
