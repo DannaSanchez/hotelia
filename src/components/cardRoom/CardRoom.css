@@ -4,13 +4,16 @@
 }
 
 .card-room {
-    width: 10rem;
     margin: auto;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .price-text {
     font-family: 'Marcellus', serif;
+}
+
+.img-card-room{
+    height: 196px;
 }
 
 .item-name-room {
@@ -20,7 +23,7 @@
     background-color: #009fe389;
     text-align: center;
     width: 94.5%;
-    height: 9%;
+    height: 10.5%;
     padding-top: 1.5%;
 }
 
@@ -96,6 +99,51 @@ i {
     margin: auto;
 }
 
+/*Modal*/
+
+.img-slide img {
+    width: 100%;
+    height: 300px;
+    border: 3.5px solid var(--blanco);
+}
+
+.title-modalroom {
+    font-family: 'Marcellus', serif;
+    background-image: url(../../img/header-modal.svg);
+    background-size: cover;
+    width: 100%;
+    color: var(--blanco);
+}
+
+.sub-modalroom {
+    color: var(--verdeazul);
+    font-size: 18px;
+}
+
+.btn-closemodal {
+    font-family: 'Marcellus', serif;
+    background-color: var(--verdeazul);
+    color: var(--blanco);
+    font-size: 18px;
+    margin: auto;
+    border: 2px solid var(--verdeazul);
+}
+
+.btn-closemodal:hover {
+    background-color: var(--azuloscuro);
+    border: 2px solid var(--azuloscuro);
+}
+
+.icons-modal-room {
+    color: var(--azuloscuro);
+}
+
+.item-modal-room{
+    color: var(--azuloscuro);
+    font-weight: 600;
+    font-size: 17px;
+}
+
 @media screen and (min-width:768px) {
 
     .price-text {
@@ -103,11 +151,13 @@ i {
     }
 }
 
-@media screen and (min-width:1024px) {   
-
-    .card1 {
-        margin-right: 5%;
+@media screen and (min-width:1024px) { 
+    
+    .box-card {
+        margin-left: 3%;
+        margin-right: 3%;
     }
+
 }
 
 @media screen and (min-width:1200px) {}

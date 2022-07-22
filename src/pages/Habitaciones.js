@@ -1,11 +1,12 @@
 import FormHabitaciones from "../components/formHabitaciones/FormHabitaciones";
 import SidebarHuesped from "../components/sidebar/SidebarHuesped";
 
+
 function Habitaciones() {
     return (
         <div>
             <div>
-                <SidebarHuesped />
+                <SidebarHuesped/>
             </div>
             <div>
                 <FormHabitaciones />

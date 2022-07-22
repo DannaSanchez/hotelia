@@ -97,47 +97,6 @@
     margin-left: -2.5%;
 }
 
-/*Cards*/
-
-
-/*Modal*/
-
-.img-slide img {
-    width: 100%;
-    height: 300px;
-    border: 3.5px solid var(--blanco);
-}
-
-.title-modalroom {
-    font-family: 'Marcellus', serif;
-    background-image: url(../../img/header-modal.svg);
-    background-size: cover;
-    width: 100%;
-    color: var(--blanco);
-}
-
-.sub-modalroom {
-    color: var(--verdeazul);
-    font-size: 18px;
-}
-
-.btn-closemodal {
-    font-family: 'Marcellus', serif;
-    background-color: var(--verdeazul);
-    color: var(--blanco);
-    font-size: 18px;
-    margin: auto;
-    border: 2px solid var(--verdeazul);
-}
-
-.btn-closemodal:hover {
-    background-color: var(--azuloscuro);
-    border: 2px solid var(--azuloscuro);
-}
-
-.icons-modal-room {
-    color: var(--azuloscuro);
-}
 
 @media screen and (min-width:768px) {
 
@@ -174,14 +133,6 @@
 
     /*Cards*/
 
-    .box-card {
-        margin-top: 8%;
-    }
-
-    .price-text {
-        font-family: 'Marcellus', serif;
-    }
-
 }
 
 @media screen and (min-width:1024px) {
@@ -217,14 +168,13 @@
 
     /*Cards*/
 
-    .box-card {
-        display: flex;
-        justify-content: flex-end;
-    }
+    
+.cont-cards{
+    display: flex;
+    margin-top: 3.2%;
+    margin-left: 13%;
+}
 
-    .card1{
-        margin-right: 2%;
-    }
 }
 
 @media screen and (min-width:1200px) {
