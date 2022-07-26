@@ -7,7 +7,7 @@ function CardRoom({ habitaciones }) {
 
     return (
         
-        <section className='list-rooms'>
+        
             <Card  style={{ width: '20rem' }} key={habitaciones._id} className="list-rooms__card">
                 <Card.Img variant="top" src={`https://app-hotelia3.herokuapp.com${habitaciones.img}`}/>
                 <Card.Title className="list-rooms__cardTitle">{habitaciones.nombrehab}</Card.Title>
@@ -25,7 +25,7 @@ function CardRoom({ habitaciones }) {
                     </div>
                 </Card.Body> 
             </Card> 
-        </section>
+
     );
 }
 

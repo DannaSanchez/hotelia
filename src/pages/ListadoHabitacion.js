@@ -62,6 +62,7 @@ function ListadoHabitacion (){
 
                 </div> 
 
+                <section className='list-rooms'>
 
                 {
                 list.map((es, index) => (
@@ -73,7 +74,7 @@ function ListadoHabitacion (){
                     />
                 ))
                 }
-
+            </section>
             </div>
 
         </div>

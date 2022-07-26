@@ -9,6 +9,13 @@ function Login (){
 
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
 
+    //const [shown, setShown] = React.useState(false);
+
+    //const switchShown = () => setShown(!shown);
+
+    //const [password, setPassword] = React.useState('');
+    //const onChange = ({ currentTarget }) => setPassword(currentTarget.value);
+
     return(
         <>
             <section className='login'>
@@ -74,12 +81,26 @@ function Login (){
                     <div className='login__form-group'>
                         <label htmlFor="password" className='login__label'>Contraseña</label>
                         <Field 
-                            type='text' 
+                           
+                            type='password'
+
                             id='password' 
                             name='password' 
 
                             className="login__input"
+
+                            
                         />
+
+                        {/*
+                        
+                        onChange={onChange}
+                            type={shown ? 'text' : 'password'} 
+                        value={password}
+
+                        <button onClick={switchShown}>
+                            {shown ? `Ocultar` : `Mostrar`}
+                        </button>*/}
 
                         <ErrorMessage name='password' component={() => (<div className='login__error'>{errors.password}</div>)}/>
 

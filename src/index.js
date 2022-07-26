@@ -11,6 +11,7 @@ import Habitaciones from './pages/Habitaciones';
 import PerfilUsuario from './pages/PerfilUsuario';
 import RegistroHuesped from './pages/RegistroHuesped';
 import ReservaRealizada from './pages/ReservaRealizada';
+import ReservaAdmin from './pages/ReservaAdmin';
 
 import ListCardAdmin from './components/listadoAdmin/ListCardAdmin';
 
@@ -29,6 +30,7 @@ root.render(
       <Route path='/editarperfil' element={<PerfilUsuario />}></Route>
       <Route path="/habitaciones" element={<Habitaciones />}></Route>
       <Route path='/reservas' element={<ReservaRealizada />}></Route>
+      <Route path='/listado-reservas-admin' element={<ReservaAdmin />}></Route>
 
       <Route path='/listado-admin' element={<ListCardAdmin />}></Route>
     </Routes>
