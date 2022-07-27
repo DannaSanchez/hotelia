@@ -11,6 +11,8 @@ import Habitaciones from './pages/Habitaciones';
 import PerfilUsuario from './pages/PerfilUsuario';
 import RegistroHuesped from './pages/RegistroHuesped';
 import ReservaRealizada from './pages/ReservaRealizada';
+import FormHuesped2 from './components/formHuesped/FormHuesped copy';
+import Muestra from './components/formHuesped/muesta';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +26,7 @@ root.render(
       <Route path="/registrar-habitaciones-admin" element={<RegistrarHabitacion />}></Route>
       <Route path="/" element={<Login />}></Route>
       <Route path='/form/huesped' element={<RegistroHuesped />}></Route>
+      <Route path='/intento' element={<Muestra />}></Route>
       <Route path='/editarperfil' element={<PerfilUsuario />}></Route>
       <Route path="/habitaciones" element={<Habitaciones />}></Route>
       <Route path='/reservas' element={<ReservaRealizada />}></Route>

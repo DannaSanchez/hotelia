@@ -2,46 +2,50 @@ import "./FormHuesped.css"
 import { Button, Modal } from 'react-bootstrap';
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import axios from "axios";
 function FormHuesped() {
     //modal
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    //URL
+    const url="https://app-hotelia3.herokuapp.com/users";
     //validaciones
+    //contraseña QTZ8s4WfQ75s8gy
     const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
     return (
         <div className="formhuesped-background">
             <h1>Regístrate</h1>
             <Formik
                 initialValues={{
-                    tipo: "",
-                    numdoc: "",
+                    tipodoc: "",
+                    _id: "",
                     nombre: "",
-                    apellidos: "",
-                    fecha: "",
+                    apellido: "",
+                    fnacimiento: "",
                     genero: "",
-                    correo: "",
+                    email: "",
                     telefono: "",
-                    file: "",
-                    contraseña: "",
+                    img: "",
+                    password: "",
                     contraseñaAgain: "",
-                    pais: "",
+                    paisorigen: "",
                     condiciones: ""
                 }}
                 validate={(valores) => {
                     let errores = {};
-                    // Validacion tipo
-                    if (!valores.tipo) {
-                        errores.tipo = 'seleccione una opción'
-                    }else if (valores.tipo===" ") {
-                        errores.tipo = 'seleccione una opción'
+                    // Validacion tipodoc
+                    if (!valores.tipodoc) {
+                        errores.tipodoc = 'seleccione una opción'
+                    }else if (valores.tipodoc===" ") {
+                        errores.tipodoc = 'seleccione una opción'
                     }
-                    // Validacion numdoc
-                    if (!valores.numdoc) {
-                        errores.numdoc = 'Por favor ingrese un número de documento'
-                    } else if (!/^[0-9]{6,11}$/.test(valores.numdoc)) {
-                        errores.numdoc = 'Digite un número de documento valido'
+                    // Validacion _id
+                    if (!valores._id) {
+                        errores._id = 'Por favor ingrese un número de documento'
+                    } else if (!/^[0-9]{6,11}$/.test(valores._id)) {
+                        errores._id = 'Digite un número de documento valido'
                     }
                     // Validación nombre
                     if (!valores.nombre) {
@@ -49,25 +53,25 @@ function FormHuesped() {
                     } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)) {
                         errores.nombre = 'El nombre solo puede contener letras y espacios'
                     }
-                    // Validación apellidos
-                    if (!valores.apellidos) {
-                        errores.apellidos = 'Por favor ingrese sus apellidos'
-                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.apellidos)) {
-                        errores.apellidos = 'Los apellidos solo puede contener letras'
+                    // Validación apellido
+                    if (!valores.apellido) {
+                        errores.apellido = 'Por favor ingrese sus apellido'
+                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.apellido)) {
+                        errores.apellido = 'Los apellido solo puede contener letras'
                     }
-                    // Validacion fecha
-                    if (!valores.fecha) {
-                        errores.fecha = 'Ingrese su fecha de nacimiento'
+                    // Validacion fnacimiento
+                    if (!valores.fnacimiento) {
+                        errores.fnacimiento = 'Ingrese su fnacimiento de nacimiento'
                     }
                     // Validacion genero
                     if (!valores.genero) {
                         errores.genero = 'Seleccione una opción'
                     }
-                    // Validación correo
-                    if (!valores.correo) {
-                        errores.correo = 'Por favor ingrese un correo electronico'
-                    } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.correo)) {
-                        errores.correo = 'El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.'
+                    // Validación email
+                    if (!valores.email) {
+                        errores.email = 'Por favor ingrese un email electronico'
+                    } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
+                        errores.email = 'El email solo puede contener letras, numeros, puntos, guiones y guion bajo.'
                     }
                     // Validacion telefono
                     if (!valores.telefono) {
@@ -75,22 +79,22 @@ function FormHuesped() {
                     } else if (!/^[0-9]{10,11}$/.test(valores.telefono)) {
                         errores.telefono = 'Digite un teléfono valido'
                     }
-                    // Validacion pais
-                    if (!valores.pais) {
-                        errores.pais = 'seleccione una opción'
-                    }else if (valores.pais==="") {
-                        errores.pais = 'seleccione una opción'
+                    // Validacion paisorigen
+                    if (!valores.paisorigen) {
+                        errores.paisorigen = 'seleccione una opción'
+                    }else if (valores.paisorigen==="") {
+                        errores.paisorigen = 'seleccione una opción'
                     }
-                    // Validacion contraseña
-                    if (!valores.contraseña) {
-                        errores.contraseña = 'Por favor ingrese un nueva contraseña'
-                    } else if (!/^[A-Za-z\d$@$!%*?&]{8,15}$/.test(valores.contraseña)) {
-                        errores.contraseña = 'Digite una contraseña valida'
+                    // Validacion password
+                    if (!valores.password) {
+                        errores.password = 'Por favor ingrese una contraseña'
+                    } else if (!/^[A-Za-z\d$@$!%*?&]{8,15}$/.test(valores.password)) {
+                        errores.password = 'Digite una contraseña valida'
                     }
                     // Validacion contraseñaAgain
                     if (!valores.contraseñaAgain) {
                         errores.contraseñaAgain = 'Ingrese otra vez la contraseña'
-                    }else if (valores.contraseñaAgain !== valores.contraseña) {
+                    }else if (valores.contraseñaAgain !== valores.password) {
                         errores.contraseñaAgain = "La contraseña no coincide"
                     }
                     // Validacion condiciones
@@ -99,28 +103,32 @@ function FormHuesped() {
                     }
                     return errores;
                 }}
-                onSubmit={(valores, { resetForm }) => {
+                onSubmit={async(valores, {resetForm}) => {
                     resetForm();
-                    cambiarFormularioEnviado(true);
+                    console.log(valores);
+                    const response=await axios.post(url,valores);//await espera hasta que se ejcute la petición
+                    console.log(response);
+                    console.log('Formulario enviado');
+                    //cambiarFormularioEnviado(true);
                     //setTimeout(() => cambiarFormularioEnviado(false), 5000);
-                   // setTimeout(() => window.location.replace('/login'), 3000);
+                    //setTimeout(() => window.location.replace('/login'), 3000);
                 }}
 
             >
                 {({ errors }) => (
-                    <Form action="">
+                    <Form>
                         <div className="formhuesped">
                             <div>
                                 <div>
-                                    <label>Tipo de documento</label>
-                                    <Field as="select" name="tipo" id="tipo">
+                                    <label>tipodoc de documento</label>
+                                    <Field as="select" name="tipodoc" id="tipodoc">
                                         <option value=" ">Seleccione una opción</option>
                                         <option value="CC">Cédula de Ciudadanía</option>
                                         <option value="CE">Cédula de Extranjería</option>
                                         <option value="PS">Pasaporte</option>
                                     </Field>
                                 </div>
-                                <ErrorMessage name="tipo" component={() => (<div className="error">{errors.tipo}</div>)} />
+                                <ErrorMessage name="tipodoc" component={() => (<div className="error">{errors.tipodoc}</div>)} />
                             </div>
                             <div>
                                 <div>
@@ -128,11 +136,11 @@ function FormHuesped() {
                                     <Field
                                         className="formhuesped-input"
                                         type="number"
-                                        name="numdoc"
-                                        id="numdoc"
+                                        name="_id"
+                                        id="_id"
                                     />
                                 </div>
-                                <ErrorMessage name="numdoc" component={() => (<div className="error">{errors.numdoc}</div>)} />
+                                <ErrorMessage name="_id" component={() => (<div className="error">{errors._id}</div>)} />
                             </div>
                             <div>
                                 <div>
@@ -148,27 +156,27 @@ function FormHuesped() {
                             </div>
                             <div>
                                 <div>
-                                    <label>Apellidos</label>
+                                    <label>apellido</label>
                                     <Field
                                         className="formhuesped-input"
                                         type="text"
-                                        name="apellidos"
-                                        id="apellidos"
+                                        name="apellido"
+                                        id="apellido"
                                     />
                                 </div>
-                                <ErrorMessage name="apellidos" component={() => (<div className="error">{errors.apellidos}</div>)} /> </div>
+                                <ErrorMessage name="apellido" component={() => (<div className="error">{errors.apellido}</div>)} /> </div>
                             <div>
                                 <div>
-                                    <label>Fecha nacimiento</label>
+                                    <label>fnacimiento nacimiento</label>
                                     <Field
                                         className="formhuesped-input"
                                         type="date"
-                                        name="fecha"
-                                        id="fecha"
+                                        name="fnacimiento"
+                                        id="fnacimiento"
                                          max="2005-01-01"
                                     />
                                 </div>
-                                <ErrorMessage name="fecha" component={() => (<div className="error">{errors.fecha}</div>)} />
+                                <ErrorMessage name="fnacimiento" component={() => (<div className="error">{errors.fnacimiento}</div>)} />
                             </div>
                             <div>
                                 <div>
@@ -193,11 +201,11 @@ function FormHuesped() {
                                     <Field
                                         className="formhuesped-input"
                                         type="text"
-                                        name="correo"
-                                        id="correo"
+                                        name="email"
+                                        id="email"
                                     />
                                 </div>
-                                <ErrorMessage name="correo" component={() => (<div className="error">{errors.correo}</div>)} />
+                                <ErrorMessage name="email" component={() => (<div className="error">{errors.email}</div>)} />
                             </div>
                             <div>
                                 <div>
@@ -214,7 +222,7 @@ function FormHuesped() {
                             <div>
                                 <div>
                                     <label>País de origen  </label>
-                                    <Field as="select" name="pais" id="pais">
+                                    <Field as="select" name="paisorigen" id="paisorigen">
                                         <option value="AF">Afganistán</option>
                                         <option value="AL">Albania</option>
                                         <option value="DE">Alemania</option>
@@ -451,16 +459,16 @@ function FormHuesped() {
                                         <option value="ZW">Zimbabue</option>
                                     </Field >
                                 </div>
-                                <ErrorMessage name="pais" component={() => (<div className="error">{errors.pais}</div>)} />
+                                <ErrorMessage name="paisorigen" component={() => (<div className="error">{errors.paisorigen}</div>)} />
                             </div>
                             <div>
                                 <div>
                                     <label>Foto </label>
                                     <div >
-                                        <Field className="formhuesped-image" type="file" name="file" id="file" accept=".jpg,.png" />
+                                        <Field className="formhuesped-image" type="file" name="img" id="img" accept=".jpg,.png" />
                                     </div>
                                 </div>
-                                <ErrorMessage name="file" component={() => (<div className="error">{errors.file}</div>)} />
+                                <ErrorMessage name="img" component={() => (<div className="error">{errors.img}</div>)} />
                             </div>
                             <div>
                                 <div>
@@ -468,11 +476,11 @@ function FormHuesped() {
                                     <Field
                                         className="formhuesped-input"
                                         type="password"
-                                        name="contraseña"
-                                        id="contraseña"
+                                        name="password"
+                                        id="password"
                                     />
                                 </div>
-                                <ErrorMessage name="contraseña" component={() => (<div className="error">{errors.contraseña}</div>)} />
+                                <ErrorMessage name="password" component={() => (<div className="error">{errors.password}</div>)} />
                             </div>
                             <div>
                                 <div>
