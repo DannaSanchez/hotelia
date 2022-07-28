@@ -12,6 +12,7 @@ function FormHabitaciones() {
     /* 1. Definir url del API a la que me voy a conectar */
     const url = "https://app-hotelia3.herokuapp.com/habitaciones";
     /*2.Generar fución asincrona*/
+
     const getData = async () => {
         const response = axios.get(url);
         return response;
@@ -19,6 +20,7 @@ function FormHabitaciones() {
 
     /*3. UseState para guardar la respuesta de la petición*/
     const [list, setList] = useState([]);
+    const [filtro, setFiltro] = useState([]);
     /*5.Crear otro estado para refrescar el listado despues de eliminar*/
     const [upList, setUplist] = useState([false]);
 
@@ -29,7 +31,45 @@ function FormHabitaciones() {
             setList(response.data);
         })
     }, [upList])
-    console.log([list]);
+
+    const [input, setInput] = useState({
+        numadultos: '',
+        numninos: ''
+    });
+
+    const ultimoValor = e => {
+        const { target } = e;
+        const { name, value } = target;
+
+        const newValue = {
+            ...input,
+            [name]: value,
+        }
+        setInput(newValue);
+    }
+
+    /*const sumaPersonas = e => {
+        e.preventDefault();
+        const numadultos = parseInt(input.numadultos);
+        const numninos = parseInt(input.numninos);
+        const totalPersonas = parseInt(numadultos + numninos);
+        alert("La cantidad de personas que se alojará es: " + totalPersonas);
+
+    }*/
+
+
+    const [search, setSearch] = useState("");
+
+    const handleChange1 = e => {
+        setSearch(e.target.value);
+        filtrar(e.target.value);
+    }
+
+    const filtrar = (teamSearch) => {
+        var totalPersonas = list.filter(li => li.capacidad > teamSearch)
+        setFiltro(totalPersonas);
+        console.log(totalPersonas);
+    }
 
     return (
 
@@ -42,12 +82,17 @@ function FormHabitaciones() {
                     <Formik
 
                         initialValues={{
-                            numadultos: '0',
-                            numninos: '0'
+                            numadultos: '',
+                            numninos: ''
                         }}
 
                         validate={(valores) => {
                             let errores = {};
+
+                            let numadultos = parseInt(input.numadultos);
+                            let numninos = parseInt(input.numninos);
+                            let totalPersonas = parseInt(numadultos + numninos);
+                            console.log(totalPersonas);
 
                             //Validación cantidad adultos
                             if (!/^[0-9]{1,2}$/.test(valores.numadultos)) {
@@ -68,11 +113,23 @@ function FormHabitaciones() {
                             console.log("enviado");
                         }}
 
+                        onChange={()=>{
+                            
+                        }}
+
                     >
                         {({ values, errors, handleSubmit, handleChange, handleBlur }) => (
+
                             <form className='cont-form-room' onSubmit={handleSubmit}>
+
+                                <div>
+                                    <input type='text'
+                                        value={search}
+                                        placeholder="Busqueda de habitaciones"
+                                        onChange={handleChange1} />
+                                </div>
                                 <div className='cont-entrada'>
-                                    <label for='entrada'>Entrada: </label>
+                                    <label htmlFor='entrada'>Entrada: </label>
                                     <input
                                         name='entrada'
                                         type='date'
@@ -80,20 +137,23 @@ function FormHabitaciones() {
                                     />
                                 </div>
                                 <div className='cont-salida'>
-                                    <label for='salida'>Salida: </label>
+                                    <label htmlFor='salida'>Salida: </label>
                                     <input
                                         name='salida'
                                         type='date'
                                         min={disableDate}
                                     />
                                 </div>
+
                                 <div className='input-adultos'>
                                     <label>Adultos: </label>
                                     <input
                                         name='numadultos'
                                         type='number'
-                                        value={values.numadultos}
-                                        onChange={handleChange}
+                                        //value={values.numadultos}
+                                        value={input.numadultos}
+                                        //onChange={handleChange}
+                                        onChange={ultimoValor}
                                         onBlur={handleBlur}
                                         max="10"
                                     />
@@ -106,8 +166,10 @@ function FormHabitaciones() {
                                     <input
                                         name='numninos'
                                         type='number'
-                                        value={values.numninos}
-                                        onChange={handleChange}
+                                        //value={values.numninos}
+                                        value={input.numninos}
+                                        //onChange={handleChange}
+                                        onChange={ultimoValor}
                                         onBlur={handleBlur}
                                         max="10"
                                     />
@@ -115,7 +177,7 @@ function FormHabitaciones() {
                                     {errors.numninos && <div className='error message-validate'>{errors.numninos}</div>}
 
                                 </div>
-                                <button type='submit' className='item-ver'>
+                                <button type='button' onClick={filtrar} className='item-ver'>
                                     Ver habitaciones disponibles
                                 </button>
                             </form>
@@ -126,7 +188,7 @@ function FormHabitaciones() {
 
             <div className='cont-cards'>
                 {
-                    list.map((es, index) => (
+                    filtro.map((es, index) => (
                         <CardRoom
                             key={index}
                             habitaciones={es}
@@ -136,7 +198,9 @@ function FormHabitaciones() {
                     ))
                 }
 
+
             </div>
+
         </div>
     );
 }

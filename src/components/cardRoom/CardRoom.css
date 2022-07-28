@@ -144,6 +144,62 @@ i {
     font-size: 17px;
 }
 
+/*Modal reserva*/
+
+.log-modal-reserve{
+    width: 11rem;
+    margin: 8% auto;
+}
+
+.cont-form-reserve{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cont-form-reserve input{
+    font-size: 14px;
+    width: 400px;
+    background-color: #F0F0F0;
+    border: transparent;
+    border-radius: 3px;
+    padding: 2px 5px;
+    box-shadow: 1px 1px 1px var(--gris);
+}
+
+.input-fullname label{
+    margin: 5% 0 4% 5%;
+}
+
+.input-fullname input{
+    margin-left: 4.5%;
+}
+
+.input-doc label{
+    margin: 7% 0 4% 5%;
+}
+
+.input-doc input{
+    margin-left: 4.5%;
+}
+
+.message-validate-reserve{
+    color: #e92b2d;
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 15px;
+    margin-left: 5%;
+}
+
+.text-value-nigth{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.total-nigth{
+    color: var(--verdeazul);
+}
+
 @media screen and (min-width:768px) {
 
     .price-text {

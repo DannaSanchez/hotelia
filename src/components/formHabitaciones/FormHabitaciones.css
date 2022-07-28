@@ -5,6 +5,7 @@
 .title-room {
     display: flex;
     justify-content: center;
+    margin-left: 21.5%;
     background-color: var(--azuloscuro);
     width: 280px;
     padding: 5px 3px 1px 3px;
@@ -105,9 +106,10 @@
     }
 
     .title-room {
-        width: 350px;
+        width: 330px;
         text-align: center;
-        padding: 2% 1%;
+        padding: 1.5% 0.5% 1% 0;
+        margin-left: 35.7%;
     }
 
     .box-form {
@@ -143,7 +145,7 @@
     }
 
     .title-room {
-        padding: 2% 0.2%;
+        padding: 3% -1% 1% 0;
     }
     
     .box-form {
@@ -171,7 +173,8 @@
     
 .cont-cards{
     display: flex;
-    margin-top: 3.2%;
+    flex-wrap: wrap;
+    margin-top: 1%;
     margin-left: 13%;
 }
 

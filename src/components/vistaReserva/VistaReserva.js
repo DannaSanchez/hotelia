@@ -8,6 +8,7 @@ function VistaReserva() {
     /* 1. Definir url del API a la que me voy a conectar */
     const url = "https://app-hotelia3.herokuapp.com/reservas";
     /*2.Generar fución asincrona*/
+
     const getData = async () => {
         const response = axios.get(url);
         return response;

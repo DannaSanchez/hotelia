@@ -6,10 +6,7 @@ import { Link } from 'react-router-dom';
 
 function SidebarHuesped() {
 
-    const goroom = () => {
-
-    }
-    return (
+        return (
         <nav className='sidebar'>
             <div className="top-nav">
                 <img src={iconologo} alt='logo-hotelia' className='logo-nav' />
@@ -24,20 +21,20 @@ function SidebarHuesped() {
             </div>
             <div className='center-nav'>
                 <div className='item-sidenav'>
-                    <i class="fa-solid fa-bed"></i>
+                    <i className="fa-solid fa-bed"></i>
                     <Link to="/habitaciones-huesped" className="item-sidenav2">Habitaciones</Link>
                 </div>
                 <div className='item-sidenav'>
-                <i class="fa-solid fa-calendar-days"></i>
+                <i className="fa-solid fa-calendar-days"></i>
                     <Link to="/reservas-huesped" className="item-sidenav2">Mis Reservas</Link>
                 </div>
                 <div className='item-sidenav'>
-                <i class="fa-solid fa-user-pen"></i>
+                <i className="fa-solid fa-user-pen"></i>
                     <Link to="/editarperfil" className="item-sidenav2">Ver Perfil</Link>
                 </div>
             </div>
             <button className='final-nav'>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
                 <p>Cerrar sesión</p>
             </button>
         </nav>

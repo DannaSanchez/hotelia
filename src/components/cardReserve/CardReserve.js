@@ -5,6 +5,8 @@ import dobleroom from '../../img/doble-room.jpg';
 
 function CardReserve({reservas}) {
 
+    console.log(reservas.habitaciones.nombrehab);
+
     const cancelarReserva = () => {
         Swal.fire({
             icon: 'warning',
@@ -29,7 +31,7 @@ function CardReserve({reservas}) {
                     <p><span>Fecha de salida:  </span>{reservas.fsalida}</p>
                     <p><span>Cantidada de noches:  </span>{reservas.cantidadNoches}</p>
                     <p><span>Fecha de reserva:  </span>{reservas.freserva}</p>
-                    <p><span>Habitación:  </span>Doble<br /> Cama doble, dos mesitas de noche, tocador, televisor plasma con vista a la calle.</p>
+                    <p><span>Habitación:  </span>{reservas.habitaciones.nombrehab}<br /> Cama doble, dos mesitas de noche, tocador, televisor plasma con vista a la calle.</p>
                     <p className='text-center text-totalvalue'><span>VALOR TOTAL:  </span>$ {reservas.totalreserva}</p>
                     <Button className='item-reservar item-cancelar' onClick={cancelarReserva}>Cancelar</Button>
                 </Card.Body>
