@@ -48,27 +48,23 @@ function FormHabitaciones() {
         setInput(newValue);
     }
 
-    /*const sumaPersonas = e => {
+    const [search, setSearch] = useState("");
+
+    const handleChange1 = e => {
         e.preventDefault();
         const numadultos = parseInt(input.numadultos);
         const numninos = parseInt(input.numninos);
         const totalPersonas = parseInt(numadultos + numninos);
-        alert("La cantidad de personas que se alojará es: " + totalPersonas);
-
-    }*/
-
-
-    const [search, setSearch] = useState("");
-
-    const handleChange1 = e => {
-        setSearch(e.target.value);
-        filtrar(e.target.value);
+        console.log(totalPersonas);
+        setSearch(totalPersonas);
+        filtrar(totalPersonas);
     }
 
-    const filtrar = (teamSearch) => {
-        var totalPersonas = list.filter(li => li.capacidad > teamSearch)
-        setFiltro(totalPersonas);
-        console.log(totalPersonas);
+    const filtrar = (search1) => {
+        
+        var res = list.filter(li => li.capacidad === search1);
+        setFiltro(res);
+        console.log(res);
     }
 
     return (
@@ -89,11 +85,6 @@ function FormHabitaciones() {
                         validate={(valores) => {
                             let errores = {};
 
-                            let numadultos = parseInt(input.numadultos);
-                            let numninos = parseInt(input.numninos);
-                            let totalPersonas = parseInt(numadultos + numninos);
-                            console.log(totalPersonas);
-
                             //Validación cantidad adultos
                             if (!/^[0-9]{1,2}$/.test(valores.numadultos)) {
                                 errores.numadultos = 'Ingrese la cantidad adultos'
@@ -113,21 +104,19 @@ function FormHabitaciones() {
                             console.log("enviado");
                         }}
 
-                        onChange={()=>{
-                            
-                        }}
+
 
                     >
                         {({ values, errors, handleSubmit, handleChange, handleBlur }) => (
 
                             <form className='cont-form-room' onSubmit={handleSubmit}>
 
-                                <div>
+                                {/*<div>
                                     <input type='text'
                                         value={search}
                                         placeholder="Busqueda de habitaciones"
-                                        onChange={handleChange1} />
-                                </div>
+                                        onChange={''} />
+                        </div>*/}
                                 <div className='cont-entrada'>
                                     <label htmlFor='entrada'>Entrada: </label>
                                     <input
@@ -177,7 +166,7 @@ function FormHabitaciones() {
                                     {errors.numninos && <div className='error message-validate'>{errors.numninos}</div>}
 
                                 </div>
-                                <button type='button' onClick={filtrar} className='item-ver'>
+                                <button type='button' value={search} onClick={handleChange1} className='item-ver'>
                                     Ver habitaciones disponibles
                                 </button>
                             </form>
