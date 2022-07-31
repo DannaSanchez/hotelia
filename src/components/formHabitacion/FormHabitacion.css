@@ -127,6 +127,15 @@
     opacity: 0;
 }
 
+
+.room-form-register{
+    width: 100%;
+}
+
+.modify-room__buttons__register{
+    margin: 40px auto;
+}
+
 @media screen and (min-width:768px) {
 
     .modify-room__form-section-primary{

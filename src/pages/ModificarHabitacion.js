@@ -1,8 +1,5 @@
 import habitacion1 from '../img/habitaciones/habitacion1.png';
-import habitacion1_2 from '../img/habitaciones/habitacion1-2.png';
-import habitacion1_3 from '../img/habitaciones/habitacion1-3.png';
-import habitacion1_4 from '../img/habitaciones/habitacion1-4.png';
-import habitacion1_5 from '../img/habitaciones/habitacion1-5.png';
+
 import { Label, GrupoInput, GrupoCheckbox, Input, Textarea } from '../elements/formStyle/FormStyle';
 
 import {Button} from 'react-bootstrap';
@@ -112,43 +109,6 @@ function ModificarHabitacion() {
                         </GrupoCheckbox>
                     </div>
                 </div>
-
-            <div className='modify-room__additional-information'>
-
-                <h3 className='modify-room__subtitle'>Galería</h3>
-
-                <div className='modify-room__galery'>
-
-                    <div className='modify-room__image'>
-                        <img src={habitacion1_2} alt='habitación doble' />
-                        <div className='modify-room__icon'>
-                            <i class="fa-solid fa-pen"></i>
-                        </div>
-                    </div>
-
-                    <div className='modify-room__image'>
-                        <img src={habitacion1_3} alt='habitación doble' />
-                        <div className='modify-room__icon'>
-                            <i class="fa-solid fa-pen"></i>
-                        </div>
-                    </div>
-
-                    <div className='modify-room__image'>
-                        <img src={habitacion1_4} alt='habitación doble' />
-                        <div className='modify-room__icon'>
-                            <i class="fa-solid fa-pen"></i>
-                        </div>
-                    </div>
-
-                    <div className='modify-room__image'>
-                        <img src={habitacion1_5} alt='habitación doble' />
-                        <div className='modify-room__icon'>
-                            <i class="fa-solid fa-pen"></i>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
 
             <div className='modify-room__state'>
                 <h4>Estado</h4>

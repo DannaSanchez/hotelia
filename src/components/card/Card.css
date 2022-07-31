@@ -84,6 +84,66 @@
     font-weight: 600;
 }
 
+.card-admin__description-icon {
+    color: black;
+}
+
+.card-admin__description-text{
+    display: flex;
+    justify-content: space-around;
+}
+
+.list-rooms__card img{
+    height: 200px;
+}
+
+.card-admin__description-text{
+    height: 45px;
+}
+
+.card-admin__cardButtonPrincipal{
+    color:white;
+    background-color: black;
+    font-size: 18px;
+    padding: 6.5px;
+    border-radius: 5px;
+    border: none;
+    width: 40%;
+}
+
+.card-admin__cardButtonSecondary{
+    color:white;
+    background-color: var(--Magenta);
+    font-size: 18px;
+    padding: 6.5px;
+    border-radius: 5px;
+    border: none;
+    width: 40%;
+}
+
+.card-admin__modal-actual-state{
+    font-size: 18px;
+}
+
+
+/* Card de reserva para administrador */
+.card-admin__booking{
+    width: 95%;
+    margin: auto;
+}
+
+.card-admin__booking-header{
+    background-color: var(--degradado);
+}
+
+.booking-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    margin-top: 10px;
+}
+
 @media screen and (min-width:768px) {
     .list-rooms{
         display: flex;

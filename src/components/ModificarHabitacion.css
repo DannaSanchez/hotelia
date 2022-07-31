@@ -64,6 +64,17 @@
     width: 100%;
 }
 
+.image__form{
+    width: 40%;
+    margin-right: 5%;
+    height: 100px;
+}
+
+.image__form img{
+    width: 100%;
+    background-color: aqua;
+}
+
 .modify-room__image{
     min-width: 120px;
     max-width: 250px;
@@ -178,6 +189,12 @@
 
 .room-register-admon__form{
     width: 85%;
+}
+
+.modify-room__information-basic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (min-width:768px) {
