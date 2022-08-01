@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import { Modal, ModalFooter, Form, ModalTitle, ModalBody } from 'react-bootstrap';
+import { ModalFooter, Form, ModalTitle, ModalBody } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
 
 //import Cards from "../components/card/Card";
 import SidebarAdmon from "../components/sidebar/SidebarAdmon";
 //import ImageSlider from "../components/newcard/ImageSlider";
 //import ListCardAdmin from "../components/listadoAdmin/ListCardAdmin";
 import CardAdmin from '../components/listadoAdmin/CardAdmin';
+import IconoNevera from '../img/bxs-fridge.svg';
 
 function ListadoHabitacion (){
 
@@ -38,7 +40,7 @@ function ListadoHabitacion (){
                     setDataModal({
                         ...dataModal,
                         [target.name]: target.value
-                    })
+                    }) 
                 }
 
                 /* Agregar una constante para actualizar el estado del modal */
@@ -161,7 +163,12 @@ function ListadoHabitacion (){
                 ))
                 }
 
-                <Modal show={show} onHide={handleClose} className="modal">
+                <Modal 
+                    show={show} 
+                    onHide={handleClose} 
+                    className='modal'
+                    size="lg"
+                >
                     
                     <Modal.Header closeButton className='header'>
                         <ModalTitle className='Tittle'>
@@ -172,18 +179,34 @@ function ListadoHabitacion (){
                     <Form onSubmit={handleSubmit}>
                         
                         <ModalBody className='modal-body'>
-                        
-                            <Form.Group class="mb-3">
-                                <Form.Label className='label'>Nombre de la habitación</Form.Label>
-                                <Form.Control className='input'
-                                    type="text"
-                                    name="nombrehab"
-                                    required
-                                    value={dataModal.nombrehab}
-                                    onChange={handleChangeModal}
-                                />
-                            </Form.Group>
 
+                            <h4 className="title-room-information">Información básica</h4>
+
+                            <div className="modal-body-information">
+                                <Form.Group class="mb-3">
+                                    <Form.Label className='label'>Nombre de la habitación</Form.Label>
+                                    <Form.Control className='input'
+                                        type="text"
+                                        name="nombrehab"
+                                        required
+                                        value={dataModal.nombrehab}
+                                        onChange={handleChangeModal}
+                                    />
+                                </Form.Group>
+
+                                <Form.Group class="mb-3">
+                                    <Form.Label className='label'>N° de la habitación</Form.Label>
+                                    <Form.Control className='input'
+                                        type="number"
+                                        name="_id"
+                                        required
+                                        value={dataModal._id}
+                                        disabled
+                                    />
+                                </Form.Group>
+                            </div>
+                            
+                            <div className="title-room-information__secondary">
                             <Form.Group class="mb-3">
                                 <Form.Label className='label'>N° camas</Form.Label>
                                 <Form.Control
@@ -217,11 +240,13 @@ function ListadoHabitacion (){
                                     onChange={handleChangeModal}
                                 />
                             </Form.Group>
+                            </div>
 
                             <Form.Group class="mb-3">
                                 <Form.Label className='label'>Descripción</Form.Label>
                                 <Form.Control
-                                    type="textarea"
+                                    as="textarea"
+                                    rows={3}
                                     placeholder="Descripción de la habitación"
                                     name="descripcion"
                                     required
@@ -230,18 +255,163 @@ function ListadoHabitacion (){
                                 />
                             </Form.Group>
 
+                            <Form.Group class="mb-3">
+                                <Form.Label className='label'>Imagen</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="img"
+                                    required
+                                    value={dataModal.img}
+                                    onChange={handleChangeModal}
+                                />
+                            </Form.Group>
+
+                            <h4 className="title-room-information">Información adicional</h4>
+
+                            <div className="room-information__adittional">
+                            <Form.Group class="mb-3" className="room-information__radio">
+                                <div className="room-information__radio-item">
+                                    <i class="fa-solid fa-toilet"></i> <p>Baño</p>
+                                </div>
+                                <div className="room-information__radio-group">
+                                <Form.Label className='label'>Si</Form.Label>
+                                <Form.Check
+                                    type="radio"
+                                    name="banio"
+                                    id='si'
+                                    value='si'
+                                    onChange={handleChangeModal}
+                                />
+                                </div>
+                                <div className="room-information__radio-group">
+                                <Form.Label className='label'>No</Form.Label>
+                                <Form.Check
+                                    type="radio"
+                                    name="banio"
+                                    id='no'
+                                    value='no'
+                                    onChange={handleChangeModal}
+                                />
+                                </div>
+                            </Form.Group>
+
+                            <Form.Group class="mb-3" className="room-information__radio">
+                                <div className="room-information__radio-item">
+                                    <i class="fa-solid fa-tv"></i> <p>Televisión</p>
+                                </div>
+                                <div className="room-information__radio-group">
+                                <Form.Label className='label'>Si</Form.Label>
+                                <Form.Check
+                                    type="radio"
+                                    name="tv"
+                                    id='si'
+                                    value='si'
+                                    onChange={handleChangeModal}
+                                />
+                                </div>
+                                <div className="room-information__radio-group">
+                                <Form.Label className='label'>No</Form.Label>
+                                <Form.Check
+                                    type="radio"
+                                    name="tv"
+                                    id='no'
+                                    value='no'
+                                    onChange={handleChangeModal}
+                                />
+                                </div>
+                            </Form.Group>
+
+                            <Form.Group class="mb-3" className="room-information__radio">
+                                <div className="room-information__radio-item">
+                                    <i class="fa-solid fa-wifi"></i> <p>Wifi</p>
+                                </div>
+                                <div className="room-information__radio-group">
+                                <Form.Label className='label'>Si</Form.Label>
+                                <Form.Check
+                                    type="radio"
+                                    name="wifi"
+                                    id='si'
+                                    value='si'
+                                    onChange={handleChangeModal}
+                                />
+                                </div>
+                                <div className="room-information__radio-group">
+                                <Form.Label className='label'>No</Form.Label>
+                                <Form.Check
+                                    type="radio"
+                                    name="wifi"
+                                    id='no'
+                                    value='no'
+                                    onChange={handleChangeModal}
+                                />
+                                </div>
+                            </Form.Group>
+
+                            <Form.Group class="mb-3" className="room-information__radio">
+                                <div className="room-information__radio-item">
+                                <div><img src={IconoNevera} alt="Icono de nevera" /></div> <p>Nevera</p>
+                                </div>
+                                <div className="room-information__radio-group">
+                                <Form.Label className='label'>Si</Form.Label>
+                                <Form.Check
+                                    type="radio"
+                                    name="nevera"
+                                    id='si'
+                                    value='si'
+                                    onChange={handleChangeModal}
+                                />
+                                </div>
+                                <div className="room-information__radio-group">
+                                <Form.Label className='label'>No</Form.Label>
+                                <Form.Check
+                                    type="radio"
+                                    name="nevera"
+                                    id='no'
+                                    value='no'
+                                    onChange={handleChangeModal}
+                                />
+                                </div>
+                            </Form.Group>
+
+                            <Form.Group class="mb-3" className="room-information__radio">
+                                <div className="room-information__radio-item">
+                                    <i class="fa-solid fa-vault"></i> <p>Caja fuerte</p>
+                                </div>
+                                <div className="room-information__radio-group">
+                                <Form.Label className='label'>Si</Form.Label>
+                                <Form.Check
+                                    type="radio"
+                                    name="cajafuerte"
+                                    id='si'
+                                    value='si'
+                                    onChange={handleChangeModal}
+                                />
+                                </div>
+                                <div className="room-information__radio-group">
+                                <Form.Label className='label'>No</Form.Label>
+                                <Form.Check
+                                    type="radio"
+                                    name="cajafuerte"
+                                    id='no'
+                                    value='no'
+                                    onChange={handleChangeModal}
+                                />
+                                </div>
+                            </Form.Group>
+                            </div>
+
                         </ModalBody>
 
                         <ModalFooter className='footer'>
-                            <button className='btn btn-secondary' onClick={handleClose}>Cerrar</button>
-                            <button className='btn btn-primary' type="submit">Guardar cambios</button>
+                            <button className='card-admin__cardButtonSecondary' onClick={handleClose}>Cerrar</button>
+                            <button className='card-admin__cardButtonPrincipal' type="submit">Guardar cambios</button>
                         </ModalFooter>
 
                     </Form>
 
                 </Modal>
 
-                <Modal show={showState} onHide={handleCloseState} className="modal">
+                <Modal show={showState} onHide={handleCloseState} className="modal" centered>
                     
                     <Modal.Header closeButton className='header'>
                         <ModalTitle className='Tittle'>

@@ -51,7 +51,12 @@ function FormHabitacion() {
                     capacidad: '',
                     descripcion: '',
                     estado: 'Disponible',
-                    img:''
+                    img:'',
+                    cajafuerte:'',
+                    nevera:'',
+                    banio:'',
+                    wifi:'',
+                    tv:''
                 }}
 
                 validate={(valores) => {
@@ -92,17 +97,17 @@ function FormHabitacion() {
                         errores.valornoche = 'Min 5 dígitos, máx 12 dígitos'
                     }
 
-                    //Valdación descripción
+                    //Validación descripción
                     if (!valores.descripcion) {
                         errores.descripcion = 'Por favor ingresa una descripción'
                     } else if (!/^[^$%&|<>#]{1,500}$/.test(valores.descripcion)) {
                         errores.descripcion = 'Descripción demasiado extensa'
                     }
 
-                    //Valdación imagen
-                    if(!valores.img){
+                     //Validación imagen
+                     if(!valores.img){
                         errores.img = 'Por favor añade una imagen'
-                    } 
+                    }   
 
                     return errores;
                 }}
@@ -116,7 +121,7 @@ function FormHabitacion() {
                 }}
             >
 
-                {({ errors }) => (
+                {({ errors}) => (
 
                     <ContainerForm>
                         <h1 className='room-registration-form__title'>Registro de nueva habitación</h1>
@@ -128,43 +133,19 @@ function FormHabitacion() {
                                 <div className='modify-room__image-principal image__form'>
                                     <div className="App">
                                         <div className="container-img">
-                                            <div className="imgPreview"
-                                                style={{
-                                                    background: imgPreview
-                                                        ? `url("${imgPreview}") no-repeat center/cover`
-                                                        : "#131313"
-                                                }}
-                                            >
-                                                {!imgPreview && (
-                                                    <>
-                                                        <p>Añade una imagen</p>
-                                                        <label htmlFor="img" className="customFileUpload">Seleccionar Archivo</label>
-                                                        <input 
-                                                            type='file' 
-                                                            id="img" 
-                                                            name='img'
-                                                            onChange={handleImageChange} 
-                                                        />
-                                                        <span>(jpg, jpeg o png)</span>
-                                                    </>
-                                                )}
-                                            </div>
-                                            {error && <p className="errorMsg">Formato inválido</p>}
-                                            <ErrorMessage name='img' component={() => (<div className='login__error'>{errors.img}</div>)} />
-                                            {imgPreview && <button className='button__image' onClick={() => setImgPreview(null)}>Remover</button>}
-
-                                            {/* <div>
-                                                <label htmlFor='file' className='modify-room__icon'><i class="fa-solid fa-pen"></i></label>
+                                            
+                                             <div>
+                                                <label htmlFor='img' className='modify-room__icon'><i class="fa-solid fa-pen"></i></label>
                                                 <Field 
                                                     type='file' 
-                                                    id='file' 
-                                                    name='file' 
+                                                    id='img' 
+                                                    name='img' 
 
                                                     className="login__input"
                                                 />
 
                                             </div>
-                                            <ErrorMessage name='file' component={() => (<div className='login__error'>{errors.file}</div>)}/> */}
+                                            <ErrorMessage name='file' component={() => (<div className='login__error'>{errors.img}</div>)}/> 
                                         </div>
                                     </div>
                                 </div>
@@ -277,7 +258,11 @@ function FormHabitacion() {
                                 <div className='modify-room__additional-services'>
 
                                     <GrupoCheckbox className='additional-services__checkbox'>
-                                        <input type='checkbox' />
+                                        <Field 
+                                            type='checkbox' 
+                                            name='cajafuerte'
+                                            id='cajafuerte'
+                                            />
                                         <div className='additional-services_checkbox_icon'>
                                             <i class="fa-solid fa-vault"></i>
                                         </div>
@@ -285,7 +270,11 @@ function FormHabitacion() {
                                     </GrupoCheckbox>
 
                                     <GrupoCheckbox className='additional-services__checkbox'>
-                                        <input type='checkbox' />
+                                        <Field 
+                                            type='checkbox'
+                                            name='tv'
+                                            id='tv'
+                                        />
                                         <div className='additional-services_checkbox_icon'>
                                             <i class="fa-solid fa-tv"></i>
                                         </div>
@@ -293,7 +282,11 @@ function FormHabitacion() {
                                     </GrupoCheckbox>
 
                                     <GrupoCheckbox className='additional-services__checkbox'>
-                                        <input type='checkbox' />
+                                        <Field 
+                                            type='checkbox'
+                                            name='wifi'
+                                            id='wifi' 
+                                        />
                                         <div className='additional-services_checkbox_icon'>
                                             <i class="fa-solid fa-wifi"></i>
                                         </div>
@@ -301,31 +294,11 @@ function FormHabitacion() {
                                     </GrupoCheckbox>
 
                                     <GrupoCheckbox className='additional-services__checkbox'>
-                                        <input type='checkbox' />
-                                        <div className='additional-services_checkbox_icon'>
-                                            <i class="fa-solid fa-snowflake"></i>
-                                        </div>
-                                        <p>Aire acondicionado</p>
-                                    </GrupoCheckbox>
-
-                                    <GrupoCheckbox className='additional-services__checkbox'>
-                                        <input type='checkbox' />
-                                        <div className='additional-services_checkbox_icon'>
-                                            <i class="fa-solid fa-dumbbell"></i>
-                                        </div>
-                                        <p>Gimnasio</p>
-                                    </GrupoCheckbox>
-
-                                    <GrupoCheckbox className='additional-services__checkbox'>
-                                        <input type='checkbox' />
-                                        <div className='additional-services_checkbox_icon'>
-                                            <i class="fa-solid fa-bell-concierge"></i>
-                                        </div>
-                                        <p>Servicio habitación</p>
-                                    </GrupoCheckbox>
-
-                                    <GrupoCheckbox className='additional-services__checkbox'>
-                                        <input type='checkbox' />
+                                        <Field 
+                                            type='checkbox' 
+                                            name='banio'
+                                            id='banio'
+                                        />
                                         <div className='additional-services_checkbox_icon'>
                                             <i class="fa-solid fa-toilet"></i>
                                         </div>
@@ -333,7 +306,11 @@ function FormHabitacion() {
                                     </GrupoCheckbox>
 
                                     <GrupoCheckbox className='icon-fridge'>
-                                        <input type='checkbox' />
+                                        <Field 
+                                            type='checkbox' 
+                                            name='nevera'
+                                            id='nevera'
+                                        />
                                         <div className='additional-services_checkbox_icon'>
                                             <img src={IconoNevera} alt="Icono de nevera" />
                                         </div>

@@ -197,6 +197,75 @@
     justify-content: center;
 }
 
+.room-information__radio{
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    width: 300px;
+    padding: 5px;
+    border: 2px dashed rgba(0, 0, 255, 0.215);
+}
+
+.room-information__radio-item{
+    display: flex;
+    align-items: center;
+    width: 150px;
+}
+
+.room-information__radio-item p{
+    margin: auto 5px;
+}
+
+.room-information__radio-item img{
+    height: 30px;
+    margin: auto 5px;
+}
+
+.room-information__radio-item div{
+    width: 50px;
+    text-align: center;
+}
+
+.room-information__radio i{
+    color: black;
+    width: 50px;
+    font-size: 30px;
+    text-align: center;
+} 
+ 
+.room-information__radio-group{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+.room-information__radio-group label{
+    margin: auto 8px;
+}
+
+.title-room-information{
+    border-bottom: 1px solid black;
+    margin: 10px 0 25px 0;
+}
+
+.modal-body-information{
+    display: grid;
+    grid-template-columns: 55.5% 43.5%;
+    column-gap: 10px;
+}
+
+.title-room-information__secondary{
+    display: grid;
+    grid-template-columns: 27% 27% 43.5%;
+    column-gap: 10px;
+}
+
+.room-information__adittional{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 @media screen and (min-width:768px) {
     .modify-room{
         display: flex;

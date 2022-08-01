@@ -1,15 +1,15 @@
 import { Card, Button } from 'react-bootstrap';
 
-//import axios from 'axios'
-//import Swal from 'sweetalert2';
+import axios from 'axios'
+import Swal from 'sweetalert2';
 
 import '../card/Card.css'
 
 function CardRoom({ habitaciones, setUplist, upList, handleOpen, setDataModal, handleOpenState, setDataModalState  }) {
 
-    //const url="https://app-hotelia3.herokuapp.com/habitaciones";
+    const url="https://app-hotelia3.herokuapp.com/habitaciones";
 
-    /*const handleDelete=async()=>{
+    const handleDelete=async()=>{
         Swal.fire({
             title: '¿Está seguro que desea eliminar este habitación?',
             text: "¡No puede revertir esta acción!",
@@ -44,7 +44,7 @@ function CardRoom({ habitaciones, setUplist, upList, handleOpen, setDataModal, h
               
             }
           })
-    }*/
+    }
 
     const handleEdit=()=>{
         handleOpen();
@@ -56,11 +56,19 @@ function CardRoom({ habitaciones, setUplist, upList, handleOpen, setDataModal, h
         setDataModalState(habitaciones);
     }
 
+
     return (
             <Card  style={{ width: '20rem' }} key={habitaciones._id} className="list-rooms__card">
-                <Card.Img variant="top" src={`https://app-hotelia3.herokuapp.com${habitaciones.img}`}/>
-                <Card.Title className="list-rooms__cardTitle">{habitaciones.nombrehab}</Card.Title>
-                
+                <div className='container-image-room'>
+                    <Card.Img variant="top" src={`https://app-hotelia3.herokuapp.com${habitaciones.img}`}/>
+                    <Card.Title className="list-rooms__cardTitle">{habitaciones.nombrehab}</Card.Title>
+
+                    <Card.Text className='card-admin__layer'>
+                        <h2 className='no-disponible'>No disponible</h2>
+                        <h2 className='en-mantenimiento'>En mantenimiento</h2>
+                    </Card.Text>
+                </div>
+
                 <Card.Body>    
                     <Card.Text className='card-admin__description'>
                         <p className='list-rooms__cardPrice'>${habitaciones.valornoche} COP</p>

@@ -6,6 +6,7 @@ import CardReserva from "../components/listadoAdmin/ReservationTable";
 import '../components/listadoAdmin/ReservaAdmin.css'
 
 import Imagen from '../components/formHabitacion/Imagen';
+import Example from '../components/listadoAdmin/Modal';
 
 
 function ReservaAdmin (){
@@ -53,6 +54,8 @@ function ReservaAdmin (){
                 }
  
             </div>
+
+            <Example/>
         
         </div>
     )}
