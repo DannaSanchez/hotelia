@@ -13,7 +13,6 @@ import RegistroHuesped from './pages/RegistroHuesped';
 import ReservaRealizada from './pages/ReservaRealizada';
 import ReservaAdmin from './pages/ReservaAdmin';
 
-import ListCardAdmin from './components/listadoAdmin/ListCardAdmin';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -32,7 +31,6 @@ root.render(
       <Route path='/reservas' element={<ReservaRealizada />}></Route>
       <Route path='/listado-reservas-admin' element={<ReservaAdmin />}></Route>
 
-      <Route path='/listado-admin' element={<ListCardAdmin />}></Route>
     </Routes>
   </BrowserRouter>
 );

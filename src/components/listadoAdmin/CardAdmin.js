@@ -15,7 +15,7 @@ function CardRoom({ habitaciones, setUplist, upList, handleOpen, setDataModal, h
             text: "¡No puede revertir esta acción!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: '#3085d6', 
             cancelButtonColor: '#d33',
             confirmButtonText: 'Si, ¡bórrala!',
             cancelButtonText:'Cancelar'
