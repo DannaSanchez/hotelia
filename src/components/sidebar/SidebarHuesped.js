@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function SidebarHuesped() {
 
-        return (
+    return (
         <nav className='sidebar'>
             <div className="top-nav">
                 <img src={iconologo} alt='logo-hotelia' className='logo-nav' />
@@ -20,18 +20,18 @@ function SidebarHuesped() {
                 </div>
             </div>
             <div className='center-nav'>
-                <div className='item-sidenav'>
+                <a className='item-sidenav' href='/habitaciones-huesped'>
                     <i className="fa-solid fa-bed"></i>
-                    <Link to="/habitaciones-huesped" className="item-sidenav2">Habitaciones</Link>
-                </div>
-                <div className='item-sidenav'>
-                <i className="fa-solid fa-calendar-days"></i>
-                    <Link to="/reservas-huesped" className="item-sidenav2">Mis Reservas</Link>
-                </div>
-                <div className='item-sidenav'>
-                <i className="fa-solid fa-user-pen"></i>
-                    <Link to="/editarperfil" className="item-sidenav2">Ver Perfil</Link>
-                </div>
+                    <p className='item-sidenav2 pt-4'>Habitaciones</p>
+                </a>
+                <a className='item-sidenav' href='/reservas-huesped'>
+                    <i className="fa-solid fa-calendar-days"></i>
+                    <p className='item-sidenav2 pt-4'>Mis Reservas</p>
+                </a>
+                <a className='item-sidenav' href='/editarperfil'>
+                    <i className="fa-solid fa-user-pen"></i>
+                    <p className='item-sidenav2 pt-4'>Ver Perfil</p>
+                </a>
             </div>
             <button className='final-nav'>
                 <i className="fa-solid fa-arrow-right-from-bracket"></i>

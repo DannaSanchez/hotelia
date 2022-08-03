@@ -11,7 +11,6 @@ function FormHabitaciones() {
 
     /* 1. Definir url del API a la que me voy a conectar */
     const url = "https://app-hotelia3.herokuapp.com/habitaciones";
-    /*2.Generar fución asincrona*/
 
     const getData = async () => {
         const response = axios.get(url);
@@ -23,7 +22,6 @@ function FormHabitaciones() {
     const [filtro, setFiltro] = useState([]);
     /*5.Crear otro estado para refrescar el listado despues de eliminar*/
     const [upList, setUplist] = useState([false]);
-
 
     /*4.Hook useEfect ejecuta funciones cada vez que renderizamos un componente*/
     useEffect(() => {
@@ -50,22 +48,46 @@ function FormHabitaciones() {
 
     const [search, setSearch] = useState("");
 
+
     const handleChange1 = e => {
         e.preventDefault();
         const numadultos = parseInt(input.numadultos);
         const numninos = parseInt(input.numninos);
         const totalPersonas = parseInt(numadultos + numninos);
-        console.log(totalPersonas);
+        const fechaEntrada = document.getElementById('entrada').value;
+        const fechaSalida = document.getElementById('salida').value;
+        console.log('fecha entrada', fechaEntrada);
+        console.log('fecha salida', fechaSalida);
         setSearch(totalPersonas);
         filtrar(totalPersonas);
+        //disponibilidad();
+        //fechad(fechaEntrada.value);
     }
 
+    /*const filtrar = (totalPersonas) => {
+        var resfiltro = list.filter(hab => hab.estado === "Disponible" && hab.capacidad <= totalPersonas)
+        console.log(resfiltro);
+    }*/
+
+    /*const disponibilidad = () => {
+        var resfiltro = list.filter(est => est.estado === "Disponible")
+        console.log(resfiltro);
+    }*/
+
     const filtrar = (search1) => {
-        
         var res = list.filter(li => li.capacidad === search1);
         setFiltro(res);
         console.log(res);
     }
+
+    //const fechas = url.reservas.filter(f => f.fentrada);
+
+    /*const fechad = (fecha1) => {
+        var resf = list.filter(f => f.reservas.fentrada === fecha1);
+        setFiltro(resf);
+        console.log(resf);
+    }*/
+
 
     return (
 
@@ -75,7 +97,7 @@ function FormHabitaciones() {
                     <h4>Busqueda de Habitaciones</h4>
                 </div>
                 <div className='box-form'>
-                    <Formik
+                    {/*<Formik
 
                         initialValues={{
                             numadultos: '',
@@ -107,71 +129,73 @@ function FormHabitaciones() {
 
 
                     >
-                        {({ values, errors, handleSubmit, handleChange, handleBlur }) => (
+                    {({ values, errors, handleSubmit, handleChange, handleBlur }) => (*/}
 
-                            <form className='cont-form-room' onSubmit={handleSubmit}>
+                    <form className='cont-form-room'>
 
-                                {/*<div>
+                        {/*<div>
                                     <input type='text'
                                         value={search}
                                         placeholder="Busqueda de habitaciones"
                                         onChange={''} />
                         </div>*/}
-                                <div className='cont-entrada'>
-                                    <label htmlFor='entrada'>Entrada: </label>
-                                    <input
-                                        name='entrada'
-                                        type='date'
-                                        min={disableDate}
-                                    />
-                                </div>
-                                <div className='cont-salida'>
-                                    <label htmlFor='salida'>Salida: </label>
-                                    <input
-                                        name='salida'
-                                        type='date'
-                                        min={disableDate}
-                                    />
-                                </div>
+                        <div className='cont-entrada'>
+                            <label htmlFor='entrada'>Entrada: </label>
+                            <input
+                                id='entrada'
+                                name='entrada'
+                                type='date'
+                                min={disableDate}
+                            />
+                        </div>
+                        <div className='cont-salida'>
+                            <label htmlFor='salida'>Salida: </label>
+                            <input
+                                id='salida'
+                                name='salida'
+                                type='date'
+                                min={disableDate}
+                            />
+                        </div>
 
-                                <div className='input-adultos'>
-                                    <label>Adultos: </label>
-                                    <input
-                                        name='numadultos'
-                                        type='number'
-                                        //value={values.numadultos}
-                                        value={input.numadultos}
-                                        //onChange={handleChange}
-                                        onChange={ultimoValor}
-                                        onBlur={handleBlur}
-                                        max="10"
-                                    />
+                        <div className='input-adultos'>
+                            <label htmlFor='numadultos'>Adultos: </label>
+                            <input
+                                name='numadultos'
+                                type='number'
+                                //value={values.numadultos}
+                                value={input.numadultos}
+                                //onChange={handleChange}
+                                onChange={ultimoValor}
+                                //onBlur={handleBlur}
+                                max="10"
+                            />
 
-                                    {errors.numadultos && <div className='error message-validate'>{errors.numadultos}</div>}
+                            {/*{errors.numadultos && <div className='error message-validate'>{errors.numadultos}</div>}*/}
 
-                                </div>
-                                <div className='input-ninos'>
-                                    <label>Niños: </label>
-                                    <input
-                                        name='numninos'
-                                        type='number'
-                                        //value={values.numninos}
-                                        value={input.numninos}
-                                        //onChange={handleChange}
-                                        onChange={ultimoValor}
-                                        onBlur={handleBlur}
-                                        max="10"
-                                    />
+                        </div>
+                        <div className='input-ninos'>
+                            <label htmlFor='numninos'>Niños: </label>
+                            <input
+                                name='numninos'
+                                type='number'
+                                //value={values.numninos}
+                                value={input.numninos}
+                                //onChange={handleChange}
+                                onChange={ultimoValor}
+                                //onBlur={handleBlur}
+                                max="10"
+                            />
 
-                                    {errors.numninos && <div className='error message-validate'>{errors.numninos}</div>}
+                            {/*{errors.numninos && <div className='error message-validate'>{errors.numninos}</div>}*/}
 
-                                </div>
-                                <button type='button' value={search} onClick={handleChange1} className='item-ver'>
-                                    Ver habitaciones disponibles
-                                </button>
-                            </form>
-                        )}
-                    </Formik>
+                        </div>
+                        <button type='button' value={search} onClick={handleChange1} className='item-ver'>
+                            Ver habitaciones disponibles
+                        </button>
+                    </form>
+                    {/*  )}
+                    </Formik>*/}
                 </div>
             </div>
 
@@ -190,7 +214,7 @@ function FormHabitaciones() {
 
             </div>
 
-        </div>
+        </div >
     );
 }
 

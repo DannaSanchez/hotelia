@@ -5,9 +5,46 @@ import { Formik } from 'formik';
 import dobleroom1 from '../../img/room-doble.jpg';
 import dobleroom2 from '../../img/room-doble2.jpg';
 import Logo2 from '../../img/Hotelia horizontal negro.png';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { Navigate } from 'react-router-dom';
 
 
 function CardRoom({ habitaciones }) {
+
+    const [data, setData] = useState({ fentrada: "", fsalida: "", cantidadNoches: "", totalreserva: "", userId: "10143224567", habitacionId: "105" });
+    const handleChangeA = ({ target }) => {
+
+        setData({
+            ...data,
+            [target.name]: target.value
+        })
+    }
+
+    const url = "https://app-hotelia3.herokuapp.com/reservas";
+
+    const handleSubmitA = async (e) => {
+        e.preventDefault();
+        const response = await axios.post(url, data);
+        alert(response);
+        if (response.status === 201) {
+            Swal.fire(
+                `Tu Reserva: <strong>
+                </strong>
+                ha sido registrada exitosamente!`,
+                'success'
+            )
+            Navigate.push("/");
+        } else {
+            Swal.fire(
+                'Error!',
+                `Hubo un problema al registrar tu reserva!`,
+                'error'
+            )
+        }
+    }
+
+
 
     const disableDate = new Date().toISOString().slice(0, 10);
 
@@ -20,6 +57,22 @@ function CardRoom({ habitaciones }) {
 
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
+
+
+    const fecha = habitaciones.reservas.filter(f => f.fechaEntrada);
+
+    const cantidadNoches = () => {
+        var fechaE = new Date(document.getElementById('fentrada').value);
+        var fechaS = new Date(document.getElementById('fsalida').value);
+        /*console.log('fecha entrada', fechaE);
+        console.log('fecha salida', fechaS);*/
+        var time = fechaS.getTime() - fechaE.getTime();
+        //console.log(fechaE);
+        var days = Math.floor(time / (1000 * 60 * 60 * 24));
+        document.getElementById("cantidadNoches").value = days;
+        var valorTotal = days * habitaciones.valornoche;
+        document.getElementById("totalreserva").value = valorTotal;
+    }
 
     return (
 
@@ -136,7 +189,7 @@ function CardRoom({ habitaciones }) {
                     </Modal.Header>
                     <Modal.Body className='row m-auto'>
                         <img src={Logo2} alt='logo-hotelia' className='log-modal-reserve' />
-                        <Formik
+                        {/*<Formik
 
                             initialValues={{
                                 fullname: '',
@@ -172,81 +225,120 @@ function CardRoom({ habitaciones }) {
                                 console.log("enviado");
                             }}
                         >
-                            {({ values, errors, handleSubmit, handleChange, handleBlur }) => (
-                                <form className='cont-form-reserve' onSubmit={handleSubmit}>
-                                    <div className='cont-entrada'>
-                                        <label for='entrada' className='ps-4 pt-4'>Entrada: </label>
-                                        <input
-                                            name='fentrada'
-                                            type='date'
-                                            min={disableDate}
-                                        />
-                                    </div>
-                                    <div className='cont-entrada'>
-                                        <label for='entrada' className='ps-4 pt-3'>Salida: </label>
-                                        <input
-                                            name='fsalida'
-                                            type='date'
-                                            min={disableDate}
-                                        />
-                                    </div>
-                                    <div className='input-fullname'>
-                                        <label>Nombre completo: </label>
-                                        <input
-                                            name='fullname'
-                                            type='text'
-                                            value={values.fullname}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            max="10"
-                                        />
+                            {({ values, errors, handleSubmit, handleChange, handleBlur }) => (*/}
+                        <form className='cont-form-reserve'
+                            onSubmit={handleSubmitA}>
+                            <div className='cont-entrada'>
+                                <label for='entrada' className='ps-4 pt-4'>Entrada: </label>
+                                <input
+                                    id='fentrada'
+                                    name='fentrada'
+                                    type='date'
+                                    min={disableDate}
+                                    //onChange={cantidadNoches}
+                                    onChange={handleChangeA}
+                                    onBlur={cantidadNoches}
+                                    data-inputmask="'alias': 'yyyy/MM/dd'"
+                                    data-mask required
+                                    value={data.fentrada}
+                                />
+                            </div>
+                            <div className='cont-entrada'>
+                                <label for='salida' className='ps-4 pt-3'>Salida: </label>
+                                <input
+                                    id='fsalida'
+                                    name='fsalida'
+                                    type='date'
+                                    min={disableDate}
+                                    //onChange={cantidadNoches}
+                                    onChange={handleChangeA}
+                                    onBlur={cantidadNoches}
+                                    data-inputmask="'alias': 'yyyy/MM/dd'"
+                                    value={data.fsalida}
+                                />
+                            </div>
+                            {/*<div className='input-fullname'>
+                                <label>Nombre completo: </label>
+                                <input
+                                    name='userId'
+                                    type='text'
+                                    //value={values.fullname}
+                                    //onBlur={handleBlur}
+                                    max="10"
+                                />
 
-                                        {errors.fullname && <div className='error message-validate-reserve'>
+                                {/*{errors.fullname && <div className='error message-validate-reserve'>
                                             {errors.fullname}</div>}
 
-                                    </div>
-                                    <div className='input-doc'>
-                                        <label>No.Documento: </label>
-                                        <input
-                                            name='doc'
-                                            type='text'
-                                            value={values.doc}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            max="10"
-                                        />
+                            </div>*/}
+                            <div className='input-doc'>
+                                <label>No.Documento: </label>
+                                <input
+                                    id='userId'
+                                    name='userId'
+                                    type='text'
+                                    value={data.userId}
+                                    onChange={handleChangeA}
+                                //value={values.doc}
+                                //onBlur={handleBlur}
+                                />
 
-                                        {errors.doc && <div className='error message-validate-reserve'>
-                                            {errors.doc}</div>}
+                                {/*{errors.doc && <div className='error message-validate-reserve'>
+                                            {errors.doc}</div>}*/}
 
-                                    </div>
-                                    <div className='input-doc'>
-                                        <label>Cantidad de noches: </label>
-                                        <input
-                                            name='cantnoches'
-                                            type='number'
-                                            value={values.cantnoches}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                        />
+                            </div>
+                            <div className='input-doc'>
+                                <label>Habitación: </label>
+                                <input
+                                    id='habitacionId'
+                                    name='habitacionId'
+                                    type='text'
+                                    value={data.habitacionId}
+                                    onChange={handleChangeA}
+                                    //value={values.doc}
+                                    //onBlur={handleBlur}
+                                    max="10"
+                                />
 
-                                        {errors.cantnoches && <div className='error message-validate-reserve'>
-                                            {errors.cantnoches}</div>}
+                                {/*{errors.doc && <div className='error message-validate-reserve'>
+                                            {errors.doc}</div>}*/}
 
-                                    </div>
-                                    <p className='text-value-nigth m-auto pt-5 pb-4'>
-                                        Total estadía: <span className='total-nigth'>
-                                            $ {habitaciones.valornoche}</span></p>
-                                </form>
-                            )}
-                        </Formik>
+                            </div>
+                            <div className='input-doc'>
+                                <label>Cantidad de noches: </label>
+                                <input
+                                    id='cantidadNoches'
+                                    name='cantidadNoches'
+                                    type='number'
+                                    value={data.cantidadNoches}
+                                    onChange={handleChangeA}
+                                //onChange={handleChange}
+                                //onBlur={handleBlur}
+                                />
+
+                                {/*{errors.cantnoches && <div className='error message-validate-reserve'>
+                                            {errors.cantnoches}</div>}*/}
+
+                            </div>
+                            <span className='total-nigth m-auto pt-4 pb-3'><label>VALOR TOTAL </label></span>
+                            <input className='text-value-nigth m-auto mt-1 mb-1'
+                                id='totalreserva'
+                                name='totalreserva'
+                                type='text'
+                                placeholder='$'
+                                onChange={handleChangeA}
+                                value={data.totalreserva} />
+
+                            <button className='btn-closemodal' type='submit' >Guardar reserva</button>
+                        </form>
+                        {/*} )}
+                        </Formik>*/}
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={handleClose2} className='btn-closemodal' >Cerrar</Button>
-                        <Button type='submit' className='btn-closemodal'>Guardar reserva</Button>
                     </Modal.Footer>
                 </Modal>
-            </div>
+            </div >
 
         </div >
 

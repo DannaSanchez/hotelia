@@ -1,6 +1,7 @@
 import './VistaReserva.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import CardReserve from '../cardReserve/CardReserve';
 
 function VistaReserva() {
@@ -19,6 +20,41 @@ function VistaReserva() {
     /*5.Crear otro estado para refrescar el listado despues de eliminar*/
     const [upList, setUplist] = useState([false]);
 
+    /*Agregar una constante para actualizar el estado del modal*/
+    const [show, setShow] = useState(false);
+    const handleClose = () => { setShow(false); }
+    const handleOpen = () => { setShow(true); }
+
+    const [dataModal, setDataModal] = useState({});
+
+    const handleChangeModal = ({ target }) => {
+        setDataModal({ ...dataModal, [target.name]: target.value });
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const response = await axios.put(`${url}/${dataModal.id}`, dataModal);
+
+        if (response.status === 200) {
+            Swal.fire(
+                'Cambio guardado!',
+                `Tu producto: <strong>
+                ${response.data.id}
+                </strong>
+                ha sido editado exitosamente!`,
+                'success'
+            )
+            handleClose();
+            setUplist(!upList);
+        } else {
+            Swal.fire(
+                'Error!',
+                `Hubo un problema al editar tu producto!`,
+                'error'
+            )
+        }
+    }
 
     /*4.Hook useEfect ejecuta funciones cada vez que renderizamos un componente*/
     useEffect(() => {
@@ -28,10 +64,6 @@ function VistaReserva() {
     }, [upList])
     console.log([list]);
 
-
-    const [show, setShow] = useState(false);
-
-    const handleShow = () => setShow(true);
 
     return (
         <div>
@@ -46,6 +78,9 @@ function VistaReserva() {
                             reservas={es}
                             setUplist={setUplist}
                             upList={upList}
+                            handleClose={handleClose}
+                            handleOpen={handleOpen}
+                            setDataModal={setDataModal}
                         />
                     ))
                 }
