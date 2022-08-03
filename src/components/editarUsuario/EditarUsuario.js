@@ -1,8 +1,13 @@
 import "../formHuesped/FormHuesped.css"
 import "./EditarUsuario.css"
+import usuariofoto from "./usuario-foto.png"
 import { Button, Modal } from 'react-bootstrap';
 import React, { useState } from 'react';
-import usuariofoto from "./usuario-foto.png"
+import Link from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import ModalContraseña from "./ModalContrasena";
+import ModalContacto from "./ModalContacto";
+
 function EditarUsuario() {
     //modal
     const [show, setShow] = useState(false);
@@ -12,12 +17,15 @@ function EditarUsuario() {
     const handleShow = () => setShow(true);
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
+    //validaciones
+    const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
+
     return (
         <div className="editUsuario-background">
-            <div className="huesped">
-                <div className="navbar-falsa"></div>
-                <div className="formhuesped-background">
-                    <h1>Bienvenido, Angie Vargas</h1>
+            <div className="editarusuario-fondo">
+                
+                <div className="formeditUsuario-background">
+                    <h1>Bienvenido, Juan Carlos</h1>
                     <div className="editarusuario-display">
                         <div className="editarusuario-edit">
                             <div>
@@ -35,65 +43,14 @@ function EditarUsuario() {
                             <Modal.Header className="modal-header p-auto">
                                 <Modal.Title><h1 className="text-center">Cambiar Contraseña</h1></Modal.Title>
                             </Modal.Header>
-                            <Modal.Body><div>
-                                <label>Digite la Contraseña Actual</label>
-                                <input
-                                    className="formhuesped-input"
-                                    type="text"
-                                    name="contraseña"
-                                />
-                            </div>
-                                <div>
-                                    <label>Contraseña Nueva </label>
-                                    <input
-                                        className="formhuesped-input"
-                                        type="text"
-                                        name="confcontraseña"
-                                    />
-                                </div>
-                                <div>
-                                    <label>Confirmar Contraseña</label>
-                                    <input
-                                        className="formhuesped-input"
-                                        type="text"
-                                        name="confcontraseña"
-                                    />
-                                </div>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>Cancelar</Button>
-                                <Button className=" editar-usuario-primary" onClick={handleClose}>Cambiar Contraseña</Button>
-                            </Modal.Footer>
+                            <ModalContraseña/>          
                         </Modal>
 
                         <Modal className="formhuesped-modal form-editarusuario-modal" show={show2} onHide={handleClose2}>
                             <Modal.Header className="modal-header p-auto">
                                 <Modal.Title><h1 className="text-center">Actualizar Datos de Contacto</h1></Modal.Title>
                             </Modal.Header>
-                            <Modal.Body>
-                                <div>
-                                    <label>Email</label>
-                                    <input
-                                        className="formhuesped-input"
-                                        type="text"
-                                        name="email"
-                                        placeholder="angievargas@gmail.com"
-                                    />
-                                </div>
-                                <div>
-                                    <label>Teléfono</label>
-                                    <input
-                                        className="formhuesped-input"
-                                        type="number"
-                                        name="telefono"
-                                        placeholder="12504673"
-                                    />
-                                </div>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose2}>Cancelar</Button>
-                                <Button className=" editar-usuario-primary" onClick={handleClose2}>Cambiar Contraseña</Button>
-                            </Modal.Footer>
+                            <ModalContacto/>
                         </Modal>
                         <div className="formhuesped">
                             <div>
@@ -102,19 +59,19 @@ function EditarUsuario() {
                             </div>
                             <div>
                                 <h4>Número de documento:</h4>
-                                <h6>12504623</h6>
+                                <h6>1254784102</h6>
                             </div>
                             <div>
                                 <h4>Nombres:</h4>
-                                <h6>Angie Paola</h6>
+                                <h6>Juan Carlos</h6>
                             </div>
                             <div>
                                 <h4>Apellidos:</h4>
-                                <h6>Vargas Romero</h6>
+                                <h6>Rivero Rodriguez</h6>
                             </div>
                             <div>
                                 <h4>Fecha nacimiento:</h4>
-                                <h6>01/06/1986</h6>
+                                <h6>1987-12-29</h6>
                             </div>
                             <div>
                                 <h4>País de origen: </h4>
@@ -122,7 +79,7 @@ function EditarUsuario() {
                             </div>
                             <div>
                                 <h4>Género:</h4>
-                                <h6>femenino</h6>
+                                <h6>Masculino</h6>
                             </div>
                         </div>
                     </div>
