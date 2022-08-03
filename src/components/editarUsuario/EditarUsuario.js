@@ -1,6 +1,6 @@
 import "../formHuesped/FormHuesped.css"
 import "./EditarUsuario.css"
-import usuariofoto from "./usuario-foto.png"
+import usuariofoto from "../../img/foto-usuario.jpeg"
 import { Button, Modal } from 'react-bootstrap';
 import React, { useState } from 'react';
 import Link from "react-router-dom";
@@ -40,14 +40,14 @@ function EditarUsuario() {
                             </div>
                         </div>
                         <Modal className="formhuesped-modal form-editarusuario-modal" show={show} onHide={handleClose}>
-                            <Modal.Header className="modal-header p-auto">
+                            <Modal.Header className="modal-header p-auto" closeButton>
                                 <Modal.Title><h1 className="text-center">Cambiar Contraseña</h1></Modal.Title>
                             </Modal.Header>
                             <ModalContraseña/>          
                         </Modal>
 
                         <Modal className="formhuesped-modal form-editarusuario-modal" show={show2} onHide={handleClose2}>
-                            <Modal.Header className="modal-header p-auto">
+                            <Modal.Header className="modal-header p-auto" closeButton>
                                 <Modal.Title><h1 className="text-center">Actualizar Datos de Contacto</h1></Modal.Title>
                             </Modal.Header>
                             <ModalContacto/>

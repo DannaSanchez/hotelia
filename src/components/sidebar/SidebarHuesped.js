@@ -1,7 +1,7 @@
 import './Sidebar.css';
 import iconologo from '../../img/icono-logo.svg';
 import logoh from '../../img/logosvg.svg';
-import foto from '../../img/img-user.svg';
+import foto from '../../img/foto-usuario.jpeg';
 import { Link } from 'react-router-dom';
 
 function SidebarHuesped() {
@@ -17,8 +17,8 @@ function SidebarHuesped() {
                 <div className='cont-topnav'>
                     <img src={foto} alt='foto-user' className='img-user' />
                     <div className='text-topnav'>
-                        <p className='user'>Alejandra Vargas</p>
-                        <p className='email-user'>angievargas2@gmail.com</p>
+                        <p className='user'>Rivero Rodriguez</p>
+                        <p className='email-user'>Carlosrr@gmail.com</p>
                     </div>
                 </div>
             </div>

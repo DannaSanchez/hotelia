@@ -44,8 +44,14 @@ function Login (usuarios){
                             resetForm();
                             console.log('Formulario enviado');
                             cambiarFormularioEnviado(true);
-                            setTimeout(() => window.location.href="/listado-habitaciones-admin", 50);}
-                    else{
+                            setTimeout(() => window.location.href="/habitaciones-huesped", 50);}
+                    else if(valores.correo="romermariaj@gmail.com" && valores.password==="Maria123"){
+                            resetForm();
+                            console.log('Formulario enviado');
+                            cambiarFormularioEnviado(true);
+                            setTimeout(() => window.location.href="/listado-habitaciones-admin", 50);
+                    }
+                    else {
                         Swal.fire({
                             icon: 'error',
                             title: 'Usuario no registrado',
