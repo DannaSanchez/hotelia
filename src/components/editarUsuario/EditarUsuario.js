@@ -25,7 +25,7 @@ function EditarUsuario() {
             <div className="editarusuario-fondo">
                 
                 <div className="formeditUsuario-background">
-                    <h1>Bienvenido, Angie Vargas</h1>
+                    <h1>Bienvenido, Juan Carlos</h1>
                     <div className="editarusuario-display">
                         <div className="editarusuario-edit">
                             <div>
@@ -59,19 +59,19 @@ function EditarUsuario() {
                             </div>
                             <div>
                                 <h4>Número de documento:</h4>
-                                <h6>12504623</h6>
+                                <h6>1254784102</h6>
                             </div>
                             <div>
                                 <h4>Nombres:</h4>
-                                <h6>Angie Paola</h6>
+                                <h6>Juan Carlos</h6>
                             </div>
                             <div>
                                 <h4>Apellidos:</h4>
-                                <h6>Vargas Romero</h6>
+                                <h6>Rivero Rodriguez</h6>
                             </div>
                             <div>
                                 <h4>Fecha nacimiento:</h4>
-                                <h6>01/06/1986</h6>
+                                <h6>1987-12-29</h6>
                             </div>
                             <div>
                                 <h4>País de origen: </h4>
@@ -79,7 +79,7 @@ function EditarUsuario() {
                             </div>
                             <div>
                                 <h4>Género:</h4>
-                                <h6>femenino</h6>
+                                <h6>Masculino</h6>
                             </div>
                         </div>
                     </div>
