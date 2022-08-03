@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/hotelia/static/css/main.2738c4b3.css",
+    "main.js": "/hotelia/static/js/main.7c70544b.js",
+    "static/media/slide1.jpg": "/hotelia/static/media/slide1.991a47c80fbc42080e0c.jpg",
+    "static/media/formHuesped.jpg": "/hotelia/static/media/formHuesped.1f632d6134f34c94fe70.jpg",
+    "static/media/slide2.png": "/hotelia/static/media/slide2.e2094b96fb3438c3e515.png",
+    "static/media/perfilUsuario.jpg": "/hotelia/static/media/perfilUsuario.adb014b669d0f8b12fee.jpg",
+    "static/media/bg-form-habitaciones.png": "/hotelia/static/media/bg-form-habitaciones.cdd29d02314d78b1148f.png",
+    "static/media/bg-features.png": "/hotelia/static/media/bg-features.66515d412e6dbd9f7e18.png",
+    "static/media/bg-login.png": "/hotelia/static/media/bg-login.02e24e529ee41bb098f7.png",
+    "static/media/foto-usuario.jpeg": "/hotelia/static/media/foto-usuario.48237f406335bd57a61c.jpeg",
+    "static/media/doble-room.jpg": "/hotelia/static/media/doble-room.413054ef1d759e84c96b.jpg",
+    "static/media/user1.png": "/hotelia/static/media/user1.03fcb96cded85b8a02c3.png",
+    "static/media/user3.png": "/hotelia/static/media/user3.f5c2d60c9a28fe45616b.png",
+    "static/media/user2.png": "/hotelia/static/media/user2.5a7663f0171af3e4a254.png",
+    "static/media/habitacion1.png": "/hotelia/static/media/habitacion1.a57301560150945ce9fe.png",
+    "static/media/room-doble.jpg": "/hotelia/static/media/room-doble.88a1077346dcbda06d3f.jpg",
+    "static/media/room-doble2.jpg": "/hotelia/static/media/room-doble2.d4501e6bb84746db1e9e.jpg",
+    "static/media/Hotelia.png": "/hotelia/static/media/Hotelia.fa0e4ef41f2195a52a67.png",
+    "static/media/logosvg.svg": "/hotelia/static/media/logosvg.468c13698cdef9d821c46a41bb597ad2.svg",
+    "static/media/Hotelia horizontal negro.png": "/hotelia/static/media/Hotelia horizontal negro.dfc977f3079c59c48025.png",
+    "static/media/icono-logo.svg": "/hotelia/static/media/icono-logo.b8558956b88a318cc7a2bbc7e3a76a0b.svg",
+    "index.html": "/hotelia/index.html",
+    "static/media/header-modal.svg": "/hotelia/static/media/header-modal.ca4d4a7fc0c6a85b35ab.svg",
+    "static/media/top-nav.svg": "/hotelia/static/media/top-nav.d26f12c680542e8cd13e.svg",
+    "static/media/vector-login.svg": "/hotelia/static/media/vector-login.fb27259bb87988f062de.svg",
+    "static/media/bxs-fridge.svg": "/hotelia/static/media/bxs-fridge.8ecf23e5adf107238e4efb90fa3c1728.svg",
+    "main.2738c4b3.css.map": "/hotelia/static/css/main.2738c4b3.css.map",
+    "main.7c70544b.js.map": "/hotelia/static/js/main.7c70544b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2738c4b3.css",
+    "static/js/main.7c70544b.js"
+  ]
+}
