@@ -7,10 +7,12 @@ import { Link } from 'react-router-dom'
 import { ContainerForm, GrupoInput, GrupoCheckbox } from '../../elements/formStyle/FormStyle';
 
 import './FormHabitacion.css';
+import './Imagen.css'
 //
 import IconoNevera from '../../img/bxs-fridge.svg';
+import Habitaciones from '../../pages/Habitaciones';
 
-//import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 //import {Link} from 'react-router-dom'
 
 function FormHabitacion() {
@@ -37,7 +39,6 @@ function FormHabitacion() {
         }
     };
 
-
     return (
 
         <section className='room-registration-form'>
@@ -51,7 +52,7 @@ function FormHabitacion() {
                     capacidad: '',
                     descripcion: '',
                     estado: 'Disponible',
-                    img:'',
+                    //img:'',
                     cajafuerte:'',
                     nevera:'',
                     banio:'',
@@ -105,9 +106,9 @@ function FormHabitacion() {
                     }
 
                      //Validación imagen
-                     if(!valores.img){
-                        errores.img = 'Por favor añade una imagen'
-                    }   
+                     //if(!valores.img){
+                      //  errores.img = 'Por favor añade una imagen'
+                    //}   
 
                     return errores;
                 }}
@@ -132,20 +133,26 @@ function FormHabitacion() {
 
                                 <div className='modify-room__image-principal image__form'>
                                     <div className="App">
-                                        <div className="container-img">
-                                            
-                                             <div>
-                                                <label htmlFor='img' className='modify-room__icon'><i class="fa-solid fa-pen"></i></label>
-                                                <Field 
-                                                    type='file' 
-                                                    id='img' 
-                                                    name='img' 
-
-                                                    className="login__input"
-                                                />
-
+                                        <div className="container">
+                                            {error && <p className="errorMsg">File not supported</p>}
+                                            <div className="imgPreview"
+                                                style={{
+                                                    background: imgPreview
+                                                        ? `url("${imgPreview}") no-repeat center/cover`
+                                                        : "#131313"
+                                                }}
+                                            >
+                                                {!imgPreview && (
+                                                    <>
+                                                        <p>Add an image</p>
+                                                        <label htmlFor="fileUpload" className="customFileUpload">Choose file</label>
+                                                        <input type='file' id="fileUpload" onChange={handleImageChange} />
+                                                        <span>(jpg, jpeg or png)</span>
+                                                    </>
+                                                )}
                                             </div>
-                                            <ErrorMessage name='file' component={() => (<div className='login__error'>{errors.img}</div>)}/> 
+
+                                            {imgPreview && <button onClick={() => setImgPreview(null)} className='button__image'>Remove</button>}
                                         </div>
                                     </div>
                                 </div>
@@ -255,76 +262,135 @@ function FormHabitacion() {
 
                             <div className='modify-room__additional-information room-form-register'>
                                 <h3 className='modify-room__subtitle'>Servicios adicionales (opcionales)</h3>
-                                <div className='modify-room__additional-services'>
-
-                                    <GrupoCheckbox className='additional-services__checkbox'>
-                                        <Field 
-                                            type='checkbox' 
-                                            name='cajafuerte'
-                                            id='cajafuerte'
-                                            />
-                                        <div className='additional-services_checkbox_icon'>
-                                            <i class="fa-solid fa-vault"></i>
-                                        </div>
-                                        <p>Caja fuerte</p>
-                                    </GrupoCheckbox>
-
-                                    <GrupoCheckbox className='additional-services__checkbox'>
-                                        <Field 
-                                            type='checkbox'
-                                            name='tv'
-                                            id='tv'
-                                        />
-                                        <div className='additional-services_checkbox_icon'>
-                                            <i class="fa-solid fa-tv"></i>
-                                        </div>
-                                        <p>Televisión</p>
-                                    </GrupoCheckbox>
-
-                                    <GrupoCheckbox className='additional-services__checkbox'>
-                                        <Field 
-                                            type='checkbox'
-                                            name='wifi'
-                                            id='wifi' 
-                                        />
-                                        <div className='additional-services_checkbox_icon'>
-                                            <i class="fa-solid fa-wifi"></i>
-                                        </div>
-                                        <p>Wifi</p>
-                                    </GrupoCheckbox>
-
-                                    <GrupoCheckbox className='additional-services__checkbox'>
-                                        <Field 
-                                            type='checkbox' 
-                                            name='banio'
-                                            id='banio'
-                                        />
-                                        <div className='additional-services_checkbox_icon'>
-                                            <i class="fa-solid fa-toilet"></i>
-                                        </div>
-                                        <p>Baño</p>
-                                    </GrupoCheckbox>
-
-                                    <GrupoCheckbox className='icon-fridge'>
-                                        <Field 
-                                            type='checkbox' 
-                                            name='nevera'
-                                            id='nevera'
-                                        />
-                                        <div className='additional-services_checkbox_icon'>
-                                            <img src={IconoNevera} alt="Icono de nevera" />
-                                        </div>
-                                        <p>Nevera</p>
-                                    </GrupoCheckbox>
+                            </div>
 
 
+                            <div className="room-information__adittional">
+                            <GrupoCheckbox className="room-information__radio">
+                                <div className="room-information__radio-item">
+                                    <i class="fa-solid fa-toilet"></i> <p>Baño</p>
                                 </div>
+                                <div className="room-information__radio-group">
+                                <label className='label'>Si</label>
+                                <Field
+                                    type="radio"
+                                    name="banio"
+                                    id='si'
+                                    value='si'
+                                />
+                                </div>
+                                <div className="room-information__radio-group">
+                                <label className='label'>No</label>
+                                <Field
+                                    type="radio"
+                                    name="banio"
+                                    id='no'
+                                    value='no'
+                                />
+                                </div>
+                            </GrupoCheckbox>
+
+                            <GrupoCheckbox class="mb-3" className="room-information__radio">
+                                <div className="room-information__radio-item">
+                                    <i class="fa-solid fa-tv"></i> <p>Televisión</p>
+                                </div>
+                                <div className="room-information__radio-group">
+                                <label className='label'>Si</label>
+                                <Field
+                                    type="radio"
+                                    name="tv"
+                                    id='si'
+                                    value='si'
+                                />
+                                </div>
+                                <div className="room-information__radio-group">
+                                <label className='label'>No</label>
+                                <Field
+                                    type="radio"
+                                    name="tv"
+                                    id='no'
+                                    value='no'
+                                />
+                                </div>
+                            </GrupoCheckbox>
+
+                            <GrupoCheckbox class="mb-3" className="room-information__radio">
+                                <div className="room-information__radio-item">
+                                    <i class="fa-solid fa-wifi"></i> <p>Wifi</p>
+                                </div>
+                                <div className="room-information__radio-group">
+                                <label className='label'>Si</label>
+                                <Field
+                                    type="radio"
+                                    name="wifi"
+                                    id='si'
+                                    value='si'
+                                />
+                                </div>
+                                <div className="room-information__radio-group">
+                                <label className='label'>No</label>
+                                <Field
+                                    type="radio"
+                                    name="wifi"
+                                    id='no'
+                                    value='no'
+                                />
+                                </div>
+                            </GrupoCheckbox>
+
+                            <GrupoCheckbox class="mb-3" className="room-information__radio">
+                                <div className="room-information__radio-item">
+                                <div><img src={IconoNevera} alt="Icono de nevera" /></div> <p>Nevera</p>
+                                </div>
+                                <div className="room-information__radio-group">
+                                <label className='label'>Si</label>
+                                <Field
+                                    type="radio"
+                                    name="nevera"
+                                    id='si'
+                                    value='si'
+                                />
+                                </div>
+                                <div className="room-information__radio-group">
+                                <label className='label'>No</label>
+                                <Field
+                                    type="radio"
+                                    name="nevera"
+                                    id='no'
+                                    value='no'
+                                />
+                                </div>
+                            </GrupoCheckbox>
+
+                            <GrupoCheckbox class="mb-3" className="room-information__radio">
+                                <div className="room-information__radio-item">
+                                    <i class="fa-solid fa-vault"></i> <p>Caja fuerte</p>
+                                </div>
+                                <div className="room-information__radio-group">
+                                <label className='label'>Si</label>
+                                <Field
+                                    type="radio"
+                                    name="cajafuerte"
+                                    id='si'
+                                    value='si'
+                                />
+                                </div>
+                                <div className="room-information__radio-group">
+                                <label className='label'>No</label>
+                                <Field
+                                    type="radio"
+                                    name="cajafuerte"
+                                    id='no'
+                                    value='no'
+                                />
+                                </div>
+                            </GrupoCheckbox>
                             </div>
 
                             {/*<Boton link="/listado-habitaciones-admin" description="Registrar" */}
 
                             <div className='modify-room__buttons modify-room__buttons__register'>
-                                <Link to="/listado-habitaciones-admin" ><Button variant="primary" className='modify-room__ButtonPrincipal'>Cancelar</Button></Link>
+                                <Link to="/listado-habitaciones-admin" ><Button  className='modify-room__ButtonPrincipal hover-button'>Cancelar</Button></Link>
                                 <Button type="submit" variant="secondary" className='modify-room__ButtonSecondary'>Registrar</Button>
                             </div>
 

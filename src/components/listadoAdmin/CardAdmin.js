@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 import '../card/Card.css'
 
-function CardRoom({ habitaciones, setUplist, upList, handleOpen, setDataModal, handleOpenState, setDataModalState  }) {
+function CardRoom({ habitaciones, setUplist, upList, handleOpen, setDataModal, handleOpenState, setDataModalState, handleOpenBooking  }) {
 
     const url="https://app-hotelia3.herokuapp.com/habitaciones";
 
@@ -63,10 +63,10 @@ function CardRoom({ habitaciones, setUplist, upList, handleOpen, setDataModal, h
                     <Card.Img variant="top" src={`https://app-hotelia3.herokuapp.com${habitaciones.img}`}/>
                     <Card.Title className="list-rooms__cardTitle">{habitaciones.nombrehab}</Card.Title>
 
-                    <Card.Text className='card-admin__layer'>
+                    {/*<Card.Text className='card-admin__layer'>
                         <h2 className='no-disponible'>No disponible</h2>
                         <h2 className='en-mantenimiento'>En mantenimiento</h2>
-                    </Card.Text>
+                    </Card.Text>*/}
                 </div>
 
                 <Card.Body>    
@@ -84,11 +84,15 @@ function CardRoom({ habitaciones, setUplist, upList, handleOpen, setDataModal, h
                         </div>
 
                     </Card.Text>
+
                     <div className='list-rooms__buttons'>
-                        <Button variant="primary" className='list-rooms__cardButtonPrincipal' onClick={handleEdit}>Modificar</Button>
-                        <Button variant="secondary" className='list-rooms__cardButtonSecondary'  onClick={handleEditState}>Estado</Button>
+                        <Button variant="secondary" className='list-rooms__cardButtonPrincipal' onClick={handleEdit}>Modificar</Button>
+                        <Button variant="secondary" className='list-rooms__cardButtonPrincipal'  onClick={handleEditState}>Estado</Button>
                         {/*<Button variant="danger" onClick={handleDelete}>Eliminar</Button>*/}
                     </div>
+
+                    <Button className='list-rooms__cardButtonSecondary hover-button' onClick={handleOpenBooking}>Reservar</Button>
+
                 </Card.Body> 
             </Card> 
 

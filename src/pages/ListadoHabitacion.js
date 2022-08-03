@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import { ModalFooter, Form, ModalTitle, ModalBody } from 'react-bootstrap';
+import { ModalFooter, Form, ModalTitle, ModalBody, Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
+import { Formik, Field, ErrorMessage } from 'formik'
 
 //import Cards from "../components/card/Card";
 import SidebarAdmon from "../components/sidebar/SidebarAdmon";
@@ -10,8 +11,9 @@ import SidebarAdmon from "../components/sidebar/SidebarAdmon";
 //import ListCardAdmin from "../components/listadoAdmin/ListCardAdmin";
 import CardAdmin from '../components/listadoAdmin/CardAdmin';
 import IconoNevera from '../img/bxs-fridge.svg';
+import LogoHotelia from '../img/Hotelia horizontal negro.png'
 
-function ListadoHabitacion (){
+function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
 
                 /* 1. Definir url del API a la que me voy a conectar */
                 const url = "https://app-hotelia3.herokuapp.com/habitaciones";
@@ -43,6 +45,35 @@ function ListadoHabitacion (){
                     }) 
                 }
 
+                const handleSubmit=async(e)=>{
+                    e.preventDefault();
+                    const response=await axios.put(`${url}/${dataModal._id}`,dataModal);
+                    console.log(response);  
+                    if(response.status===200){
+                        Swal.fire({  
+                            title: '¡Cambio guardado!',
+                            html: `<p>La habitación <strong> ${dataModal.nombrehab} </strong> ha sido actualizada exitosamente! </p>`,
+                            confirmButtonColor: "#333333",
+                            background: '#FFFDFB',
+                            color: '#000',
+                            imageUrl: 'https://i.postimg.cc/85KV3zTq/Hotelia-horizontal-negro.png',
+                            imageWidth: 250,
+                            icon: 'success',
+                            showCloseButton: true
+                        })
+                        handleClose();
+                        setUplist(!upList);
+                    }
+                    else{
+                        Swal.fire(
+                            'Error!',
+                            'Hubo un problema al actualizar los datos de la habitación',
+                            'error'
+                        )
+                    }
+                }
+
+
                 /* Agregar una constante para actualizar el estado del modal */
                 const [showState, setShowState] = useState(false);
                 const handleCloseState = () => { setShowState(false); }
@@ -58,38 +89,23 @@ function ListadoHabitacion (){
                     })
                 }
 
-                const handleSubmit=async(e)=>{
-                    e.preventDefault();
-                    const response=await axios.put(`${url}/${dataModal._id}`,dataModal);
-                    console.log(response);  
-                    if(response.status===200){
-                        Swal.fire(
-                            '¡Cambio Guardado!',
-                            `La habitación <strong> ${dataModal.nombrehab} </strong> ha sido actualizada exitosamente!`,
-                            'success'
-                        )
-                        handleClose();
-                        setUplist(!upList);
-                    }
-                    else{
-                        Swal.fire(
-                            'Error!',
-                            'Hubo un problema al actualizar los datos de la habitación',
-                            'error'
-                        )
-                    }
-                }
-
+                
                 const handleSubmitState = async(e)=>{
                     e.preventDefault();
                     const response=await axios.put(`${url}/${dataModalState._id}`,dataModalState);
                     console.log(response);  
                     if(response.status===200){
-                        Swal.fire(
-                            '¡Cambio Guardado!',
-                            `El estado de la habitación <strong> ${dataModalState.nombrehab} </strong> ha sido actualizada exitosamente!`,
-                            'success'
-                        )
+                        Swal.fire({  
+                            title: '¡Cambio guardado!',
+                            html: `<p>El estado de la habitación <strong> ${dataModal.nombrehab} </strong> ha sido actualizado exitosamente! </p>`,
+                            confirmButtonColor: "#333333",
+                            background: '#FFFDFB',
+                            color: '#000',
+                            imageUrl: 'https://i.postimg.cc/85KV3zTq/Hotelia-horizontal-negro.png',
+                            imageWidth: 250,
+                            icon: 'success',
+                            showCloseButton: true
+                        })
                         handleCloseState();
                         setUplist(!upList);
                     }
@@ -100,6 +116,22 @@ function ListadoHabitacion (){
                             'error'
                         )
                     }
+                }
+
+
+                /* Agregar una constante para actualizar el estado del modal */
+                const [showBooking, setShowBooking] = useState(false);
+                const handleCloseBooking = () => { setShowBooking(false); }
+                const handleOpenBooking = () => { setShowBooking(true); }
+
+                /* Estado para obtener los datos del registro que se va a editar */
+                const [dataModalBooking, setDataModalBooking] = useState({});
+
+                const handleChangeModalBooking = ({ target }) => {
+                    setDataModalState({
+                        ...dataModalBooking,
+                        [target.name]: target.value
+                    })
                 }
     
                 /*4.Hook useEfect ejecuta funciones cada vez que renderizamos un componente*/
@@ -159,6 +191,9 @@ function ListadoHabitacion (){
                         handleCloseState={handleCloseState}
                         handleOpenState={handleOpenState}
                         setDataModalState={setDataModalState}
+                        handleCloseBooking={handleCloseBooking}
+                        handleOpenBooking={handleOpenBooking}
+                        setDataModalBooking={setDataModalBooking}
                     />
                 ))
                 }
@@ -446,9 +481,119 @@ function ListadoHabitacion (){
                             <button className='card-admin__cardButtonSecondary' onClick={handleCloseState}>Cerrar</button>
                             <button className='card-admin__cardButtonPrincipal' type="submit">Guardar cambios</button>
                         </ModalFooter>
+                        
 
                     </Form>
 
+                </Modal>
+
+
+                <Modal
+                    show={showBooking}
+                    onHide={handleCloseBooking}
+                >
+                    <Modal.Header className='title-modalroom'>
+                        <h4>Reserva</h4>
+                    </Modal.Header>
+                    <Modal.Body className='row m-auto'>
+                        <img src={LogoHotelia} alt='logo-hotelia' className='log-modal-reserve' />
+                        <Formik
+
+                            initialValues={{
+                                _id: '',
+                                cantidadNoches: '0'
+                            }}
+
+                            validate={(valores) => {
+                                let errores = {};
+
+
+                                //Validación documento
+                                if (!/^[a-zA-ZÁ-ý\s-0-9]{1,20}$/.test(valores.doc)) {
+                                    errores.doc = 'Ingrese el No.Documento'
+                                } else if (valores.doc < 8) {
+                                    errores.doc = 'El documento debe tener mínimo 10 digitos'
+                                }
+
+                                //Validación cantidad noches
+                                if (!/^[0-9]{1,2}$/.test(valores.cantnoches)) {
+                                    errores.cantnoches = 'Ingrese la cantidad de noches'
+                                }
+                                return errores;
+                            }}
+
+                            onSubmit={() => {
+                                console.log("enviado");
+                            }}
+                        >
+                            {({ values, errors, handleSubmit, handleChange, handleBlur }) => (
+                                <form className='cont-form-reserve' onSubmit={handleSubmit}>
+
+                                    <div className='cont-entrada'>
+                                        <label for='entrada' className='ps-4 pt-4'>Entrada: </label>
+                                        <input
+                                            name='fentrada'
+                                            type='date'
+                                        />
+                                    </div>
+
+                                    <div className='cont-entrada'>
+                                        <label for='entrada' className='ps-4 pt-4'>Entrada: </label>
+                                        <input
+                                            name='fentrada'
+                                            type='date'
+                                        />
+                                    </div>
+
+                                    <div className='cont-entrada'>
+                                        <label for='entrada' className='ps-4 pt-3'>Salida: </label>
+                                        <input
+                                            name='fsalida'
+                                            type='date'
+                                        />
+                                    </div>
+                                    
+                                    <div className='input-doc'>
+                                        <label>No.Documento: </label>
+                                        <input
+                                            name='doc'
+                                            type='text'
+                                            value={values.doc}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                            max="10"
+                                        />
+
+                                        {errors.doc && <div className='error message-validate-reserve'>
+                                            {errors.doc}</div>}
+
+                                    </div>
+                                    <div className='input-doc'>
+                                        <label>Cantidad de noches: </label>
+                                        <input
+                                            name='cantidadNoches'
+                                            type='number'
+                                            value={values.cantnoches}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                        />
+
+                                        {errors.cantnoches && <div className='error message-validate-reserve'>
+                                            {errors.cantnoches}</div>}
+
+                                    </div>
+                                    <p className='text-value-nigth m-auto pt-5 pb-4'>
+                                        Total estadía: <span className='total-nigth'>
+                                            $ </span></p>
+                                </form>
+                            )}
+                        </Formik>
+                    </Modal.Body>
+
+                    <ModalFooter className='footer'>
+                            <button className='card-admin__cardButtonSecondary' onClick={handleCloseBooking}>Cancelar</button>
+                            <button className='card-admin__cardButtonPrincipal' type="submit">Guardar reserva</button>
+                    </ModalFooter>
                 </Modal>
 
             </section>

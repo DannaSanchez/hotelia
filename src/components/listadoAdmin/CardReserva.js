@@ -1,4 +1,5 @@
 
+import { Button } from 'react-bootstrap';
 import '../card/Card.css';
 
 const CardReserva = ({ reservas }) => {
@@ -96,8 +97,8 @@ const CardReserva = ({ reservas }) => {
             </div>
 
             <div className='card-admin__buttons-booking'>
-                <button className='card-admin__cardButtonSecondary button-booking'>Cancelar reserva</button>
-                <button className='card-admin__cardButtonPrincipal button-booking' type="submit">Confirmar reserva</button>
+                <button className='card-admin__cardButtonSecondary button-booking hover-button'>Cancelar reserva</button>
+                <Button variant='secondary' className='card-admin__cardButtonPrincipal button-booking' type="submit">Confirmar reserva</Button>
             </div>
 
             </div>
