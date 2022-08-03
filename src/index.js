@@ -11,6 +11,8 @@ import Habitaciones from './pages/Habitaciones';
 import PerfilUsuario from './pages/PerfilUsuario';
 import RegistroHuesped from './pages/RegistroHuesped';
 import ReservaRealizada from './pages/ReservaRealizada';
+import ReservaAdmin from './pages/ReservaAdmin';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

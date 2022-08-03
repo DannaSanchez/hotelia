@@ -126,6 +126,14 @@
     height: 40px;
     margin: 35px auto 15px;
     font:22px 'Marcellus', serif;
+    transition-duration: 200ms;
+}
+
+.login__button:hover{
+    background-color: var(--Magenta);
+    transform: translateY(-1px);
+    border: var(--Magenta);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.653);
 }
 
 @media screen and (min-width:768px) {

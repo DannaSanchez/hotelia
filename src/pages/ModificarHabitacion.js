@@ -1,17 +1,21 @@
 import habitacion1 from '../img/habitaciones/habitacion1.png';
-import habitacion1_2 from '../img/habitaciones/habitacion1-2.png';
-import habitacion1_3 from '../img/habitaciones/habitacion1-3.png';
-import habitacion1_4 from '../img/habitaciones/habitacion1-4.png';
-import habitacion1_5 from '../img/habitaciones/habitacion1-5.png';
+
 import { Label, GrupoInput, GrupoCheckbox, Input, Textarea } from '../elements/formStyle/FormStyle';
 
 import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
+import SidebarAdmon from '../components/sidebar/SidebarAdmon';
 import '../components/ModificarHabitacion.css'
 
 function ModificarHabitacion() {
     return (
+        <div className="listado-habitacion-admin">
+        
+            <div>
+                <SidebarAdmon/>
+            </div>
+
         <div className='modify-room'>
             <h1 className='modify-room__title'>Habitación doble</h1>
 
@@ -76,27 +80,27 @@ function ModificarHabitacion() {
 
                         <GrupoCheckbox>
                             <input type='checkbox'/>
-                            <i class="fa-solid fa-vault"></i>
+                            <p><i class="fa-solid fa-vault"></i>Caja Fuerte</p>
                         </GrupoCheckbox>
 
                         <GrupoCheckbox>
                             <input type='checkbox'/>
-                            <i class="fa-solid fa-tv"></i>
+                            <p><i class="fa-solid fa-tv"></i>Televisión</p>
                         </GrupoCheckbox>
 
                         <GrupoCheckbox>
                             <input type='checkbox'/>
-                            <i class="fa-solid fa-wifi"></i>
+                            <p><i class="fa-solid fa-wifi"></i>Wifi</p>
                         </GrupoCheckbox>
 
                         <GrupoCheckbox>
                             <input type='checkbox'/>
-                            <i class="fa-solid fa-snowflake"></i>
+                            <p><i class="fa-solid fa-snowflake"></i>Aire acondicionado</p>
                         </GrupoCheckbox>
 
                         <GrupoCheckbox>
                             <input type='checkbox'/>
-                            <i class="fa-solid fa-dumbbell"></i>
+                            <p><i class="fa-solid fa-dumbbell"></i>Servicio a la habitación</p>
                         </GrupoCheckbox>
 
                         <GrupoCheckbox>
@@ -105,43 +109,6 @@ function ModificarHabitacion() {
                         </GrupoCheckbox>
                     </div>
                 </div>
-
-            <div className='modify-room__additional-information'>
-
-                <h3 className='modify-room__subtitle'>Galería</h3>
-
-                <div className='modify-room__galery'>
-
-                    <div className='modify-room__image'>
-                        <img src={habitacion1_2} alt='habitación doble' />
-                        <div className='modify-room__icon'>
-                            <i class="fa-solid fa-pen"></i>
-                        </div>
-                    </div>
-
-                    <div className='modify-room__image'>
-                        <img src={habitacion1_3} alt='habitación doble' />
-                        <div className='modify-room__icon'>
-                            <i class="fa-solid fa-pen"></i>
-                        </div>
-                    </div>
-
-                    <div className='modify-room__image'>
-                        <img src={habitacion1_4} alt='habitación doble' />
-                        <div className='modify-room__icon'>
-                            <i class="fa-solid fa-pen"></i>
-                        </div>
-                    </div>
-
-                    <div className='modify-room__image'>
-                        <img src={habitacion1_5} alt='habitación doble' />
-                        <div className='modify-room__icon'>
-                            <i class="fa-solid fa-pen"></i>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
 
             <div className='modify-room__state'>
                 <h4>Estado</h4>
@@ -160,6 +127,8 @@ function ModificarHabitacion() {
                 <Link to="/modificar-habitaciones-admin" ><Button variant="primary" className='modify-room__ButtonPrincipal'>Cancelar</Button></Link>
                 <Button variant="secondary" className='modify-room__ButtonSecondary'>Guardar cambios</Button>
             </div>
+
+        </div>
 
         </div>
     );
