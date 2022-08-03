@@ -1,3 +1,4 @@
+import React from 'react';
 import FormHabitacion from "../components/formHabitacion/FormHabitacion";
 import SidebarAdmon from "../components/sidebar/SidebarAdmon";
 

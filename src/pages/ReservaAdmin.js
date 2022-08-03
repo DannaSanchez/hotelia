@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import SidebarAdmon from "../components/sidebar/SidebarAdmon";
 import CardReserva from "../components/listadoAdmin/CardReserva";

@@ -1,3 +1,4 @@
+import React from 'react';
 import './Opinion.css';
 
 import User1 from '../../../img/opinion/user1.png';

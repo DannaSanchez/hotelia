@@ -1,3 +1,4 @@
+import React from 'react';
 import {Carousel, Button, Nav} from 'react-bootstrap';
 import Slide1 from '../../../img/index/slide1.jpg';
 import Slide2 from '../../../img/index/slide2.png';

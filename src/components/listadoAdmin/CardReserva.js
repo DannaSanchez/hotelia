@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import '../card/Card.css';
 
