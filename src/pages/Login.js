@@ -1,8 +1,14 @@
 import FormLogin from "../components/login/Login";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Login (){
     return(
-        <FormLogin />
+        <div>
+        
+                <FormLogin/>
+           
+        </div>
     );
 }
 export default Login
