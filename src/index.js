@@ -12,8 +12,7 @@ import PerfilUsuario from './pages/PerfilUsuario';
 import RegistroHuesped from './pages/RegistroHuesped';
 import ReservaRealizada from './pages/ReservaRealizada';
 import ReservaAdmin from './pages/ReservaAdmin';
-import InfoA from './components/perfilAdmin/PerfilAdmin';
-import EditarAdmin from './components/editarAdmin/EditarAdmin';
+import PerfilAdmin from './pages/PerfilAdmin';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -31,7 +30,7 @@ root.render(
       <Route path='/editarperfil' element={<PerfilUsuario />}></Route>
       <Route path="/habitaciones-huesped" element={<Habitaciones />}></Route>
       <Route path='/reservas-huesped' element={<ReservaRealizada />}></Route>
-      <Route path='/editarperfil-admin' element={<EditarAdmin />}></Route>
+      <Route path='/editarperfil-admin' element={<PerfilAdmin />}></Route>
     </Routes>
   </BrowserRouter>
 );
