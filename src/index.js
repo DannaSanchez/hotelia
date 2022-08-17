@@ -24,7 +24,7 @@ root.render(
       <Route path="/listado-habitaciones-admin" element={<ListadoHabitacion />}></Route>
       <Route path="/modificar-habitaciones-admin" element={<ModificarHabitacion />}></Route>
       <Route path="/registrar-habitaciones-admin" element={<RegistrarHabitacion />}></Route>
-      <Route path="/" element={<Login />}></Route>
+      <Route path="/listado-reservas-admin" element={<ReservaAdmin />}></Route>
       <Route path='/form/huesped' element={<RegistroHuesped />}></Route>
       <Route path='/editarperfil' element={<PerfilUsuario />}></Route>
       <Route path="/habitaciones-huesped" element={<Habitaciones />}></Route>
