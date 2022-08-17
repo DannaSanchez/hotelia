@@ -12,6 +12,7 @@ import PerfilUsuario from './pages/PerfilUsuario';
 import RegistroHuesped from './pages/RegistroHuesped';
 import ReservaRealizada from './pages/ReservaRealizada';
 import ReservaAdmin from './pages/ReservaAdmin';
+import PerfilAdmin from './pages/PerfilAdmin';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -32,7 +33,7 @@ root.render(
       <Route path="/hotelia/" element={<Navigate replace to= {"/"}/>}></Route>
       <Route path="/hotelia" element={<Navigate replace to= {"/"}/>}></Route>
       <Route path="*" element={<Navigate replace to= {"/"}/>}></Route>
-      
+      <Route path='/editarperfil-admin' element={<PerfilAdmin />}></Route>
     </Routes>
   </BrowserRouter>
 );

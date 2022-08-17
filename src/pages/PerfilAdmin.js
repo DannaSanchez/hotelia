@@ -1,17 +1,17 @@
-import EditarUsuario from "../components/editarUsuario/EditarUsuario";
+import EditarAdmin from "../components/editarAdmin/EditarAdmin";
 import SidebarHuesped from "../components/sidebar/SidebarHuesped";
 
-function PerfilUsuario (){
+function PerfilAdmin (){
     return(
         <div >
             <div>
                <SidebarHuesped/>
             </div>
             <div>
-                <EditarUsuario/>
+                <EditarAdmin/>
             </div>
         </div>
         
     );
 }
-export default PerfilUsuario
+export default PerfilAdmin
