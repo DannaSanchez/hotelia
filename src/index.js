@@ -29,6 +29,7 @@ root.render(
       <Route path='/editarperfil' element={<PerfilUsuario />}></Route>
       <Route path="/habitaciones-huesped" element={<Habitaciones />}></Route>
       <Route path='/reservas-huesped' element={<ReservaRealizada />}></Route>
+      <Route path='/reseerva-admin' element={<ReservaAdmin />}></Route>
     </Routes>
   </BrowserRouter>
 );

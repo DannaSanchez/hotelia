@@ -12,7 +12,7 @@ import { Navigate } from 'react-router-dom';
 
 function CardRoom({ habitaciones }) {
 
-    const [data, setData] = useState({ fentrada: "", fsalida: "", cantidadNoches: "", totalreserva: "", userId: "10143224567", habitacionId: "105" });
+    const [data, setData] = useState({ fentrada: "", fsalida: "", cantidadNoches: "", totalreserva: "", userId: "", habitacionId: "" });
     const handleChangeA = ({ target }) => {
 
         setData({
@@ -20,13 +20,15 @@ function CardRoom({ habitaciones }) {
             [target.name]: target.value
         })
     }
+   
 
     const url = "https://app-hotelia3.herokuapp.com/reservas";
 
     const handleSubmitA = async (e) => {
         e.preventDefault();
+         console.log(data);
         const response = await axios.post(url, data);
-        alert(response);
+        console.log(response);
         if (response.status === 201) {
             Swal.fire(
                 `Tu Reserva: <strong>
@@ -72,6 +74,10 @@ function CardRoom({ habitaciones }) {
         document.getElementById("cantidadNoches").value = days;
         var valorTotal = days * habitaciones.valornoche;
         document.getElementById("totalreserva").value = valorTotal;
+        data.cantidadNoches = days;
+        console.log(data.cantidadNoches);
+        data.totalreserva = valorTotal;
+        console.log(data.totalreserva);
     }
 
     return (

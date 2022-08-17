@@ -60,7 +60,7 @@ function FormHabitaciones() {
         console.log('fecha salida', fechaSalida);
         setSearch(totalPersonas);
         filtrar(totalPersonas);
-        //disponibilidad();
+        disponibilidad();
         //fechad(fechaEntrada.value);
     }
 
@@ -69,10 +69,10 @@ function FormHabitaciones() {
         console.log(resfiltro);
     }*/
 
-    /*const disponibilidad = () => {
+    const disponibilidad = () => {
         var resfiltro = list.filter(est => est.estado === "Disponible")
         console.log(resfiltro);
-    }*/
+    }
 
     const filtrar = (search1) => {
         var res = list.filter(li => li.capacidad === search1);
