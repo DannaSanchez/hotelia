@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { ModalFooter, Form, ModalTitle, ModalBody, Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { Formik, Field, ErrorMessage } from 'formik'
+import { Navigate } from "react-router-dom";
 
 //import Cards from "../components/card/Card";
 import SidebarAdmon from "../components/sidebar/SidebarAdmon";
@@ -13,7 +14,59 @@ import CardAdmin from '../components/listadoAdmin/CardAdmin';
 import IconoNevera from '../img/bxs-fridge.svg';
 import LogoHotelia from '../img/Hotelia horizontal negro.png'
 
-function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
+function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas, habitaciones}){
+
+            const [data, setData] = useState({ fentrada: "", fsalida: "", cantidadNoches: "", totalreserva: "", userId: "", habitacionId:"" });
+
+            const handleChangeA = ({ target }) => {
+                setData({
+                    ...data,
+                    [target.name]: target.value
+                })
+            }
+        
+            const urlreserva = "https://app-hotelia3.herokuapp.com/reservas";
+
+            const handleSubmitA = async (e) => {
+                e.preventDefault(); 
+                console.log(data);
+                const response = await axios.post(urlreserva, data);
+                console.log(response);
+                if (response.status === 201) {
+                    Swal.fire(
+                        `Tu Reserva: <strong>
+                        </strong>
+                        ha sido registrada exitosamente!`,
+                        'success'
+                    )
+                    Navigate.push("/");
+                } else {
+                    Swal.fire(
+                        'Error!',
+                        `Hubo un problema al registrar tu reserva!`,
+                        'error'
+                    )
+                }
+            }
+
+            const disableDate = new Date().toISOString().slice(0, 10);
+
+            const cantidadNoches = () => {
+                var fechaE = new Date(document.getElementById('fentrada').value);
+                var fechaS = new Date(document.getElementById('fsalida').value);
+                /*console.log('fecha entrada', fechaE);
+                console.log('fecha salida', fechaS);*/
+                var time = fechaS.getTime() - fechaE.getTime();
+                //console.log(fechaE);
+                var days = Math.floor(time / (1000 * 60 * 60 * 24));
+                document.getElementById("cantidadNoches").value = days;
+                var valorTotal = days * habitaciones.valornoche;
+                document.getElementById("totalreserva").value = valorTotal;
+                data.cantidadNoches = days;
+                console.log(data.cantidadNoches);
+                data.totalreserva = valorTotal;
+                console.log(data.totalreserva);
+            }
 
                 /* 1. Definir url del API a la que me voy a conectar */
                 const url = "https://app-hotelia3.herokuapp.com/habitaciones";
@@ -47,7 +100,8 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
 
                 const handleSubmit=async(e)=>{
                     e.preventDefault();
-                    const response=await axios.put(`${url}/${dataModal._id}`,dataModal);
+                    dataModal.img = dataModal.img.replace("C:\\fakepath\\","/public/");
+                    const response=await axios.put(`${url}/${dataModal._id}`,dataModal,{headers: {'Content-Type':'multipart/form-data'}});
                     console.log(response);  
                     if(response.status===200){
                         Swal.fire({  
@@ -215,11 +269,11 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
                         
                         <ModalBody className='modal-body'>
 
-                            <h4 className="title-room-information">Información básica</h4>
+                            <h4 className="title-room-information"><strong>Información básica</strong></h4>
 
                             <div className="modal-body-information">
                                 <Form.Group class="mb-3">
-                                    <Form.Label className='label'>Nombre de la habitación</Form.Label>
+                                    <Form.Label className='label'><strong>Nombre de la habitación</strong></Form.Label>
                                     <Form.Control className='input'
                                         type="text"
                                         name="nombrehab"
@@ -230,7 +284,7 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
                                 </Form.Group>
 
                                 <Form.Group class="mb-3">
-                                    <Form.Label className='label'>N° de la habitación</Form.Label>
+                                    <Form.Label className='label'><strong>N° de la habitación</strong></Form.Label>
                                     <Form.Control className='input'
                                         type="number"
                                         name="_id"
@@ -243,7 +297,7 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
                             
                             <div className="title-room-information__secondary">
                             <Form.Group class="mb-3">
-                                <Form.Label className='label'>N° camas</Form.Label>
+                                <Form.Label className='label'><strong>N° camas</strong></Form.Label>
                                 <Form.Control
                                     type="number"
                                     name="camas"
@@ -254,7 +308,7 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
                             </Form.Group>
 
                             <Form.Group class="mb-3">
-                                <Form.Label className='label'>N° huéspedes</Form.Label>
+                                <Form.Label className='label'><strong>N° huéspedes</strong></Form.Label>
                                 <Form.Control
                                     type="number"
                                     name="capacidad"
@@ -266,7 +320,7 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
 
 
                             <Form.Group class="mb-3">
-                                <Form.Label className='label'>Valor noche</Form.Label>
+                                <Form.Label className='label'><strong>Valor noche</strong></Form.Label>
                                 <Form.Control
                                     type="number"
                                     name="valornoche"
@@ -278,7 +332,7 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
                             </div>
 
                             <Form.Group class="mb-3">
-                                <Form.Label className='label'>Descripción</Form.Label>
+                                <Form.Label className='label'><strong>Descripción</strong></Form.Label>
                                 <Form.Control
                                     as="textarea"
                                     rows={3}
@@ -290,18 +344,28 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
                                 />
                             </Form.Group>
 
+                            <div className="container-img-description">
+
+                            <div className='modal-room-admin__img text-center mb-4'>
+                                <img src={`https://app-hotelia3.herokuapp.com${dataModal.img}`} alt={dataModal.nombrehab}></img>
+                            </div>
+
                             <Form.Group class="mb-3">
-                                <Form.Label className='label'>Imagen</Form.Label>
+                                <Form.Label className='label' htmlFor="img"><strong>Imagen</strong></Form.Label>
+                                
+                                <p>{dataModal.img}</p>
+                                
+                                    
                                 <Form.Control
-                                    type="text"
+                                    type="file"
+                                    id="img"
                                     name="img"
-                                    required
-                                    value={dataModal.img}
+                                    
                                     onChange={handleChangeModal}
                                 />
-                            </Form.Group>
+                            </Form.Group></div>
 
-                            <h4 className="title-room-information">Información adicional</h4>
+                            <h4 className="title-room-information"><strong>Información adicional</strong></h4>
 
                             <div className="room-information__adittional">
                             <Form.Group class="mb-3" className="room-information__radio">
@@ -452,7 +516,7 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
                         <ModalTitle className='Tittle'>
                             Habitación {dataModalState.nombrehab}
                         </ModalTitle>
-                    </Modal.Header>
+                    </Modal.Header> 
 
                     <Form onSubmit={handleSubmitState}>
                         
@@ -493,101 +557,113 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas}){
                     onHide={handleCloseBooking}
                 >
                     <Modal.Header className='title-modalroom'>
-                        <h4>Reserva</h4>
+                        <h4>Reserva {dataModalState.nombrehab}</h4>
                     </Modal.Header>
                     <Modal.Body className='row m-auto'>
                         <img src={LogoHotelia} alt='logo-hotelia' className='log-modal-reserve' />
-                        <Formik
+                        <form className='cont-form-reserve'
+                            onSubmit={handleSubmitA}>
+                            <div className='cont-entrada'>
+                                <label for='entrada' className='ps-4 pt-4'>Entrada: </label>
+                                <input
+                                    id='fentrada'
+                                    name='fentrada'
+                                    type='date'
+                                    min={disableDate}
+                                    //onChange={cantidadNoches}
+                                    onChange={handleChangeA}
+                                    onBlur={cantidadNoches}
+                                    data-inputmask="'alias': 'yyyy/MM/dd'"
+                                    data-mask required
+                                    value={data.fentrada}
+                                />
+                            </div>
+                            <div className='cont-entrada'>
+                                <label for='salida' className='ps-4 pt-3'>Salida: </label>
+                                <input
+                                    id='fsalida'
+                                    name='fsalida'
+                                    type='date'
+                                    min={disableDate}
+                                    //onChange={cantidadNoches}
+                                    onChange={handleChangeA}
+                                    onBlur={cantidadNoches}
+                                    data-inputmask="'alias': 'yyyy/MM/dd'"
+                                    value={data.fsalida}
+                                />
+                            </div>
+                            {/*<div className='input-fullname'>
+                                <label>Nombre completo: </label>
+                                <input
+                                    name='userId'
+                                    type='text'
+                                    //value={values.fullname}
+                                    //onBlur={handleBlur}
+                                    max="10"
+                                />
+                                {/*{errors.fullname && <div className='error message-validate-reserve'>
+                                            {errors.fullname}</div>}
+                            </div>*/}
+                            <div className='input-doc'>
+                                <label>No.Documento: </label>
+                                <input
+                                    id='userId'
+                                    name='userId'
+                                    type='text'
+                                    value={data.userId}
+                                    onChange={handleChangeA}
+                                //value={values.doc}
+                                //onBlur={handleBlur}
+                                />
 
-                            initialValues={{
-                                _id: '',
-                                cantidadNoches: '0'
-                            }}
+                                {/*{errors.doc && <div className='error message-validate-reserve'>
+                                            {errors.doc}</div>}*/}
 
-                            validate={(valores) => {
-                                let errores = {};
+                            </div>
+                            <div className='input-doc'>
+                                <label>Habitación: </label>
+                                <input
+                                    id='habitacionId'
+                                    name='habitacionId'
+                                    type='text'
+                                    value={data.habitacionId}
+                                    onChange={handleChangeA}
+                                    //value={values.doc}
+                                    //onBlur={handleBlur}
+                                    max="10"
+                                />
 
+                                {/*{errors.doc && <div className='error message-validate-reserve'>
+                                            {errors.doc}</div>}*/}
 
-                                //Validación documento
-                                if (!/^[a-zA-ZÁ-ý\s-0-9]{1,20}$/.test(valores.doc)) {
-                                    errores.doc = 'Ingrese el No.Documento'
-                                } else if (valores.doc < 8) {
-                                    errores.doc = 'El documento debe tener mínimo 10 digitos'
-                                }
+                            </div>
+                            <div className='input-doc'>
+                                <label>Cantidad de noches: </label>
+                                <input
+                                    id='cantidadNoches'
+                                    name='cantidadNoches'
+                                    type='number'
+                                    value={data.cantidadNoches}
+                                    onChange={handleChangeA}
+                                //onChange={handleChange}
+                                //onBlur={handleBlur}
+                                />
 
-                                //Validación cantidad noches
-                                if (!/^[0-9]{1,2}$/.test(valores.cantnoches)) {
-                                    errores.cantnoches = 'Ingrese la cantidad de noches'
-                                }
-                                return errores;
-                            }}
+                                {/*{errors.cantnoches && <div className='error message-validate-reserve'>
+                                            {errors.cantnoches}</div>}*/}
 
-                            onSubmit={() => {
-                                console.log("enviado");
-                            }}
-                        >
-                            {({ values, errors, handleSubmit, handleChange, handleBlur }) => (
-                                <form className='cont-form-reserve' onSubmit={handleSubmit}>
+                            </div>
+                            <span className='total-nigth m-auto pt-4 pb-3'><label>VALOR TOTAL </label></span>
+                            <input className='text-value-nigth m-auto mt-1 mb-1'
+                                id='totalreserva'
+                                name='totalreserva'
+                                type='text'
+                                placeholder='$'
+                                onChange={handleChangeA}
+                                value={data.totalreserva} />
 
-                                    <div className='cont-entrada'>
-                                        <label for='entrada' className='ps-4 pt-4'>Entrada: </label>
-                                        <input
-                                            name='fentrada'
-                                            type='date'
-                                        />
-                                    </div>
-
-                                    <div className='cont-entrada'>
-                                        <label for='entrada' className='ps-4 pt-4'>Entrada: </label>
-                                        <input
-                                            name='fentrada'
-                                            type='date'
-                                        />
-                                    </div>
-
-                                    <div className='cont-entrada'>
-                                        <label for='entrada' className='ps-4 pt-3'>Salida: </label>
-                                        <input
-                                            name='fsalida'
-                                            type='date'
-                                        />
-                                    </div>
-                                    
-                                    <div className='input-doc'>
-                                        <label>No.Documento: </label>
-                                        <input
-                                            name='doc'
-                                            type='text'
-                                            value={values.doc}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            max="10"
-                                        />
-
-                                        {errors.doc && <div className='error message-validate-reserve'>
-                                            {errors.doc}</div>}
-
-                                    </div>
-                                    <div className='input-doc'>
-                                        <label>Cantidad de noches: </label>
-                                        <input
-                                            name='cantidadNoches'
-                                            type='number'
-                                            value={values.cantnoches}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                        />
-
-                                        {errors.cantnoches && <div className='error message-validate-reserve'>
-                                            {errors.cantnoches}</div>}
-
-                                    </div>
-                                    <p className='text-value-nigth m-auto pt-5 pb-4'>
-                                        Total estadía: <span className='total-nigth'>
-                                            $ </span></p>
-                                </form>
-                            )}
-                        </Formik>
+                            <button className='btn-closemodal' type='submit' >Guardar reserva</button>
+                        </form>
                     </Modal.Body>
 
                     <ModalFooter className='footer'>

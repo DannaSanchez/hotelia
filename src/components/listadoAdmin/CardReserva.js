@@ -2,7 +2,64 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import '../card/Card.css';
 
-const CardReserva = ({ reservas }) => {
+import Swal from 'sweetalert2';
+import axios from 'axios';
+
+const CardReserva = ({ reservas, setUplist, upList, }) => {
+
+    /* 1. Definir url del API a la que me voy a conectar */
+    const url="https://app-hotelia3.herokuapp.com/reservas";
+
+    /* 2. Función asincrona para borr<r a partir del listener del botón eliminar */
+    const handleDelete=async()=>{
+        Swal.fire({
+            title: '¿Está seguro que desea cancelar esta reserva?',
+            text: "¡No puede revertir esta acción!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#9C2759', 
+            cancelButtonColor: '#333333',
+            confirmButtonText: 'Si, ¡Cancelar!',
+            cancelButtonText:'No, regresar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                /* Eliminando el registro de la base de datos */
+                axios.delete(`${url}/${reservas._id}`).then((response)=>{
+                    console.log(response);
+                    if(response.status===200){
+                        Swal.fire(
+                            'Cancelada',
+                            'La reserva ha sido cancelada exitosamente',
+                            'success'
+                          )
+                          setUplist(!upList);
+                    }
+                    else{
+                        Swal.fire(
+                            'Error',
+                            'No ha sido posible cancelar la reserva, inténtalo nuevamente más tarde',
+                            'error'
+                        )
+                    }
+                })
+              
+            }
+          })
+    }
+
+    const confirmarReserva =()=>{
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Reserva realizada con éxito',  
+            showConfirmButton: true,
+            confirmButtonColor: "#333333",
+            html: `<p>La reserva del usuario <strong>${dataUser.nombre}</strong> para la habitación <strong>${dataRoom.nombrehab}</strong> ha sido confirmada con éxito </p>`,
+            imageUrl: `https://app-hotelia3.herokuapp.com${dataRoom.img}`,
+            imageWidth: 300,
+          })
+    }
+    
 
     const user = reservas["user"]
     const dataUser = user[0];
@@ -21,10 +78,10 @@ const CardReserva = ({ reservas }) => {
                 <h4><strong>Usuario: </strong>{dataUser.nombre} {dataUser.apellido}</h4>
             </div>
 
-            <div className="accordion accordion-booking" id="accordionPanelsStayOpenExample" >
+            <div className="accordion accordion-booking">
                 
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
                             Datos de usuario
                         </button>
@@ -41,7 +98,7 @@ const CardReserva = ({ reservas }) => {
                 </div>
 
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                    <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                             Datos de la habitación
                         </button>
@@ -67,7 +124,7 @@ const CardReserva = ({ reservas }) => {
                 </div>
                 
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                    <h2 class="accordion-header" >
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
                             Datos de reserva
                         </button>
@@ -97,8 +154,8 @@ const CardReserva = ({ reservas }) => {
             </div>
 
             <div className='card-admin__buttons-booking'>
-                <button className='card-admin__cardButtonSecondary button-booking hover-button'>Cancelar reserva</button>
-                <Button variant='secondary' className='card-admin__cardButtonPrincipal button-booking' type="submit">Confirmar reserva</Button>
+                <button className='card-admin__cardButtonSecondary button-booking hover-button' onClick={handleDelete}>Cancelar reserva</button>
+                <Button variant='secondary' className='card-admin__cardButtonPrincipal button-booking' type="submit" onClick={()=>confirmarReserva()}>Confirmar reserva</Button>
             </div>
 
             </div>

@@ -219,8 +219,9 @@
     grid-template-columns: 30% 60%;
 }
 
-.booking-room-data img{
+.booking-room-data img, .img-alert img{
     width: 300px;
+    height: 200px;
 }
 
 .booking-room-data i{
@@ -277,6 +278,16 @@
 .booking-warning p{
     margin: auto 0;
     font-size: 14px;
+}
+
+.modal-room-admin__img img{
+    width: 300px;
+    border-radius: 5px;
+}
+
+.container-img-description{
+    display: flex;
+    justify-content: space-between;
 }
 
 

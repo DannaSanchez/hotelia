@@ -34,6 +34,7 @@ function FormHabitacion() {
                 setImgPreview(reader.result);
             };
             reader.readAsDataURL(selected)
+            console.log(selected)
         } else {
             setError(true);
         }
@@ -52,7 +53,7 @@ function FormHabitacion() {
                     capacidad: '',
                     descripcion: '',
                     estado: 'Disponible',
-                    //img:'',
+                    img:'/public/spacejoy-vOa-PSimwg4-unsplash.jpg',
                     cajafuerte:'',
                     nevera:'',
                     banio:'',
@@ -122,7 +123,7 @@ function FormHabitacion() {
                 }}
             >
 
-                {({ errors}) => (
+                {({ errors, handleChange}) => (
 
                     <ContainerForm>
                         <h1 className='room-registration-form__title'>Registro de nueva habitación</h1>
@@ -134,7 +135,7 @@ function FormHabitacion() {
                                 <div className='modify-room__image-principal image__form'>
                                     <div className="App">
                                         <div className="container">
-                                            {error && <p className="errorMsg">File not supported</p>}
+                                            {error && <p className="errorMsg">Archivo no soportado</p>}
                                             <div className="imgPreview"
                                                 style={{
                                                     background: imgPreview
@@ -144,14 +145,20 @@ function FormHabitacion() {
                                             >
                                                 {!imgPreview && (
                                                     <>
-                                                        <p>Add an image</p>
-                                                        <label htmlFor="fileUpload" className="customFileUpload">Choose file</label>
-                                                        <input type='file' id="fileUpload" onChange={handleImageChange} />
+                                                        <p>Añade una imagen</p>
+                                                        <label htmlFor="imag" className="customFileUpload">Seleccionar archivo</label>
+                                                        <Field 
+                                                            type='file' 
+                                                            id="imag" 
+                                                            name="imag" 
+                                                            onChange={handleImageChange}
+                                                        />
+                                                        
                                                         <span>(jpg, jpeg or png)</span>
+                                                        
                                                     </>
                                                 )}
-                                            </div>
-
+                                            </div><ErrorMessage name='img' component={() => (<div className='login__error'>{errors.img}</div>)} />
                                             {imgPreview && <button onClick={() => setImgPreview(null)} className='button__image'>Remove</button>}
                                         </div>
                                     </div>
