@@ -1,11 +1,11 @@
 import EditarAdmin from "../components/editarAdmin/EditarAdmin";
-import SidebarHuesped from "../components/sidebar/SidebarHuesped";
+import SidebarAdmon from "../components/sidebar/SidebarAdmon";
 
 function PerfilAdmin (){
     return(
         <div >
             <div>
-               <SidebarHuesped/>
+               <SidebarAdmon/>
             </div>
             <div>
                 <EditarAdmin/>
