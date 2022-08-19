@@ -1,12 +1,12 @@
 import React from 'react';
 function Foto({img, descf}){
-    const url = "https://app-hotelia3.herokuapp.com/users/1254784102";
+    const url = "https://hoteliakuepag7.herokuapp.com/users/1234567890";
 
     return(
         <div className="cambiofoto">
             <img src={img} alt={descf} />
             <div className="contenedor-cambiar-foto">
-                <button
+                <button 
                 className="cambiar-foto-editarusuario"><i className="fa-solid fa-upload"></i></button>
                 <input 
                  type="file" 

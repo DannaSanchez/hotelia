@@ -2,10 +2,23 @@ import './Sidebar.css';
 import iconologo from '../../img/icono-logo.svg';
 import logoh from '../../img/logosvg.svg';
 import foto from '../../img/foto-usuario.jpeg';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function SidebarAdmon() {
-
+    const url = "https://app-hotelia3.herokuapp.com/users/50247841";
+    const getData = async () => {
+        const response = axios.get(url);
+        return response;
+    };
+    const [list, setList] = useState([]);
+    const [upList, setUplist] = useState([false]);
+    useEffect(() => {
+        getData().then((response) => {
+            setList(response.data);
+        })
+    }, [upList])
     const goroom = () => {
 
     }
@@ -17,8 +30,8 @@ function SidebarAdmon() {
                 <div className='cont-topnav'>
                     <img src={foto} alt='foto-user' className='img-user' />
                     <div className='text-topnav'>
-                        <p className='user'>Rivero Rodriguez</p>
-                        <p className='email-user'>Carlosrr@gmail.com</p>
+                        <p className='user'>{list.apellido}</p>
+                        <p className='email-user'>{list.email} </p>
                     </div>
                 </div>
             </div>
@@ -35,7 +48,7 @@ function SidebarAdmon() {
                     <i class="fa-solid fa-file-pen"></i>
                     <p className='item-sidenav2'>Registrar Habitaciones</p>
                 </a>
-                <a className='item-sidenav' href='/editarperfil'>
+                <a className='item-sidenav' href='/editarperfil-admin'>
                     <i class="fa-solid fa-user-pen"></i>
                     <p className='item-sidenav2 pt-4 pe-2'>Ver Perfil</p>
                 </a>
