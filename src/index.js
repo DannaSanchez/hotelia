@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-<<<<<<< HEAD
 import { BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
-=======
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
->>>>>>> 4a4159e6350e43f936f1b7c6f2c610ad0503e14d
+
 import './index.css';
 import Inicio from './pages/Inicio';
 import Login from './pages/Login';
