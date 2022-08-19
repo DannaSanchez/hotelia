@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { Button } from 'react-bootstrap';
 import axios from "axios";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { ContainerForm, GrupoInput, GrupoCheckbox } from '../../elements/formStyle/FormStyle';
 
@@ -37,6 +37,8 @@ function FormHabitacion() {
             setError(true);
         }
     };
+
+    const navigate = useNavigate();
 
     return (
 
@@ -117,6 +119,14 @@ function FormHabitacion() {
                     console.log(valores);
                     const response = await axios.post(url, valores);//await espera hasta que se ejecute la petición
                     console.log(response);
+                    if(response.status===200){
+                        Swal.fire({
+                            title: 'Registro exitoso',
+                            text: "El registro de la habitación ha sido realizado con éxito",
+                            icon: 'success',
+                            confirmButtonColor: '#333333',
+                    })}
+                    navigate("/listado-habitaciones-admin");
                     console.log('Formulario enviado');
                 }}
             >
