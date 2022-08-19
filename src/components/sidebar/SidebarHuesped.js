@@ -3,9 +3,22 @@ import iconologo from '../../img/icono-logo.svg';
 import logoh from '../../img/logosvg.svg';
 import foto from '../../img/foto-usuario.jpeg';
 import { Link } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 function SidebarHuesped() {
-
+    const url = "https://app-hotelia3.herokuapp.com/users/1254784102";
+    const getData = async () => {
+        const response = axios.get(url);
+        return response;
+    };
+    const [list, setList] = useState([]);
+    const [upList, setUplist] = useState([false]);
+    useEffect(() => {
+        getData().then((response) => {
+            setList(response.data);
+        })
+    }, [upList])
     return (
         <nav className='sidebar'>
             <div className="top-nav">
@@ -14,8 +27,8 @@ function SidebarHuesped() {
                 <div className='cont-topnav'>
                     <img src={foto} alt='foto-user' className='img-user' />
                     <div className='text-topnav'>
-                        <p className='user'>Rivero Rodriguez</p>
-                        <p className='email-user'>Carlosrr@gmail.com</p>
+                        <p className='user'>{list.apellido}</p>
+                        <p className='email-user'>{list.email} </p>
                     </div>
                 </div>
             </div>
