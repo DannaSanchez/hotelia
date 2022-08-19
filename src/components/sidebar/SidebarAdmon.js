@@ -1,7 +1,7 @@
 import './Sidebar.css';
 import iconologo from '../../img/icono-logo.svg';
 import logoh from '../../img/logosvg.svg';
-import foto from '../../img/foto-usuario.jpeg';
+import foto from '../editarUsuario/usuario-foto.png';
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
