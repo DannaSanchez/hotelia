@@ -39,7 +39,8 @@
 @media screen and (min-width:1024px) {
 
     .box-reserve {
-        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
         margin-left: 3%;
     }
 

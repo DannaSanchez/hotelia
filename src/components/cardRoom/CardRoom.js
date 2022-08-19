@@ -20,23 +20,25 @@ function CardRoom({ habitaciones }) {
             [target.name]: target.value
         })
     }
-   
+
 
     const url = "https://app-hotelia3.herokuapp.com/reservas";
 
     const handleSubmitA = async (e) => {
         e.preventDefault();
-         console.log(data);
+        console.log(data);
         const response = await axios.post(url, data);
         console.log(response);
-        if (response.status === 201) {
-            Swal.fire(
-                `Tu Reserva: <strong>
-                </strong>
-                ha sido registrada exitosamente!`,
-                'success'
-            )
-            Navigate.push("/");
+        if (response.status === 200) {
+            Swal.fire({
+                title: '¡Reserva guardada!',
+                html: `<p>¡La reserva de la habitación ha sido guardada exitosamente! </p>
+                       <p>¡Ya casi terminas!, Confirma tu reserva en el apartado de reservas</p>`,
+                confirmButtonColor: "#333333",
+                icon: 'success',
+                showCloseButton: true
+            })
+            Navigate.push("/reservas-huesped");
         } else {
             Swal.fire(
                 'Error!',

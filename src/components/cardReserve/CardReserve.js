@@ -12,8 +12,7 @@ function CardReserve({ reservas}) {
     const cancelarReserva = () => {
         Swal.fire({
             icon: 'warning',
-            html: '<img src="img/logo2.png">'
-                + '<p>Si cancela esta reservación, no se podrá revertir</p>',
+            html:'<p>Si cancela esta reservación, no se podrá revertir</p>',
             showCancelButton: true,
             cancelButtonColor: "#9C2759",
             confirmButtonColor: "#333333",
