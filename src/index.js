@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
 import './index.css';
 import Inicio from './pages/Inicio';
 import Login from './pages/Login';
@@ -24,7 +24,6 @@ root.render(
       <Route path="/listado-habitaciones-admin" element={<ListadoHabitacion />}></Route>
       <Route path="/modificar-habitaciones-admin" element={<ModificarHabitacion />}></Route>
       <Route path="/registrar-habitaciones-admin" element={<RegistrarHabitacion />}></Route>
-      <Route path="/" element={<Login />}></Route>
       <Route path='/form/huesped' element={<RegistroHuesped />}></Route>
       <Route path='/editarperfil' element={<PerfilUsuario />}></Route>
       <Route path="/habitaciones" element={<Habitaciones />}></Route>

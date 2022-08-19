@@ -1,10 +1,9 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 
-import axios from 'axios'
-import Swal from 'sweetalert2';
-
 import '../card/Card.css'
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 function CardRoom({ habitaciones, setUplist, upList, handleOpen, setDataModal, handleOpenState, setDataModalState, handleOpenBooking  }) {
 

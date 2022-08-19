@@ -8,10 +8,8 @@ import { ContainerForm, GrupoInput, GrupoCheckbox } from '../../elements/formSty
 
 import './FormHabitacion.css';
 import './Imagen.css'
-//
 import IconoNevera from '../../img/bxs-fridge.svg';
 import Habitaciones from '../../pages/Habitaciones';
-
 import Swal from 'sweetalert2';
 //import {Link} from 'react-router-dom'
 
@@ -53,7 +51,7 @@ function FormHabitacion() {
                     capacidad: '',
                     descripcion: '',
                     estado: 'Disponible',
-                    img:'/public/spacejoy-vOa-PSimwg4-unsplash.jpg',
+                    img:'/public/room_b.png',
                     cajafuerte:'',
                     nevera:'',
                     banio:'',

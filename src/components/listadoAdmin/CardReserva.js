@@ -1,53 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Button } from 'react-bootstrap';
 import '../card/Card.css';
-
 import Swal from 'sweetalert2';
-import axios from 'axios';
 
 const CardReserva = ({ reservas, setUplist, upList, }) => {
 
-    /* 1. Definir url del API a la que me voy a conectar */
-    const url="https://app-hotelia3.herokuapp.com/reservas";
+    const [showCancel, setShowCancel] = useState(false);
+
+    const [showConfirm, setShowConfirm] = useState(false);
+
+    const [showButtons, setShowButtons] = useState(true);
+
+    /* 1. Definir url del API a la que me voy a conectar 
+    const url="https://app-hotelia3.herokuapp.com/reservas";*/
 
     /* 2. Función asincrona para borr<r a partir del listener del botón eliminar */
-    const handleDelete=async()=>{
+    const handleDelete=()=>{
         Swal.fire({
             title: '¿Está seguro que desea cancelar esta reserva?',
             text: "¡No puede revertir esta acción!",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#9C2759', 
+            confirmButtonColor: '#9C2759',
             cancelButtonColor: '#333333',
             confirmButtonText: 'Si, ¡Cancelar!',
             cancelButtonText:'No, regresar'
           }).then((result) => {
             if (result.isConfirmed) {
-                /* Eliminando el registro de la base de datos */
-                axios.delete(`${url}/${reservas._id}`).then((response)=>{
-                    console.log(response);
-                    if(response.status===200){
-                        Swal.fire(
-                            'Cancelada',
-                            'La reserva ha sido cancelada exitosamente',
-                            'success'
-                          )
-                          setUplist(!upList);
-                    }
-                    else{
-                        Swal.fire(
-                            'Error',
-                            'No ha sido posible cancelar la reserva, inténtalo nuevamente más tarde',
-                            'error'
-                        )
-                    }
-                })
-              
+                        setShowCancel(true);
+                        setShowButtons(false);
+                        Swal.fire({
+                            title:'Cancelada',
+                            text:'La reserva ha sido cancelada exitosamente',
+                            icon:'success',
+                            confirmButtonColor:'#333333',
+                          })
+                    }  
+                })     
             }
-          })
-    }
 
     const confirmarReserva =()=>{
+        setShowConfirm(true);
+        setShowButtons(false);
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -59,15 +53,15 @@ const CardReserva = ({ reservas, setUplist, upList, }) => {
             imageWidth: 300,
           })
     }
-    
 
     const user = reservas["user"]
     const dataUser = user[0];
-    console.log(dataUser)
 
     const room = reservas["habitaciones"];
     const dataRoom = room[0];
     console.log(dataRoom.nombrehab)
+    console.log(dataRoom.estado)
+
 
     return (
         <>
@@ -82,11 +76,11 @@ const CardReserva = ({ reservas, setUplist, upList, }) => {
                 
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#panelsStayOpen-collapseOne${reservas._id}`} aria-expanded="false" aria-controls={`panelsStayOpen-collapseOne${reservas._id}`}>
                             Datos de usuario
                         </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                    <div id={`panelsStayOpen-collapseOne${reservas._id}`} class="accordion-collapse collapse" aria-labelledby={`panelsStayOpen-headingOne${reservas._id}`}>
                         <div class="accordion-body booking-data-user">
                             <p><strong>Nombres:</strong> {dataUser.nombre}</p>
                             <p><strong>Apellidos:</strong> {dataUser.apellido}</p>
@@ -99,11 +93,11 @@ const CardReserva = ({ reservas, setUplist, upList, }) => {
 
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#panelsStayOpen-collapseTwo${reservas._id}`} aria-expanded="false" aria-controls={`panelsStayOpen-collapseTwo${reservas._id}`}>
                             Datos de la habitación
                         </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                    <div id={`panelsStayOpen-collapseTwo${reservas._id}`} class="accordion-collapse collapse" aria-labelledby={`panelsStayOpen-headingTwo${reservas._id}`}>
                         <div class="accordion-body booking-room-data">
                             <div className='booking-data__room-image'>
                                 <img src={`https://app-hotelia3.herokuapp.com${dataRoom.img}`} alt={dataRoom.nombrehab}/>
@@ -125,11 +119,11 @@ const CardReserva = ({ reservas, setUplist, upList, }) => {
                 
                 <div class="accordion-item">
                     <h2 class="accordion-header" >
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#panelsStayOpen-collapseThree${reservas._id}`} aria-expanded="false" aria-controls={`panelsStayOpen-collapseThree${reservas._id}`}>
                             Datos de reserva
                         </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                    <div id={`panelsStayOpen-collapseThree${reservas._id}`} class="accordion-collapse collapse" aria-labelledby={`panelsStayOpen-headingThree${reservas._id}`}>
                         <div class="accordion-body booking-data__description">
                             <div className='booking-data__booking-description'>
                                 <p><strong>Fecha de entrada:</strong> {reservas.fentrada}</p>
@@ -153,10 +147,14 @@ const CardReserva = ({ reservas, setUplist, upList, }) => {
                 </div>
             </div>
 
-            <div className='card-admin__buttons-booking'>
-                <button className='card-admin__cardButtonSecondary button-booking hover-button' onClick={handleDelete}>Cancelar reserva</button>
+            {showButtons && <div className='card-admin__buttons-booking'>
+                <button className='card-admin__cardButtonSecondary button-booking hover-button' onClick={()=>handleDelete()}>Cancelar reserva</button>
                 <Button variant='secondary' className='card-admin__cardButtonPrincipal button-booking' type="submit" onClick={()=>confirmarReserva()}>Confirmar reserva</Button>
-            </div>
+            </div>}
+
+            {showCancel && <p className="CancelMsg">Reserva cancelada</p>}
+
+            {showConfirm && <p className="ConfirmMsg">Reserva confirmada</p>}
 
             </div>
         </>
