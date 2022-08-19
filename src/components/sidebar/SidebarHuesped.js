@@ -3,12 +3,22 @@ import iconologo from '../../img/icono-logo.svg';
 import logoh from '../../img/logosvg.svg';
 import foto from '../../img/foto-usuario.jpeg';
 import { Link } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 function SidebarHuesped() {
-
-    const goroom = () => {
-
-    }
+    const url = "https://app-hotelia3.herokuapp.com/users/1254784102";
+    const getData = async () => {
+        const response = axios.get(url);
+        return response;
+    };
+    const [list, setList] = useState([]);
+    const [upList, setUplist] = useState([false]);
+    useEffect(() => {
+        getData().then((response) => {
+            setList(response.data);
+        })
+    }, [upList])
     return (
         <nav className='sidebar'>
             <div className="top-nav">
@@ -17,27 +27,27 @@ function SidebarHuesped() {
                 <div className='cont-topnav'>
                     <img src={foto} alt='foto-user' className='img-user' />
                     <div className='text-topnav'>
-                        <p className='user'>Rivero Rodriguez</p>
-                        <p className='email-user'>Carlosrr@gmail.com</p>
+                        <p className='user'>{list.apellido}</p>
+                        <p className='email-user'>{list.email} </p>
                     </div>
                 </div>
             </div>
             <div className='center-nav'>
-                <div className='item-sidenav'>
-                    <i class="fa-solid fa-bed"></i>
-                    <Link to="/habitaciones-huesped" className="item-sidenav2">Habitaciones</Link>
-                </div>
-                <div className='item-sidenav'>
-                <i class="fa-solid fa-calendar-days"></i>
-                    <Link to="/reservas-huesped" className="item-sidenav2">Mis Reservas</Link>
-                </div>
-                <div className='item-sidenav'>
-                <i class="fa-solid fa-user-pen"></i>
-                    <Link to="/editarperfil" className="item-sidenav2">Ver Perfil</Link>
-                </div>
+                <a className='item-sidenav' href='/habitaciones-huesped'>
+                    <i className="fa-solid fa-bed"></i>
+                    <p className='item-sidenav2 pt-4'>Habitaciones</p>
+                </a>
+                <a className='item-sidenav' href='/reservas-huesped'>
+                    <i className="fa-solid fa-calendar-days"></i>
+                    <p className='item-sidenav2 pt-4'>Mis Reservas</p>
+                </a>
+                <a className='item-sidenav' href='/editarperfil'>
+                    <i className="fa-solid fa-user-pen"></i>
+                    <p className='item-sidenav2 pt-4'>Ver Perfil</p>
+                </a>
             </div>
             <button className='final-nav'>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>
                 <p>Cerrar sesión</p>
             </button>
         </nav>
