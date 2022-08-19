@@ -18,7 +18,7 @@ const CardReserva = ({ reservas, setUplist, upList, }) => {
     const handleDelete=()=>{
         Swal.fire({
             title: '¿Está seguro que desea cancelar esta reserva?',
-            text: "¡No puede revertir esta acción!",
+            text: "¡No podrá revertir esta acción!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#9C2759',
@@ -31,7 +31,7 @@ const CardReserva = ({ reservas, setUplist, upList, }) => {
                         setShowButtons(false);
                         Swal.fire({
                             title:'Cancelada',
-                            text:'La reserva ha sido cancelada exitosamente',
+                            text:'La reserva ha sido cancelada de manera exitosa',
                             icon:'success',
                             confirmButtonColor:'#333333',
                           })
