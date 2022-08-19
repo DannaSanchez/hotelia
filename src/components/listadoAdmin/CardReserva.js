@@ -157,7 +157,7 @@ const CardReserva = ({ reservas, setUplist, upList, }) => {
             {showConfirm && <p className="ConfirmMsg">Reserva confirmada</p>}
 
             </div>
-        </>
+        </> 
     )
 }
 

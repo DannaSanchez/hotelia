@@ -292,7 +292,7 @@
 
 .CancelMsg{
     color: white;
-    background-color: var(--Magenta);
+    background-color: rgb(118, 2, 2);
     padding: 5px 20px;
 }
 
@@ -305,6 +305,32 @@
 .log-modal-reserve-admin{
     width: 60%;
     margin: 0 auto 10px;
+}
+
+.list-rooms__buttons i, .list-rooms__cardButtonSecondary i{
+    color: white;
+    font-size: 16px;
+    margin-right: 6px;
+}
+
+.modal-bookiing__admin{
+    display: grid;
+    grid-template-columns: 48% 48%;
+    justify-content: space-between;
+}
+
+.modal-bookiing__admin-input{
+    width: 100%;
+}
+
+.cancel-button__admin{
+    margin-left: -250px;
+}
+
+.confirm-button__admin{
+    width: 100%;
+    height: 45px;
+    text-align: center;
 }
 
 @media screen and (min-width:768px) {

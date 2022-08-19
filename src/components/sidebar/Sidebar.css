@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     width: 15%;
-    height: 108vh;
+    height: 112vh;
 
     z-index: 10;
 }
@@ -61,7 +61,7 @@
 }
 
 .item-sidenav-rh{
-    padding-left: 12%;
+    padding-left: 4px;
 }
 
 .item-sidenav-rh i{
@@ -218,6 +218,10 @@
 
     .item-sidenav2:hover {
         color: var(--blanco);
+    }
+
+    .item-sidenav-rh p{
+        margin: 0;
     }
 
     .center-nav {

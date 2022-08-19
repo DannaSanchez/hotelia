@@ -14,26 +14,7 @@ import CardAdmin from '../components/listadoAdmin/CardAdmin';
 import IconoNevera from '../img/bxs-fridge.svg';
 import LogoHotelia from '../img/Hotelia horizontal negro.png'
 
-function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas, habitaciones}){
-
-            const disableDate = new Date().toISOString().slice(0, 10);
-
-            const cantidadNoches = () => {
-                var fechaE = new Date(document.getElementById('fentrada').value);
-                var fechaS = new Date(document.getElementById('fsalida').value);
-                /*console.log('fecha entrada', fechaE);
-                console.log('fecha salida', fechaS);*/
-                var time = fechaS.getTime() - fechaE.getTime();
-                //console.log(fechaE);
-                var days = Math.floor(time / (1000 * 60 * 60 * 24));
-                document.getElementById("cantidadNoches").value = days;
-                var valorTotal = days * habitaciones.valornoche;
-                document.getElementById("totalreserva").value = valorTotal;
-                data.cantidadNoches = days;
-                console.log(data.cantidadNoches);
-                data.totalreserva = valorTotal;
-                console.log(data.totalreserva);
-            }
+function ListadoHabitacion ( { habitaciones }){
 
                 /* 1. Definir url del API a la que me voy a conectar */
                 const url = "https://app-hotelia3.herokuapp.com/habitaciones";
@@ -118,7 +99,7 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas, habitaci
                     if(response.status===200){
                         Swal.fire({  
                             title: '¡Cambio guardado!',
-                            html: `<p>El estado de la habitación <strong> ${dataModal.nombrehab} </strong> ha sido actualizado exitosamente! </p>`,
+                            html: `<p>El estado de la habitación <strong> ${dataModalState.nombrehab} </strong> ha sido actualizado exitosamente! </p>`,
                             confirmButtonColor: "#333333",
                             background: '#FFFDFB',
                             color: '#000',
@@ -196,9 +177,28 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas, habitaci
                         )
                     }
                 }
+
+                const disableDate = new Date().toISOString().slice(0, 10);
+
+
+                const cantidadNoches = () => {
+                    var fechaE = new Date(document.getElementById('fentrada').value);
+                    var fechaS = new Date(document.getElementById('fsalida').value);
+                    /*console.log('fecha entrada', fechaE);
+                    console.log('fecha salida', fechaS);*/
+                    var time = fechaS.getTime() - fechaE.getTime();
+                    //console.log(fechaE);
+                    var days = Math.floor(time / (1000 * 60 * 60 * 24));
+                    document.getElementById("cantidadNoches").value = days;
+                    console.log(days)
+                    var valorTotal = days * habitaciones.valornoche;
+                    document.getElementById("totalreserva").value = valorTotal;
+                    data.cantidadNoches = days;
+                    console.log(data.cantidadNoches);
+                    data.totalreserva = valorTotal;
+                    console.log(data.totalreserva);
+                }
     
-                
-   
     
     return(
         <div className="listado-habitacion-admin">
@@ -561,7 +561,7 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas, habitaci
                 >
                     <Modal.Header className='title-modalroom'>
                         <h4>Reserva {data.nombrehab}</h4>
-                    </Modal.Header>
+                    </Modal.Header> 
 
                     <Modal.Body className='row m-auto'>
                         
@@ -662,7 +662,7 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas, habitaci
                                             {errors.cantnoches}</div>}*/}
                             </Form.Group>
                             
-                            <span className='total-nigth m-auto pt-4 pb-3'><label><strong>VALOR TOTAL</strong> </label></span>
+                            <span className='total-nigth m-auto pt-4 pb-3'><Form.Label><strong>VALOR TOTAL</strong> </Form.Label></span>
                             <Form.Control className='text-value-nigth m-auto mt-1 mb-1'
                                 id='totalreserva'
                                 name='totalreserva'
@@ -674,6 +674,7 @@ function ListadoHabitacion ( {user, dataUser, room, dataRoom, reservas, habitaci
                             <button className='card-admin__cardButtonPrincipal' type='submit'>Guardar reserva</button>
 
                         </form>
+
                     </Modal.Body>
 
                     <ModalFooter className='footer'>
